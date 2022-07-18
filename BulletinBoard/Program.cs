@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BulletinBoard.Models;
+using BulletinBoard.Utils.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<BulletinBoardDbContext>(options => {
         throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
     );
 });
+builder.Services.AddSingleton<IValidator, Validator>();
+
 
 var app = builder.Build();
 
