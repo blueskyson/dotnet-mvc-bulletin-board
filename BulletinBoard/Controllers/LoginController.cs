@@ -32,6 +32,10 @@ public class LoginController : Controller {
             ViewData["NameStatus"] = "Illegal character in name.";
         else if (!_validator.isValidPassword(user.Password))
             ViewData["PasswordStatus"] = "Illegal character in password.";
+        else if (_dbContext.userExists(user) == null)
+            ViewData["PasswordStatus"] = "Wrong name or password";
+        else
+            return RedirectToAction("Index", "BulletinBoard");
         return View();
     }
 }

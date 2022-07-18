@@ -11,4 +11,10 @@ public class BulletinBoardDbContext : DbContext {
         : base(options)
     {
     }
+
+    public User? userExists(User user) {
+        IQueryable<User>? userQuery = from u in Users
+            where u.Name == user.Name && u.Password == user.Password select u;
+        return userQuery.FirstOrDefault();
+    }
 }
