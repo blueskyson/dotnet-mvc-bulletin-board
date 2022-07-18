@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using BulletinBoard.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<BulletinBoardDbContext>(options => {
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("BulletinBoardDbContext") ??
+        throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
+    );
+});
 
 var app = builder.Build();
 
@@ -22,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=BulletinBoard}/{action=Index}/{id?}");
 
 app.Run();

@@ -1,0 +1,10 @@
+@model IEnumerable<BulletinBoard.Models.User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<p>Hello from view template!</p>
+@foreach (var item in Model) {
+    <p>@Html.Raw(item.Name)</p>
+}
