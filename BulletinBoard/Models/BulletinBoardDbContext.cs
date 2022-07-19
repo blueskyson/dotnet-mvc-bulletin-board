@@ -15,7 +15,10 @@ public class BulletinBoardDbContext : DbContext, IDbContext
 
     public bool userNameExists(string name)
     {
-        return false;
+        IQueryable<User>? userQuery = from u in Users
+                                      where u.Name == name
+                                      select u;
+        return (userQuery.FirstOrDefault() != null);
     }
 
     public User? userExists(User user)
