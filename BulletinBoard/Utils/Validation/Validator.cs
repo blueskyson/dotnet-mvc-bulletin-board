@@ -11,22 +11,22 @@ public class Validator : IValidator
     }
 
 
-    public bool isValidName(string? name)
+    public bool IsValidName(string? name)
     {
-        return isValidString(name);
+        return IsValidString(name);
     }
 
-    public bool isValidDisplayName(string? displayName)
+    public bool IsValidDisplayName(string? displayName)
     {
-        return isValidString(displayName);
+        return IsValidString(displayName);
     }
 
-    public bool isValidPassword(string? password)
+    public bool IsValidPassword(string? password)
     {
-        return isValidString(password);
+        return IsValidString(password);
     }
 
-    public bool isValidString(string? str)
+    public bool IsValidString(string? str)
     {
         try
         {

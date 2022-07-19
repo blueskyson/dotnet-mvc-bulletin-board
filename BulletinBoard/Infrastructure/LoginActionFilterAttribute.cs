@@ -37,14 +37,14 @@ public class LoginActionFilterAttribute : Attribute, IActionFilter {
             return false;
 
         var name = controller.HttpContext.Request.Form["Name"].ToString();
-        if (!_validator.isValidName(name))
+        if (!_validator.IsValidName(name))
         {
             controller.ViewData["NameStatus"] = "Illegal character in name.";
             return false;
         }
 
         var password = controller.HttpContext.Request.Form["Password"].ToString();
-        if (!_validator.isValidPassword(password))
+        if (!_validator.IsValidPassword(password))
         {
             controller.ViewData["PasswordStatus"] = "Illegal character in password.";
             return false;

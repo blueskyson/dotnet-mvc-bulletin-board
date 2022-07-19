@@ -27,7 +27,7 @@ public class RegisterController : Controller {
     {
         InitializeViewData();
 
-        if (_dbContext.userNameExists(user.Name!))
+        if (_dbContext.UserNameExists(user.Name!))
         {
             ViewData["NameStatus"] = "User name exists.";
             return View();

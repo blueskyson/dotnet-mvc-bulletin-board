@@ -13,7 +13,7 @@ public class BulletinBoardDbContext : DbContext, IDbContext
     {
     }
 
-    public bool userNameExists(string name)
+    public bool UserNameExists(string name)
     {
         IQueryable<User>? userQuery = from u in Users
                                       where u.Name == name
@@ -21,7 +21,7 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return (userQuery.FirstOrDefault() != null);
     }
 
-    public User? userExists(User user)
+    public User? UserExists(User user)
     {
         IQueryable<User>? userQuery = from u in Users
                                       where u.Name == user.Name && u.Password == user.Password

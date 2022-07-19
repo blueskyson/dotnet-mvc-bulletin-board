@@ -1,7 +1,7 @@
 namespace BulletinBoard.Utils.Validation;
 
 public interface IValidator {
-    public bool isValidName(string? name);
-    public bool isValidDisplayName(string? name);
-    public bool isValidPassword(string? password);
+    public bool IsValidName(string? name);
+    public bool IsValidDisplayName(string? name);
+    public bool IsValidPassword(string? password);
 }
