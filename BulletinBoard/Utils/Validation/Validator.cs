@@ -7,7 +7,7 @@ public class Validator : IValidator
 
     public Validator()
     {
-        _stringValidator = new StringValidator(1, 20, "\\\'\"`");
+        _stringValidator = new StringValidator(1, 20, " \\\'\"`");
     }
 
 

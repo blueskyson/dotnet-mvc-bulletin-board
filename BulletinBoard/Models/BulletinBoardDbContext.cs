@@ -28,4 +28,18 @@ public class BulletinBoardDbContext : DbContext, IDbContext
                                       select u;
         return userQuery.FirstOrDefault();
     }
+
+    public bool CreateUser(User user)
+    {
+        try
+        {
+            Add(user);
+            SaveChanges();
+            return true;
+        }
+        catch (Exception e) {
+            Console.WriteLine(e.ToString());
+        }
+        return false;
+    }
 }

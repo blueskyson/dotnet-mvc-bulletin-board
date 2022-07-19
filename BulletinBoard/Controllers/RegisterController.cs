@@ -5,17 +5,20 @@ using BulletinBoard.Infrasructure;
 
 namespace BulletinBoard.Controllers;
 
-public class RegisterController : Controller {
+public class RegisterController : Controller
+{
 
     private readonly IDbContext _dbContext;
     private readonly IValidator _validator;
 
-    public RegisterController(IDbContext context, IValidator validator) {
+    public RegisterController(IDbContext context, IValidator validator)
+    {
         _dbContext = context;
         _validator = validator;
     }
 
-    public IActionResult Index() {
+    public IActionResult Index()
+    {
         InitializeViewData();
         return View();
     }
@@ -33,11 +36,18 @@ public class RegisterController : Controller {
             return View();
         }
 
-        TempData["message"] = "Register successfully!";
-        return RedirectToAction("Index", "Login");
+        if (_dbContext.CreateUser(user))
+        {
+            TempData["message"] = "Register successfully!";
+            return RedirectToAction("Index", "Login");
+        }
+
+        TempData["message"] = "Register Error, please try again!";
+        return View();
     }
 
-    private void InitializeViewData() {
+    private void InitializeViewData()
+    {
         ViewData["NameStatus"] = "";
         ViewData["PasswordStatus"] = "";
         ViewData["DisplayNameStatus"] = "";
