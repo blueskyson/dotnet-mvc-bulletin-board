@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BulletinBoard.Models;
+using BulletinBoard.Infrasructure;
 
 namespace BulletinBoard.Controllers;
 
+[AuthorizationFilter]
 public class BulletinBoardController : Controller {
     private readonly BulletinBoardDbContext _dbContext;
 

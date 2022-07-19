@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using BulletinBoard.Models;
 using BulletinBoard.Utils.Validation;
 
@@ -34,8 +33,10 @@ public class LoginController : Controller {
             ViewData["PasswordStatus"] = "Illegal character in password.";
         else if (_dbContext.userExists(user) == null)
             ViewData["PasswordStatus"] = "Wrong name or password";
-        else
+        else {
+            HttpContext.Session.SetString("username", user.Name!);
             return RedirectToAction("Index", "BulletinBoard");
+        }
         return View();
     }
 }
