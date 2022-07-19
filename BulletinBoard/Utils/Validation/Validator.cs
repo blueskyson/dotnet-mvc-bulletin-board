@@ -16,6 +16,11 @@ public class Validator : IValidator
         return isValidString(name);
     }
 
+    public bool isValidDisplayName(string? displayName)
+    {
+        return isValidString(displayName);
+    }
+
     public bool isValidPassword(string? password) {
         return isValidString(password);
     }

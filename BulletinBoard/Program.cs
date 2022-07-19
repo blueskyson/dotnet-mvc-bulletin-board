@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BulletinBoard.Models;
 using BulletinBoard.Utils.Validation;
+using BulletinBoard.Infrasructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,13 +13,15 @@ builder.Services.AddDbContext<BulletinBoardDbContext>(options => {
         throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
     );
 });
+builder.Services.AddSingleton<LoginActionFilterAttribute>();
+builder.Services.AddSingleton<RegisterActionFilterAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
 
 // Add Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(5);
+    options.IdleTimeout = TimeSpan.FromSeconds(20);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
