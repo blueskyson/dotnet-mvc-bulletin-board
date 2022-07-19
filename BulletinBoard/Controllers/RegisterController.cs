@@ -7,10 +7,10 @@ namespace BulletinBoard.Controllers;
 
 public class RegisterController : Controller {
 
-    private readonly BulletinBoardDbContext _dbContext;
+    private readonly IDbContext _dbContext;
     private readonly IValidator _validator;
 
-    public RegisterController(BulletinBoardDbContext context, IValidator validator) {
+    public RegisterController(IDbContext context, IValidator validator) {
         _dbContext = context;
         _validator = validator;
     }

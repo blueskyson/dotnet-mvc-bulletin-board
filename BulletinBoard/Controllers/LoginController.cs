@@ -7,10 +7,10 @@ namespace BulletinBoard.Controllers;
 
 public class LoginController : Controller
 {
-    private readonly BulletinBoardDbContext _dbContext;
+    private readonly IDbContext _dbContext;
     private readonly IValidator _validator;
 
-    public LoginController(BulletinBoardDbContext context, IValidator validator)
+    public LoginController(IDbContext context, IValidator validator)
     {
         _dbContext = context;
         _validator = validator;
