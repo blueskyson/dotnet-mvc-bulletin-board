@@ -33,6 +33,7 @@ public class RegisterController : Controller {
             return View();
         }
 
+        TempData["message"] = "Register successfully!";
         return RedirectToAction("Index", "Login");
     }
 
