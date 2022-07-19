@@ -21,17 +21,19 @@ public class Validator : IValidator
         return isValidString(displayName);
     }
 
-    public bool isValidPassword(string? password) {
+    public bool isValidPassword(string? password)
+    {
         return isValidString(password);
     }
 
-    public bool isValidString(string? str) {
+    public bool isValidString(string? str)
+    {
         try
         {
             _stringValidator!.Validate(str);
             return true;
         }
-        catch (ArgumentException e)
+        catch (ArgumentException)
         {
         }
         return false;

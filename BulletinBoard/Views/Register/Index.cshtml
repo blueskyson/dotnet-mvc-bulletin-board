@@ -7,23 +7,32 @@
     <div class="col-sm-12 align-self-center">
         <div class="w-25 mx-auto">
             <form asp-controller="Register" asp-action="Index" method="post">
-                <h2>Login</h2>
+                <h2>Register</h2>
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
+                    @if ((string)ViewData["NameStatus"]! != "") {
+                        <span class="text-danger">@ViewData["NameStatus"]</span>
+                    }
                 </div>
                 <br />
                 <div class="form-group">
                     <label asp-for="Password" class="control-label"></label>
                     <input asp-for="Password" class="form-control" type="password" />
                     <span asp-validation-for="Password" class="text-danger"></span>
+                    @if ((string)ViewData["PasswordStatus"]! != "") {
+                        <span class="text-danger">@ViewData["PasswordStatus"]</span>
+                    }
                 </div>
                 <br />
                 <div class="form-group">
                     <label asp-for="DisplayName" class="control-label"></label>
                     <input asp-for="DisplayName" class="form-control" />
                     <span asp-validation-for="DisplayName" class="text-danger"></span>
+                    @if ((string)ViewData["DisplayNameStatus"]! != "") {
+                        <span class="text-danger">@ViewData["DisplayNameStatus"]</span>
+                    }
                 </div>
                 <br />
                 <div class="form-group">

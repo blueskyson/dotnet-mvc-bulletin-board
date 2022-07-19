@@ -45,18 +45,18 @@ public class RegisterActionFilterAttribute : Attribute, IActionFilter
             controller.ViewData["NameStatus"] = "Illegal character in name.";
             return false;
         }
-
-        var displayName = controller.HttpContext.Request.Form["DisplayName"].ToString();
-        if (!_validator.isValidDisplayName(displayName))
-        {
-            controller.ViewData["DisplayNameStatus"] = "Illegal character in name.";
-            return false;
-        }
-
+        
         var password = controller.HttpContext.Request.Form["Password"].ToString();
         if (!_validator.isValidPassword(password))
         {
             controller.ViewData["PasswordStatus"] = "Illegal character in password.";
+            return false;
+        }
+        
+        var displayName = controller.HttpContext.Request.Form["DisplayName"].ToString();
+        if (!_validator.isValidDisplayName(displayName))
+        {
+            controller.ViewData["DisplayNameStatus"] = "Illegal character in display name.";
             return false;
         }
 
