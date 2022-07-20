@@ -5,7 +5,7 @@ using BulletinBoard.Infrasructure;
 
 namespace BulletinBoard.Controllers;
 
-[AuthorizationFilter]
+[ServiceFilter(typeof(AuthorizationFilterAttribute))]
 public class BulletinBoardController : Controller {
     private readonly IDbContext _dbContext;
 
@@ -18,5 +18,13 @@ public class BulletinBoardController : Controller {
             UsersList = await _dbContext.GetAllUsersAsync(),
         };
         return View(viewModel);        
+    }
+
+    public async Task<IActionResult> ChangeDisplayName() {
+        return View();        
+    }
+
+    public async Task<IActionResult> CreatePost() {
+        return View();        
     }
 }

@@ -13,6 +13,8 @@ builder.Services.AddDbContext<IDbContext, BulletinBoardDbContext>(options => {
         throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
     );
 });
+
+builder.Services.AddScoped<AuthorizationFilterAttribute>();
 builder.Services.AddSingleton<LoginActionFilterAttribute>();
 builder.Services.AddSingleton<RegisterActionFilterAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
