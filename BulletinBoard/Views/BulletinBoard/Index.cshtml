@@ -13,7 +13,7 @@
                     <h4 class="card-title">@Model.PostsList![i].Text</h4>
                     <h6 class="card-subtitle text-muted">@Model.PostsList![i].SubmitTime</h6>
                     <p class="card-text p-y-1">by @Model.UsersList![Model.PostsList![i].UserId].DisplayName</p>
-                    <a href="#" class="card-link">Replies</a>
+                    <a asp-action="Post" asp-route-id="@i">Edit</a>
                 </div>
             </div>
         }
