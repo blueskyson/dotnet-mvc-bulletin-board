@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Login";
 }
-
-<div class="row vertical-center">
-    <div class="col-sm-12 align-self-center">
-        <div class="w-25 mx-auto">
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="mx-auto">
             <form asp-controller="Login" asp-action="Index" onsubmit="return HashOnSubmit(this);">
                 <h2>Login</h2>
                 <div class="form-group">
@@ -36,6 +36,7 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 
 <script>

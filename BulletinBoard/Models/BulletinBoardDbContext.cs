@@ -43,7 +43,7 @@ public class BulletinBoardDbContext : DbContext, IDbContext
 
     public async Task<List<Post>> GetAllPostsAsync()
     {
-        var posts = from p in Posts select p;
+        var posts = from p in Posts orderby p.SubmitTime select p;
         List<Post> postsList = await posts.ToListAsync();
         return postsList;
     }
