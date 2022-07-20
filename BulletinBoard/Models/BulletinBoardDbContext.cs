@@ -37,9 +37,21 @@ public class BulletinBoardDbContext : DbContext, IDbContext
             SaveChanges();
             return true;
         }
-        catch (Exception e) {
-            Console.WriteLine(e.ToString());
-        }
+        catch (Exception) { }
         return false;
+    }
+
+    public async Task<List<Post>> GetAllPostsAsync()
+    {
+        var posts = from p in Posts select p;
+        List<Post> postsList = await posts.ToListAsync();
+        return postsList;
+    }
+
+    public async Task<List<User>> GetAllUsersAsync()
+    {
+        var users = from u in Users select u;
+        List<User> usersList = await users.ToListAsync();
+        return usersList;
     }
 }

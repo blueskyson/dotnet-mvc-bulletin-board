@@ -7,14 +7,16 @@ namespace BulletinBoard.Controllers;
 
 [AuthorizationFilter]
 public class BulletinBoardController : Controller {
-    private readonly BulletinBoardDbContext _dbContext;
+    private readonly IDbContext _dbContext;
 
-    public BulletinBoardController(BulletinBoardDbContext context) {
+    public BulletinBoardController(IDbContext context) {
         _dbContext = context;
     }
     public async Task<IActionResult> Index() {
-        return _dbContext.Users != null ? 
-            View(await _dbContext.Users.ToListAsync()) :
-            Problem("Entity set 'MvcMovieContext.Movie' is null.");
+        var viewModel = new BulletinBoardViewModel {
+            PostsList = await _dbContext.GetAllPostsAsync(),
+            UsersList = await _dbContext.GetAllUsersAsync(),
+        };
+        return View(viewModel);        
     }
 }

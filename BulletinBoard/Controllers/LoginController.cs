@@ -28,6 +28,8 @@ public class LoginController : Controller
     {
         InitializeViewData();
 
+        Console.WriteLine(user.Password);
+
         if (_dbContext.UserExists(user) == null)
         {
             ViewData["PasswordStatus"] = "Wrong name or password";

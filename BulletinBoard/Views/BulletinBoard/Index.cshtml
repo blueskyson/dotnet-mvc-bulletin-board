@@ -1,10 +1,26 @@
-@model IEnumerable<BulletinBoard.Models.User>
+@model BulletinBoard.Models.BulletinBoardViewModel
 @{
     ViewData["Title"] = "Index";
+    int postCount = (Model.PostsList == null) ? 0 : Model.PostsList.Count;
+    int rowNumber = (postCount + 2) / 3;
 }
 
-<h2>Index</h2>
-<p>Hello from view template!</p>
-@foreach (var item in Model) {
-    <p>@Html.Raw(item.Name)</p>
-}
+<div class="py-5 container">
+    @for (int i = 0; i < rowNumber; i++) {
+        <div class="row">
+        @for(int j = i * 3, k = (i + 1) * 3; j < postCount && j < k; j++) {
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">@Model.PostsList![j].Text</h4>
+                        <h6 class="card-subtitle text-muted">@Model.PostsList![j].SubmitTime</h6>
+                        <p class="card-text p-y-1">by @Model.UsersList![Model.PostsList![j].UserId].DisplayName</p>
+                        <a href="#" class="card-link">Replies</a>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+        <br>
+    }
+</div>

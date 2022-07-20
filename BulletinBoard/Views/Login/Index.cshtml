@@ -6,7 +6,7 @@
 <div class="row vertical-center">
     <div class="col-sm-12 align-self-center">
         <div class="w-25 mx-auto">
-            <form asp-controller="Login" asp-action="Index">
+            <form asp-controller="Login" asp-action="Index" onsubmit="return HashOnSubmit(this);">
                 <h2>Login</h2>
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
@@ -37,3 +37,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    function HashOnSubmit(form) {
+        var inputPassword = form["Password"];
+        inputPassword.value = sha256_hash(inputPassword.value);
+        alert(sha256_hash(inputPassword.value));
+        return false;
+    }
+</script>
