@@ -20,11 +20,30 @@ public class BulletinBoardController : Controller {
         return View(viewModel);        
     }
 
-    public async Task<IActionResult> ChangeDisplayName() {
+    public IActionResult ChangeDisplayName() {
         return View();        
     }
 
-    public async Task<IActionResult> CreatePost() {
+    public IActionResult CreatePost() {
         return View();        
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult CreatePost([Bind("Text")] Post post) {
+        Console.WriteLine(post.Text);
+        post.SubmitTime = DateTime.Now;
+        int? userId = HttpContext.Session.GetInt32("userid");
+        if (userId == null) {
+            return View();
+        }
+        
+        post.UserId = (int)userId;
+        Console.WriteLine("---- " + post.UserId);
+
+        if (!_dbContext.CreatePost(post)) {
+            return View();
+        }
+        return RedirectToAction(nameof(Index));
     }
 }

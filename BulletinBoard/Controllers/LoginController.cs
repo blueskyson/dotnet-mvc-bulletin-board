@@ -29,14 +29,14 @@ public class LoginController : Controller
         InitializeViewData();
 
         Console.WriteLine(user.Password);
-
-        if (_dbContext.UserExists(user) == null)
+        User? dbUser = _dbContext.UserExists(user);
+        if (dbUser == null)
         {
             ViewData["PasswordStatus"] = "Wrong name or password";
             return View();
         }
 
-        HttpContext.Session.SetString("username", user.Name!);
+        HttpContext.Session.SetInt32("userid", dbUser.Id!);
         return RedirectToAction("Index", "BulletinBoard");
     }
 

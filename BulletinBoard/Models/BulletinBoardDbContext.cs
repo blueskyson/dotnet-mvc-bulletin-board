@@ -54,4 +54,15 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         List<User> usersList = await users.ToListAsync();
         return usersList;
     }
+
+    public bool CreatePost(Post post){
+        try
+        {
+            Add(post);
+            SaveChanges();
+            return true;
+        }
+        catch (Exception) { }
+        return false;
+    }
 }
