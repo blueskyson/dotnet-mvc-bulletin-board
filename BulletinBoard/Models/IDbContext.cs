@@ -12,5 +12,6 @@ public interface IDbContext {
     public Task<List<User>> GetAllUsersAsync();
     public User? GetUserById(int id);
     public bool CreatePost(Post post);
+    public bool CreateReply(Reply reply);
     public bool UpdateUser(User user);
 }

@@ -75,4 +75,34 @@ public class BulletinBoardController : Controller {
         };
         return View(viewModel);        
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Post(int id, String newReply) {
+        int? userId = HttpContext.Session.GetInt32("userid");
+        if (userId == null) {
+            ViewData["ReplyStatus"] = "No such user. Log in again may fix the problem";
+            return await Post(id);
+        }
+
+        if (string.IsNullOrEmpty(newReply))
+        {
+            ViewData["ReplyStatus"] = "Reply can't be empty";
+            return await Post(id);
+        }
+
+        Reply reply = new Reply {
+            PostId = id,
+            UserId = (int)userId,
+            SubmitTime = DateTime.Now,
+            Text = newReply,
+        };
+
+        if (!_dbContext.CreateReply(reply)) {
+            ViewData["ReplyStatus"] = "Error creating reply";
+            return await Post(id);
+        }
+
+        return await Post(id);        
+    }
 }

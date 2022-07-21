@@ -132,4 +132,15 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         }
         return user.DisplayName!;
     }
+
+    public bool CreateReply(Reply reply) {
+        try
+        {
+            Add(reply);
+            SaveChanges();
+            return true;
+        }
+        catch (Exception) { }
+        return false;
+    }
 }

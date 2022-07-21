@@ -6,6 +6,7 @@
                      ? 0 
                      : Model.RepliesList.Count;
 }
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 py-2">
@@ -18,17 +19,28 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-            <form asp-controller="BulletinBoard" asp-action="CreatePost" method="post">
+            <form asp-controller="BulletinBoard" asp-action="Post" method="post">
+                <input type="hidden" asp-for="Post!.Id"/>
                 <h2>Write a Comment:</h2>
-                <textarea class="form-control my-2" type="text" name="newReply" rows="4"></textarea>
+                <textarea class="form-control my-2" type="text" name="newReply" rows="2"></textarea>
+                @if ((string)ViewData["ReplyStatus"]! != "") {
+                    <span class="text-danger">@ViewData["ReplyStatus"]</span>
+                }
                 <div class="form-group">
                     <input type="submit" value="Submit" class="btn btn-primary" />
                 </div>
             </form>
         </div>
     </div>
-    <div class="row justify-content-center">
-        @for(int i = repliesCount - 1; i >= 0; i--) {
+    @if(repliesCount == 0) {
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+                <h6 class="text-center text-muted p-2">No Comment to show...</h6>
+            </div>
+        </div>
+    }
+    @for(int i = repliesCount - 1; i >= 0; i--) {
+        <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 py-2">
                 <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
                     <h5 class="card-title">@Model.RepliesList![i].Text</h5>
@@ -36,6 +48,6 @@
                     <h6 class="card-text p-y-1">by @Model.RepliesList![i].DisplayName</h6>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
