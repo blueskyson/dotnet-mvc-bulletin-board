@@ -1,4 +1,3 @@
-@model BulletinBoard.Models.User
 @{
     ViewData["Title"] = "Change DisplayName";
 }
@@ -6,10 +5,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-            <form asp-controller="Login" asp-action="Index">
+            <form asp-controller="BulletinBoard" asp-action="ChangeDisplayName">
                 <h2>Enter new display name: </h2>
-                <input asp-for="DisplayName" class="form-control my-2" />
-                <span asp-validation-for="DisplayName" class="text-danger"></span>
+                <input type="text" name="newDisplayName" class="form-control my-2" />
                 @if ((string)ViewData["DisplayNameStatus"]! != "") {
                     <span class="text-danger">@ViewData["DisplayNameStatus"]</span>
                 }

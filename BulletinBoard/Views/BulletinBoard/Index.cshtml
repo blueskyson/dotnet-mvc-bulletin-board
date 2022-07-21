@@ -1,19 +1,19 @@
-@model BulletinBoard.Models.BulletinBoardViewModel
+@using BulletinBoard.Models
+@model List<PostWithDisplayName>
 @{
     ViewData["Title"] = "Index";
-    int postCount = (Model.PostsList == null) ? 0 : Model.PostsList.Count;
 }
 
 <div class="container">
     <div class="row">
-        @for (int i = 0; i < postCount; i++)
+        @for (int i = 0; i < Model.Count; i++)
         {
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 py-2">
                 <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
-                    <h4 class="card-title">@Model.PostsList![i].Text</h4>
-                    <h6 class="card-subtitle text-muted">@Model.PostsList![i].SubmitTime</h6>
-                    <p class="card-text p-y-1">by @Model.UsersList![Model.PostsList![i].UserId].DisplayName</p>
-                    <a asp-action="Post" asp-route-id=@Model.PostsList[i].Id>Reply</a>
+                    <h4 class="card-title">@Model[i].Text</h4>
+                    <h6 class="card-subtitle text-muted">@Model[i].SubmitTime</h6>
+                    <p class="card-text p-y-1">by @Model[i].DisplayName</p>
+                    <a asp-action="Post" asp-route-id=@Model[i].Id>Reply</a>
                 </div>
             </div>
         }

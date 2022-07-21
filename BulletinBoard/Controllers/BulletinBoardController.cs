@@ -13,15 +13,30 @@ public class BulletinBoardController : Controller {
         _dbContext = context;
     }
     public async Task<IActionResult> Index() {
-        var viewModel = new BulletinBoardViewModel {
-            PostsList = await _dbContext.GetAllPostsAsync(),
-            UsersList = await _dbContext.GetAllUsersAsync(),
-        };
+        List<PostWithDisplayName> viewModel = await _dbContext.GetAllPostsWithDisplayNamesAsync();
         return View(viewModel);        
     }
 
     public IActionResult ChangeDisplayName() {
         return View();        
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [ServiceFilter(typeof(ChangeDisplayNameActionFilterAttribute))]
+    public IActionResult ChangeDisplayName(String newDisplayName) {
+        int? userId = HttpContext.Session.GetInt32("userid");
+        if (userId == null) {
+            ViewData["DisplayNameStatus"] = "No such user. Log in again may fix the problem";
+            return View();
+        }
+        User? currentUser = _dbContext.GetUserById((int)userId!);
+        currentUser!.DisplayName = newDisplayName;
+        if (!_dbContext.UpdateUser(currentUser)) {
+            ViewData["DisplayNameStatus"] = "Error changing name";
+            return View();
+        }
+        return RedirectToAction(nameof(Index));
     }
 
     public IActionResult CreatePost() {

@@ -48,6 +48,20 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return postsList;
     }
 
+    public async Task<List<PostWithDisplayName>> GetAllPostsWithDisplayNamesAsync()
+    {
+        var query = from p in Posts orderby p.SubmitTime 
+                    join u in Users on p.UserId equals u.Id
+                    select new PostWithDisplayName {
+                        Id = p.Id,
+                        SubmitTime = p.SubmitTime,
+                        Text = p.Text,
+                        DisplayName = u.DisplayName,
+                    };
+        List<PostWithDisplayName> postsList = await query.ToListAsync();
+        return postsList;
+    }
+
     public async Task<List<User>> GetAllUsersAsync()
     {
         var users = from u in Users select u;
@@ -55,7 +69,8 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return usersList;
     }
 
-    public bool CreatePost(Post post){
+    public bool CreatePost(Post post)
+    {
         try
         {
             Add(post);
@@ -63,6 +78,26 @@ public class BulletinBoardDbContext : DbContext, IDbContext
             return true;
         }
         catch (Exception) { }
+        return false;
+    }
+
+    public User? GetUserById(int id)
+    {
+        IQueryable<User>? userQuery = from u in Users
+                                      where u.Id == id
+                                      select u;
+        return userQuery.FirstOrDefault();
+    }
+
+    public bool UpdateUser(User user)
+    {
+        try
+        {
+            Update(user);
+            SaveChanges();
+            return true;
+        }
+        catch (DbUpdateConcurrencyException) { }
         return false;
     }
 }
