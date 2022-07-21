@@ -30,12 +30,14 @@ public class BulletinBoardController : Controller {
             ViewData["DisplayNameStatus"] = "No such user. Log in again may fix the problem";
             return View();
         }
+
         User? currentUser = _dbContext.GetUserById((int)userId!);
         currentUser!.DisplayName = newDisplayName;
         if (!_dbContext.UpdateUser(currentUser)) {
             ViewData["DisplayNameStatus"] = "Error changing name";
             return View();
         }
+        HttpContext.Session.SetString("displayname", newDisplayName);
         return RedirectToAction(nameof(Index));
     }
 
@@ -46,7 +48,6 @@ public class BulletinBoardController : Controller {
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult CreatePost([Bind("Text")] Post post) {
-        Console.WriteLine(post.Text);
         post.SubmitTime = DateTime.Now;
         int? userId = HttpContext.Session.GetInt32("userid");
         if (userId == null) {
@@ -54,8 +55,6 @@ public class BulletinBoardController : Controller {
         }
         
         post.UserId = (int)userId;
-        Console.WriteLine("---- " + post.UserId);
-
         if (!_dbContext.CreatePost(post)) {
             return View();
         }

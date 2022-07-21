@@ -28,7 +28,6 @@ public class LoginController : Controller
     {
         InitializeViewData();
 
-        Console.WriteLine(user.Password);
         User? dbUser = _dbContext.UserExists(user);
         if (dbUser == null)
         {
@@ -37,6 +36,7 @@ public class LoginController : Controller
         }
 
         HttpContext.Session.SetInt32("userid", dbUser.Id!);
+        HttpContext.Session.SetString("displayname", dbUser.DisplayName!);
         return RedirectToAction("Index", "BulletinBoard");
     }
 
