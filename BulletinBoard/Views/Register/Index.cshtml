@@ -12,8 +12,8 @@
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
-                    @if ((string)ViewData["NameStatus"]! != "") {
-                        <span class="text-danger">@ViewData["NameStatus"]</span>
+                    @if ((string)ViewData["Name"]! != "") {
+                        <span class="text-danger">@ViewData["Name"]</span>
                     }
                 </div>
                 <br />
@@ -21,8 +21,8 @@
                     <label asp-for="Password" class="control-label"></label>
                     <input asp-for="Password" class="form-control" type="password" />
                     <span asp-validation-for="Password" class="text-danger"></span>
-                    @if ((string)ViewData["PasswordStatus"]! != "") {
-                        <span class="text-danger">@ViewData["PasswordStatus"]</span>
+                    @if ((string)ViewData["Password"]! != "") {
+                        <span class="text-danger">@ViewData["Password"]</span>
                     }
                 </div>
                 <br />
@@ -30,8 +30,8 @@
                     <label asp-for="DisplayName" class="control-label"></label>
                     <input asp-for="DisplayName" class="form-control" />
                     <span asp-validation-for="DisplayName" class="text-danger"></span>
-                    @if ((string)ViewData["DisplayNameStatus"]! != "") {
-                        <span class="text-danger">@ViewData["DisplayNameStatus"]</span>
+                    @if ((string)ViewData["DisplayName"]! != "") {
+                        <span class="text-danger">@ViewData["DisplayName"]</span>
                     }
                 </div>
                 <br />

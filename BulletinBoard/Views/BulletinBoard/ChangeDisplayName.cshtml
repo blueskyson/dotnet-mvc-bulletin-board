@@ -7,9 +7,9 @@
         <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
             <form asp-controller="BulletinBoard" asp-action="ChangeDisplayName">
                 <h2>Enter new display name: </h2>
-                <input type="text" name="newDisplayName" class="form-control my-2" />
-                @if ((string)ViewData["DisplayNameStatus"]! != "") {
-                    <span class="text-danger">@ViewData["DisplayNameStatus"]</span>
+                <input type="text" name="DisplayName" class="form-control my-2" />
+                @if ((string)ViewData["DisplayName"]! != "") {
+                    <span class="text-danger">@ViewData["DisplayName"]</span>
                 }
                 <div class="form-group my-2">
                     <input type="submit" value="Submit" class="btn btn-primary" />

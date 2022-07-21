@@ -5,7 +5,7 @@ namespace BulletinBoard.Infrasructure;
 public class AuthorizationFilterAttribute : ActionFilterAttribute, IAuthorizationFilter {
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-       int? currentUserId = context.HttpContext.Session.GetInt32("userid");
+        int? currentUserId = context.HttpContext.Session.GetInt32("userid");
         if (currentUserId == null)
         {
             context.Result = new RedirectToRouteResult(

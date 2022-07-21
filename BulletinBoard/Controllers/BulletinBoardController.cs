@@ -23,21 +23,21 @@ public class BulletinBoardController : Controller {
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [ServiceFilter(typeof(ChangeDisplayNameActionFilterAttribute))]
-    public IActionResult ChangeDisplayName(String newDisplayName) {
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
+    public IActionResult ChangeDisplayName(String DisplayName) {
         int? userId = HttpContext.Session.GetInt32("userid");
         if (userId == null) {
-            ViewData["DisplayNameStatus"] = "No such user. Log in again may fix the problem";
+            ViewData["DisplayName"] = "No such user. Log in again may fix the problem";
             return View();
         }
 
         User? currentUser = _dbContext.GetUserById((int)userId!);
-        currentUser!.DisplayName = newDisplayName;
+        currentUser!.DisplayName = DisplayName;
         if (!_dbContext.UpdateUser(currentUser)) {
-            ViewData["DisplayNameStatus"] = "Error changing name";
+            ViewData["DisplayName"] = "Error changing name";
             return View();
         }
-        HttpContext.Session.SetString("displayname", newDisplayName);
+        HttpContext.Session.SetString("displayname", DisplayName);
         return RedirectToAction(nameof(Index));
     }
 

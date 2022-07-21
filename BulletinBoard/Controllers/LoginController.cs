@@ -8,12 +8,10 @@ namespace BulletinBoard.Controllers;
 public class LoginController : Controller
 {
     private readonly IDbContext _dbContext;
-    private readonly IValidator _validator;
 
     public LoginController(IDbContext context, IValidator validator)
     {
         _dbContext = context;
-        _validator = validator;
     }
     public IActionResult Index()
     {
@@ -23,7 +21,8 @@ public class LoginController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [ServiceFilter(typeof(LoginActionFilterAttribute))]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
     public IActionResult Index([Bind("Name,Password")] User user)
     {
         InitializeViewData();

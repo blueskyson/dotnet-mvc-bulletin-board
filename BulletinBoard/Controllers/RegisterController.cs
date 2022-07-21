@@ -9,12 +9,10 @@ public class RegisterController : Controller
 {
 
     private readonly IDbContext _dbContext;
-    private readonly IValidator _validator;
 
     public RegisterController(IDbContext context, IValidator validator)
     {
         _dbContext = context;
-        _validator = validator;
     }
 
     public IActionResult Index()
@@ -25,14 +23,16 @@ public class RegisterController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [ServiceFilter(typeof(RegisterActionFilterAttribute))]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
     public IActionResult Index([Bind("Name,Password,DisplayName")] User user)
     {
         InitializeViewData();
 
         if (_dbContext.UserNameExists(user.Name!))
         {
-            ViewData["NameStatus"] = "User name exists.";
+            ViewData["Name"] = "User name exists.";
             return View();
         }
 
