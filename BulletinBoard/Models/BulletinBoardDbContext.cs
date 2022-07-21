@@ -100,4 +100,36 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         catch (DbUpdateConcurrencyException) { }
         return false;
     }
+
+    public async Task<List<ReplyWithDisplayName>?> GetRepliesWithDisplayNames(int? postId) {
+        Post? post = await Posts.FirstOrDefaultAsync(p => p.Id == postId);
+        if (post == null)
+        {
+            return null;
+        }
+
+        var query = from r in Replies where r.PostId == postId
+                    join u in Users on r.UserId equals u.Id
+                    orderby r.SubmitTime 
+                    select new ReplyWithDisplayName {
+                        Id = r.Id,
+                        SubmitTime = r.SubmitTime,
+                        Text = r.Text,
+                        DisplayName = u.DisplayName,
+                    };
+        List<ReplyWithDisplayName> repliesList = await query.ToListAsync();
+        return repliesList;
+    }
+
+    public async Task<Post?> GetPostAsync(int? postId) {
+        return await Posts.FirstOrDefaultAsync(p => p.Id == postId);
+    }
+
+    public string GetDisplayNameById(int userId) {
+        User? user = Users.FirstOrDefault(u => u.Id == userId);
+        if (user == null) {
+            return "";
+        }
+        return user.DisplayName!;
+    }
 }

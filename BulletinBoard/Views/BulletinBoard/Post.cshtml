@@ -1,0 +1,41 @@
+@using BulletinBoard.Models
+@model PostViewModel
+@{
+    ViewData["Title"] = "View Post";
+    int repliesCount = (Model.RepliesList == null) 
+                     ? 0 
+                     : Model.RepliesList.Count;
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 py-2">
+            <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
+                <h4 class="card-title">@Model.Post!.Text</h4>
+                <h6 class="card-subtitle text-muted">@Model.Post.SubmitTime</h6>
+                <p class="card-text p-y-1">by @Model.DisplayName</p>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+            <form asp-controller="BulletinBoard" asp-action="CreatePost" method="post">
+                <h2>Write a Comment:</h2>
+                <textarea class="form-control my-2" type="text" name="newReply" rows="4"></textarea>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        @for(int i = repliesCount - 1; i >= 0; i--) {
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 py-2">
+                <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
+                    <h5 class="card-title">@Model.RepliesList![i].Text</h5>
+                    <h6 class="card-subtitle text-muted">@Model.RepliesList![i].SubmitTime</h6>
+                    <h6 class="card-text p-y-1">by @Model.RepliesList![i].DisplayName</h6>
+                </div>
+            </div>
+        }
+    </div>
+</div>

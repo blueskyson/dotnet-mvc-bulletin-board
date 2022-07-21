@@ -60,4 +60,19 @@ public class BulletinBoardController : Controller {
         }
         return RedirectToAction(nameof(Index));
     }
+
+    public async Task<IActionResult> Post(int? id) {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        Post? post = await _dbContext.GetPostAsync(id);
+        List<ReplyWithDisplayName>? repliesList = await _dbContext.GetRepliesWithDisplayNames(id);
+        var viewModel = new PostViewModel {
+            Post = post,
+            RepliesList = repliesList,
+            DisplayName = _dbContext.GetDisplayNameById(post!.UserId),
+        };
+        return View(viewModel);        
+    }
 }
