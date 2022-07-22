@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using BulletinBoard.Utils.Validation;
+using BulletinBoard.Utils;
 using BulletinBoard.Models;
 using BulletinBoard.Infrasructure;
 
@@ -7,32 +7,28 @@ namespace BulletinBoard.Controllers;
 
 public class RegisterController : Controller
 {
-
     private readonly IDbContext _dbContext;
-    private readonly IValidator _validator;
 
-    public RegisterController(IDbContext context, IValidator validator)
+    public RegisterController(IDbContext context)
     {
         _dbContext = context;
-        _validator = validator;
     }
 
     public IActionResult Index()
     {
-        InitializeViewData();
         return View();
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [ServiceFilter(typeof(RegisterActionFilterAttribute))]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
     public IActionResult Index([Bind("Name,Password,DisplayName")] User user)
     {
-        InitializeViewData();
-
         if (_dbContext.UserNameExists(user.Name!))
         {
-            ViewData["NameStatus"] = "User name exists.";
+            ViewData["Name"] = "User name exists.";
             return View();
         }
 
@@ -44,12 +40,5 @@ public class RegisterController : Controller
 
         TempData["message"] = "Register Error, please try again!";
         return View();
-    }
-
-    private void InitializeViewData()
-    {
-        ViewData["NameStatus"] = "";
-        ViewData["PasswordStatus"] = "";
-        ViewData["DisplayNameStatus"] = "";
     }
 }

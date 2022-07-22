@@ -13,7 +13,7 @@
                     <h4 class="card-title">@Model[i].Text</h4>
                     <h6 class="card-subtitle text-muted">@Model[i].SubmitTime</h6>
                     <p class="card-text p-y-1">by @Model[i].DisplayName</p>
-                    <a asp-action="Post" asp-route-id=@Model[i].Id>Reply</a>
+                    <a asp-controller="Post" asp-action="Index" asp-route-id=@Model[i].Id>Reply</a>
                 </div>
             </div>
         }
