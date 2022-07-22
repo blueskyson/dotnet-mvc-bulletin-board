@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Models;
 

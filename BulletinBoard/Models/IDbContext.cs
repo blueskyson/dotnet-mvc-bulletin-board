@@ -1,3 +1,5 @@
+using BulletinBoard.Models.Entities;
+
 namespace BulletinBoard.Models;
 
 public interface IDbContext {
