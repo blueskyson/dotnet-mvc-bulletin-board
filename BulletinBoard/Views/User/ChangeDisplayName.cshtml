@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-            <form asp-controller="BulletinBoard" asp-action="ChangeDisplayName">
+            <form asp-controller="User" asp-action="ChangeDisplayName">
                 <h2>Enter new display name: </h2>
                 <input type="text" name="DisplayName" class="form-control my-2" />
                 @if (ViewData["DisplayName"] != null) {
