@@ -7,7 +7,6 @@ namespace BulletinBoard.Controllers;
 
 public class RegisterController : Controller
 {
-
     private readonly IDbContext _dbContext;
 
     public RegisterController(IDbContext context, IValidator validator)
@@ -17,7 +16,6 @@ public class RegisterController : Controller
 
     public IActionResult Index()
     {
-        InitializeViewData();
         return View();
     }
 
@@ -28,8 +26,6 @@ public class RegisterController : Controller
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
     public IActionResult Index([Bind("Name,Password,DisplayName")] User user)
     {
-        InitializeViewData();
-
         if (_dbContext.UserNameExists(user.Name!))
         {
             ViewData["Name"] = "User name exists.";
@@ -44,12 +40,5 @@ public class RegisterController : Controller
 
         TempData["message"] = "Register Error, please try again!";
         return View();
-    }
-
-    private void InitializeViewData()
-    {
-        ViewData["NameStatus"] = "";
-        ViewData["PasswordStatus"] = "";
-        ViewData["DisplayNameStatus"] = "";
     }
 }

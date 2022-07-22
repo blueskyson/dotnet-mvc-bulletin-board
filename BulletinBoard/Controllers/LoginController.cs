@@ -15,7 +15,6 @@ public class LoginController : Controller
     }
     public IActionResult Index()
     {
-        InitializeViewData();
         return View();
     }
 
@@ -25,23 +24,15 @@ public class LoginController : Controller
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
     public IActionResult Index([Bind("Name,Password")] User user)
     {
-        InitializeViewData();
-
         User? dbUser = _dbContext.UserExists(user);
         if (dbUser == null)
         {
-            ViewData["PasswordStatus"] = "Wrong name or password";
+            ViewData["Password"] = "Wrong name or password";
             return View();
         }
 
         HttpContext.Session.SetInt32("userid", dbUser.Id!);
         HttpContext.Session.SetString("displayname", dbUser.DisplayName!);
         return RedirectToAction("Index", "BulletinBoard");
-    }
-
-    private void InitializeViewData()
-    {
-        ViewData["NameStatus"] = "";
-        ViewData["PasswordStatus"] = "";
     }
 }
