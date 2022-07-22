@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using System;
+using BulletinBoard.Models.Entities;
+
 namespace BulletinBoard.Models;
 
 public class BulletinBoardDbContext : DbContext, IDbContext

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using BulletinBoard.Utils;
 using BulletinBoard.Models;
 using BulletinBoard.Infrasructure;
+using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Controllers;
 
