@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using BulletinBoard.Models;
 using BulletinBoard.Infrasructure;
+using BulletinBoard.Utils;
 
 namespace BulletinBoard.Controllers;
 
@@ -25,7 +25,7 @@ public class BulletinBoardController : Controller {
     [ValidateAntiForgeryToken]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
     public IActionResult ChangeDisplayName(String DisplayName) {
-        int? userId = HttpContext.Session.GetInt32("userid");
+        int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
         if (userId == null) {
             ViewData["DisplayName"] = "No such user. Log in again may fix the problem";
             return View();
@@ -37,7 +37,7 @@ public class BulletinBoardController : Controller {
             ViewData["DisplayName"] = "Error changing name";
             return View();
         }
-        HttpContext.Session.SetString("displayname", DisplayName);
+        HttpContext.Session.SetString(SessionKeys.DisplayName, DisplayName);
         return RedirectToAction(nameof(Index));
     }
 
@@ -49,7 +49,7 @@ public class BulletinBoardController : Controller {
     [ValidateAntiForgeryToken]
     public IActionResult CreatePost([Bind("Text")] Post post) {
         post.SubmitTime = DateTime.Now;
-        int? userId = HttpContext.Session.GetInt32("userid");
+        int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
         if (userId == null) {
             return View();
         }
@@ -79,7 +79,7 @@ public class BulletinBoardController : Controller {
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Post(int id, String newReply) {
-        int? userId = HttpContext.Session.GetInt32("userid");
+        int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
         if (userId == null) {
             ViewData["ReplyStatus"] = "No such user. Log in again may fix the problem";
             return await Post(id);

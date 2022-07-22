@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BulletinBoard.Models;
-using BulletinBoard.Utils.Validation;
+using BulletinBoard.Utils;
 using BulletinBoard.Infrasructure;
 
 namespace BulletinBoard.Controllers;
@@ -9,7 +9,7 @@ public class LoginController : Controller
 {
     private readonly IDbContext _dbContext;
 
-    public LoginController(IDbContext context, IValidator validator)
+    public LoginController(IDbContext context)
     {
         _dbContext = context;
     }
@@ -31,8 +31,8 @@ public class LoginController : Controller
             return View();
         }
 
-        HttpContext.Session.SetInt32("userid", dbUser.Id!);
-        HttpContext.Session.SetString("displayname", dbUser.DisplayName!);
+        HttpContext.Session.SetInt32(SessionKeys.UserId, dbUser.Id!);
+        HttpContext.Session.SetString(SessionKeys.DisplayName, dbUser.DisplayName!);
         return RedirectToAction("Index", "BulletinBoard");
     }
 }

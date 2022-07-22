@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using BulletinBoard.Utils.Validation;
+using BulletinBoard.Utils;
 using BulletinBoard.Models;
 using BulletinBoard.Infrasructure;
 
@@ -9,7 +9,7 @@ public class RegisterController : Controller
 {
     private readonly IDbContext _dbContext;
 
-    public RegisterController(IDbContext context, IValidator validator)
+    public RegisterController(IDbContext context)
     {
         _dbContext = context;
     }
