@@ -14,7 +14,7 @@ builder.Services.AddDbContext<IDbContext, BulletinBoardDbContext>(options => {
     );
 });
 
-builder.Services.AddScoped<AuthorizationFilterAttribute>();
+builder.Services.AddScoped<AuthorizationAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
 
 // Add Session

@@ -4,7 +4,7 @@ using BulletinBoard.Utils;
 
 namespace BulletinBoard.Infrasructure;
 
-public class AuthorizationFilterAttribute : ActionFilterAttribute, IAuthorizationFilter {
+public class AuthorizationAttribute : Attribute, IAuthorizationFilter {
     public void OnAuthorization(AuthorizationFilterContext context)
     {
         int? currentUserId = context.HttpContext.Session.GetInt32(SessionKeys.UserId);

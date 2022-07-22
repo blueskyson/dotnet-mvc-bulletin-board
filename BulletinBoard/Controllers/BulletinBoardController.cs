@@ -5,7 +5,7 @@ using BulletinBoard.Utils;
 
 namespace BulletinBoard.Controllers;
 
-[ServiceFilter(typeof(AuthorizationFilterAttribute))]
+[ServiceFilter(typeof(AuthorizationAttribute))]
 public class BulletinBoardController : Controller {
     private readonly IDbContext _dbContext;
 
