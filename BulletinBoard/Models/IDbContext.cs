@@ -9,7 +9,6 @@ public interface IDbContext {
     public bool CreateUser(User user);
     public Task<Post?> GetPostAsync(int? postId);
     public Task<List<Post>> GetAllPostsAsync();
-    public Task<List<PostWithDisplayName>> GetAllPostsWithDisplayNamesAsync();
     public Task<List<ReplyWithDisplayName>?> GetRepliesWithDisplayNames(int? postId);
     public Task<List<User>> GetAllUsersAsync();
     public User? GetUserById(int id);

@@ -1,5 +1,5 @@
-@using BulletinBoard.Models
-@model List<PostWithDisplayName>
+@using BulletinBoard.Models.Entities
+@model List<Post>
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,7 +12,7 @@
                 <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
                     <h4 class="card-title">@Model[i].Text</h4>
                     <h6 class="card-subtitle text-muted">@Model[i].SubmitTime</h6>
-                    <p class="card-text p-y-1">by @Model[i].DisplayName</p>
+                    <p class="card-text p-y-1">by @Model[i].User!.DisplayName</p>
                     <a asp-controller="Post" asp-action="Index" asp-route-id=@Model[i].Id>Reply</a>
                 </div>
             </div>
