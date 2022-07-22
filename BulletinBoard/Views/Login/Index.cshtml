@@ -11,7 +11,7 @@
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
-                    @if ((string)ViewData["Name"]! != "") {
+                    @if (ViewData["Name"] != null) {
                         <span class="text-danger">@ViewData["Name"]</span>
                     }
                 </div>
@@ -19,7 +19,7 @@
                     <label asp-for="Password" class="control-label"></label>
                     <input asp-for="Password" class="form-control" type="password" />
                     <span asp-validation-for="Password" class="text-danger"></span>
-                    @if ((string)ViewData["Password"]! != "") {
+                    @if (ViewData["Password"] != null) {
                         <span class="text-danger">@ViewData["Password"]</span>
                     }
                 </div>

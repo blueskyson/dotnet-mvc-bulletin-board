@@ -8,7 +8,7 @@
             <form asp-controller="BulletinBoard" asp-action="ChangeDisplayName">
                 <h2>Enter new display name: </h2>
                 <input type="text" name="DisplayName" class="form-control my-2" />
-                @if ((string)ViewData["DisplayName"]! != "") {
+                @if (ViewData["DisplayName"] != null) {
                     <span class="text-danger">@ViewData["DisplayName"]</span>
                 }
                 <div class="form-group my-2">

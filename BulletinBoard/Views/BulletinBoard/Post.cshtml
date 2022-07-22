@@ -23,7 +23,7 @@
                 <input type="hidden" asp-for="Post!.Id"/>
                 <h2>Write a Comment:</h2>
                 <textarea class="form-control my-2" type="text" name="newReply" rows="2"></textarea>
-                @if ((string)ViewData["ReplyStatus"]! != "") {
+                @if (ViewData["ReplyStatus"] != null) {
                     <span class="text-danger">@ViewData["ReplyStatus"]</span>
                 }
                 <div class="form-group">
