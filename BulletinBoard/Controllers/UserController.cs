@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using BulletinBoard.Models;
 using BulletinBoard.Infrasructure;
 using BulletinBoard.Utils;
+using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Controllers;
 

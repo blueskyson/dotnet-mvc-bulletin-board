@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BulletinBoard.Models;
+namespace BulletinBoard.Models.Entities;
 
 public class Reply {
     public int Id { get; set; }
@@ -10,4 +11,10 @@ public class Reply {
     [DataType(DataType.Date)]
     public DateTime SubmitTime { get; set; }
     public string? Text { get; set; }
+
+    [ForeignKey("UserId")]
+    public User? User { get; set; }
+
+    [ForeignKey("PostId")]
+    public Post? Post { get; set; }
 }

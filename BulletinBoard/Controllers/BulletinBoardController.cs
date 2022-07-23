@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BulletinBoard.Models;
 using BulletinBoard.Infrasructure;
-using BulletinBoard.Utils;
+using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Controllers;
 
@@ -13,7 +13,7 @@ public class BulletinBoardController : Controller {
         _dbContext = context;
     }
     public async Task<IActionResult> Index() {
-        List<PostWithDisplayName> viewModel = await _dbContext.GetAllPostsWithDisplayNamesAsync();
+        List<Post> viewModel = await _dbContext.GetAllPostsAsync();
         return View(viewModel);        
     }
 }
