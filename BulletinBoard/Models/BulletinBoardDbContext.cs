@@ -56,13 +56,6 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return postsList;
     }
 
-    public async Task<List<User>> GetAllUsersAsync()
-    {
-        var users = from u in Users select u;
-        List<User> usersList = await users.ToListAsync();
-        return usersList;
-    }
-
     public bool CreatePost(Post post)
     {
         try
@@ -95,23 +88,26 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return false;
     }
 
-    public async Task<List<ReplyWithDisplayName>?> GetRepliesWithDisplayNames(int? postId) {
+    public async Task<List<Reply>?> GetReplies(int? postId) {
         Post? post = await Posts.FirstOrDefaultAsync(p => p.Id == postId);
         if (post == null)
         {
             return null;
         }
+        
+        User? user = await Users.FirstOrDefaultAsync(u => u.Id == post!.UserId);
+        post.User = user;
 
         var query = from r in Replies where r.PostId == postId
                     join u in Users on r.UserId equals u.Id
                     orderby r.SubmitTime 
-                    select new ReplyWithDisplayName {
+                    select new Reply {
                         Id = r.Id,
                         SubmitTime = r.SubmitTime,
                         Text = r.Text,
-                        DisplayName = u.DisplayName,
+                        User = u,
                     };
-        List<ReplyWithDisplayName> repliesList = await query.ToListAsync();
+        List<Reply> repliesList = await query.ToListAsync();
         return repliesList;
     }
 
