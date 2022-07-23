@@ -115,14 +115,6 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return await Posts.FirstOrDefaultAsync(p => p.Id == postId);
     }
 
-    public string GetDisplayNameById(int userId) {
-        User? user = Users.FirstOrDefault(u => u.Id == userId);
-        if (user == null) {
-            return "";
-        }
-        return user.DisplayName!;
-    }
-
     public bool CreateReply(Reply reply) {
         try
         {
