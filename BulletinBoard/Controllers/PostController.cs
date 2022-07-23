@@ -20,11 +20,10 @@ public class PostController : Controller {
             return NotFound();
         }
         Post? post = await _dbContext.GetPostAsync(id);
-        List<ReplyWithDisplayName>? repliesList = await _dbContext.GetRepliesWithDisplayNames(id);
+        List<Reply>? replies = await _dbContext.GetReplies(id);
         var viewModel = new PostViewModel {
             Post = post,
-            RepliesList = repliesList,
-            DisplayName = _dbContext.GetDisplayNameById(post!.UserId),
+            Replies = replies,
         };
         return View(viewModel);        
     }
