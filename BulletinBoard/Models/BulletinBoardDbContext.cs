@@ -14,32 +14,12 @@ public class BulletinBoardDbContext : DbContext, IDbContext
     {
     }
 
-    public bool UserNameExists(string name)
-    {
-        IQueryable<User>? userQuery = from u in Users
-                                      where u.Name == name
-                                      select u;
-        return (userQuery.FirstOrDefault() != null);
-    }
-
     public User? UserExists(User user)
     {
         IQueryable<User>? userQuery = from u in Users
                                       where u.Name == user.Name && u.Password == user.Password
                                       select u;
         return userQuery.FirstOrDefault();
-    }
-
-    public bool CreateUser(User user)
-    {
-        try
-        {
-            Add(user);
-            SaveChanges();
-            return true;
-        }
-        catch (Exception) { }
-        return false;
     }
 
     public async Task<List<Post>> GetAllPostsAsync()

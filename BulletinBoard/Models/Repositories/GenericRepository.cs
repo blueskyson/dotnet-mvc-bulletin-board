@@ -28,6 +28,11 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         return await _context.Set<TEntity>().ToListAsync();
     }
 
+    public DbSet<TEntity> GetDbSet()
+    {
+        return _context.Set<TEntity>();
+    }
+
     public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate)
     {
         return await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);

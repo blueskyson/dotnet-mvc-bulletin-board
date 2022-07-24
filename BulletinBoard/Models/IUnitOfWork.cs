@@ -10,4 +10,5 @@ public interface IUnitOfWork : IDisposable
     IGenericRepository<Post> PostRepository { get; }
     IGenericRepository<Reply> ReplyRepository { get; }
     DbContext Context { get; }
+    Task<int> SaveChangeAsync();
 }
