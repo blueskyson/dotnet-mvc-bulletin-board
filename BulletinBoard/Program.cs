@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using BulletinBoard.Models;
+using BulletinBoard.Models.Repositories;
+using BulletinBoard.Models.Entities;
+using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Utils.Validation;
 using BulletinBoard.Infrasructure;
 
@@ -13,9 +16,21 @@ builder.Services.AddDbContext<IDbContext, BulletinBoardDbContext>(options => {
         throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
     );
 });
-
 builder.Services.AddScoped<AuthorizationAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
+
+builder.Services.AddScoped<DbContext, BulletinBoardContext>();
+builder.Services.AddDbContext<BulletinBoardContext>(options => {
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("BulletinBoardDbContext") ??
+        throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
+    );
+});
+builder.Services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
+builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
+builder.Services.AddScoped<IGenericRepository<Reply>, GenericRepository<Reply>>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IRegisterLogic, RegisterLogic>();
 
 // Add Session
 builder.Services.AddDistributedMemoryCache();

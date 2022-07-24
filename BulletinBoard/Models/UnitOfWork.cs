@@ -23,6 +23,11 @@ public class UnitOfWork : IUnitOfWork
         ReplyRepository = replyRepository;
     }
 
+    public async Task<int> SaveChangeAsync()
+    {
+        return await Context.SaveChangesAsync();
+    }
+
     public void Dispose()
     {
         Context.Dispose();
