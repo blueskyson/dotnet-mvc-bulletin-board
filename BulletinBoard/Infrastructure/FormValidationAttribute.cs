@@ -32,16 +32,13 @@ public class FormValidationAttribute : Attribute, IActionFilter
 
     private bool ValidateInputValue(Controller controller)
     {
-        if (!controller.ViewData.ModelState.IsValid)
-            return false;
-
         var value = controller.HttpContext.Request.Form[_inputName].ToString();
-        if (!_validator.IsValidName(value))
-        {
-            controller.ViewData[_inputName] = "Illegal character in " + _inputName + ".";
-            return false;
-        }
 
-        return true;
+        if (controller.ViewData.ModelState.IsValid &&
+            _validator.IsValidString(value))
+            return true;
+
+        controller.ViewData[_inputName] = "Illegal character in " + _inputName + ".";
+        return false;
     }
 }

@@ -30,17 +30,17 @@ public class RegisterController : Controller
         if (_registerLogic.UserNameExists(user.Name!))
         {
             ViewData[ViewDataKeys.Name] = "User name exists.";
-            return View();
         }
-
-        if (await _registerLogic.AddUserAsync(user) < 0)
+        else if (await _registerLogic.AddUserAsync(user) < 0)
         {
-            TempData["message"] = "Register Error, please try again!";
-            return View();
-
+            TempData[TempDataKeys.Message] = "Register Error, please try again!";
+        }
+        else
+        {
+            TempData[TempDataKeys.Message] = "Register successfully!";
+            return RedirectToAction("Index", "Login");
         }
 
-        TempData["message"] = "Register successfully!";
-        return RedirectToAction("Index", "Login");
+        return View();
     }
 }

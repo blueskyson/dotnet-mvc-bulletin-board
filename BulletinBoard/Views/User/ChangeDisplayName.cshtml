@@ -11,7 +11,8 @@
                 <h2>Enter new display name: </h2>
                 <input type="text" name="DisplayName" class="form-control my-2" />
                 <span asp-validation-for="DisplayName" class="text-danger"></span>
-                @if (ViewData[ViewDataKeys.DisplayName] != null) {
+                @if (ViewData[ViewDataKeys.DisplayName] != null)
+                {
                     <span class="text-danger">@ViewData[ViewDataKeys.DisplayName]</span>
                 }
                 <div class="form-group my-2">

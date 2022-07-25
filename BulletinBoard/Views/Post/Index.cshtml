@@ -3,8 +3,8 @@
 @model PostViewModel
 @{
     ViewData["Title"] = "View Post";
-    int repliesCount = (Model.Replies == null) 
-                     ? 0 : Model.Replies.Count;
+    int repliesCount = (Model.Replies == null)
+    ? 0 : Model.Replies.Count;
 }
 
 <div class="container">
@@ -20,10 +20,11 @@
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
             <form asp-controller="Post" asp-action="Index" method="post">
-                <input type="hidden" asp-for="Post!.Id"/>
+                <input type="hidden" asp-for="Post!.Id" />
                 <h2>Write a Comment:</h2>
                 <textarea class="form-control my-2" type="text" name="NewReply" rows="2"></textarea>
-                @if (ViewData[ViewDataKeys.Reply] != null) {
+                @if (ViewData[ViewDataKeys.Reply] != null)
+                {
                     <span class="text-danger">@ViewData[ViewDataKeys.Reply]</span>
                 }
                 <div class="form-group">
@@ -32,14 +33,16 @@
             </form>
         </div>
     </div>
-    @if(repliesCount == 0) {
+    @if (repliesCount == 0)
+    {
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
                 <h6 class="text-center text-muted p-2">No Comment to show...</h6>
             </div>
         </div>
     }
-    @for(int i = repliesCount - 1; i >= 0; i--) {
+    @for (int i = repliesCount - 1; i >= 0; i--)
+    {
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 py-2">
                 <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
