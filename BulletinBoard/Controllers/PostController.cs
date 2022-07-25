@@ -25,6 +25,7 @@ public class PostController : Controller {
         if (post == null) {
             return NotFound();
         }
+
         List<Reply>? replies = await _postLogic.GetRepliesByPostIdAsync(id);
         var viewModel = new PostViewModel {
             Post = post,
@@ -38,13 +39,7 @@ public class PostController : Controller {
     public async Task<IActionResult> Index(int id, String NewReply) {
         int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
         if (userId == null) {
-            ViewData["Reply"] = "No such user. Log in again may fix the problem";
-            return await Index(id);
-        }
-
-        if (string.IsNullOrEmpty(NewReply))
-        {
-            ViewData["Reply"] = "Reply can't be empty";
+            ViewData[ViewDataKeys.Reply] = "No such user. Log in again may fix the problem";
             return await Index(id);
         }
 
@@ -56,7 +51,7 @@ public class PostController : Controller {
         };
 
         if (await _postLogic.AddReplyAsync(reply) < 0) {
-            ViewData["Reply"] = "Error creating reply";
+            ViewData[ViewDataKeys.Reply] = "Error creating reply";
             return await Index(id);
         }
 
@@ -78,6 +73,7 @@ public class PostController : Controller {
         
         post.UserId = (int)userId;
         if (await _postLogic.AddPostAsync(post) < 0) {
+            ViewData[ViewDataKeys.Post] = "Error creating post.";
             return View();
         }
 
