@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BulletinBoard.Models;
+using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Utils;
 using BulletinBoard.Infrasructure;
 using BulletinBoard.Models.Entities;
@@ -8,12 +9,13 @@ namespace BulletinBoard.Controllers;
 
 public class LoginController : Controller
 {
-    private readonly IDbContext _dbContext;
+    private readonly ILoginLogic _loginLogic;
 
-    public LoginController(IDbContext context)
+    public LoginController(ILoginLogic loginLogic)
     {
-        _dbContext = context;
+        _loginLogic = loginLogic;
     }
+
     public IActionResult Index()
     {
         return View();
@@ -23,17 +25,17 @@ public class LoginController : Controller
     [ValidateAntiForgeryToken]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
-    public IActionResult Index([Bind("Name,Password")] User user)
+    public async Task<IActionResult> Index([Bind("Name,Password")] User user)
     {
-        User? dbUser = _dbContext.UserExists(user);
-        if (dbUser == null)
+        User? u = await _loginLogic.UserExists(user);
+        if (u == null)
         {
             ViewData["Password"] = "Wrong name or password";
             return View();
         }
 
-        HttpContext.Session.SetInt32(SessionKeys.UserId, dbUser.Id!);
-        HttpContext.Session.SetString(SessionKeys.DisplayName, dbUser.DisplayName!);
+        HttpContext.Session.SetInt32(SessionKeys.UserId, u.Id!);
+        HttpContext.Session.SetString(SessionKeys.DisplayName, u.DisplayName!);
         return RedirectToAction("Index", "BulletinBoard");
     }
 }

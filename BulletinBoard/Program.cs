@@ -31,6 +31,7 @@ builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
 builder.Services.AddScoped<IGenericRepository<Reply>, GenericRepository<Reply>>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRegisterLogic, RegisterLogic>();
+builder.Services.AddScoped<ILoginLogic, LoginLogic>();
 
 // Add Session
 builder.Services.AddDistributedMemoryCache();
