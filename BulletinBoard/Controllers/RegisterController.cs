@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using BulletinBoard.Models;
 using BulletinBoard.Models.Entities;
 using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Infrasructure;
