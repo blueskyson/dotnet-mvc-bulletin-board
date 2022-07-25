@@ -11,14 +11,17 @@ public class BulletinBoardLogic : IBulletinBoardLogic
     }
     public async Task<List<Post>> GetAllPostsAsync()
     {
-        var posts = from p in _unitOfWork.PostRepository.GetDbSet() orderby p.SubmitTime
-                    join u in _unitOfWork.UserRepository.GetDbSet() on p.UserId equals u.Id 
-                    select new Post {
+        var posts = from p in _unitOfWork.PostRepository.GetDbSet()
+                    orderby p.SubmitTime
+                    join u in _unitOfWork.UserRepository.GetDbSet() on p.UserId equals u.Id
+                    select new Post
+                    {
                         Id = p.Id,
                         SubmitTime = p.SubmitTime,
                         Text = p.Text,
                         User = u,
                     };
+
         return await posts.ToListAsync();
     }
 }

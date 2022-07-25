@@ -11,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<DbContext, BulletinBoardContext>();
-builder.Services.AddDbContext<BulletinBoardContext>(options => {
+builder.Services.AddDbContext<BulletinBoardContext>(options =>
+{
     options.UseSqlite(
         builder.Configuration.GetConnectionString("BulletinBoardDbContext") ??
         throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")

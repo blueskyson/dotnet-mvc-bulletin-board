@@ -27,6 +27,7 @@ public class LoginController : Controller
     public async Task<IActionResult> Index([Bind("Name,Password")] User user)
     {
         User? u = await _loginLogic.UserExists(user);
+
         if (u == null)
         {
             ViewData[ViewDataKeys.Password] = "Wrong name or password";
@@ -37,7 +38,8 @@ public class LoginController : Controller
         return RedirectToAction("Index", "BulletinBoard");
     }
 
-    private void UpdateSession(User user) {
+    private void UpdateSession(User user)
+    {
         HttpContext.Session.SetInt32(SessionKeys.UserId, user.Id!);
         HttpContext.Session.SetString(SessionKeys.DisplayName, user.DisplayName!);
     }

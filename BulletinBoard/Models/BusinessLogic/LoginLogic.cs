@@ -13,7 +13,7 @@ public class LoginLogic : ILoginLogic
     public async Task<User?> UserExists(User user)
     {
         return await _unitOfWork.UserRepository.GetAsync(
-            u => u.Name == user.Name && u.Password == user.Password
+            u => (u.Name == user.Name && u.Password == user.Password)
         );
     }
 }
