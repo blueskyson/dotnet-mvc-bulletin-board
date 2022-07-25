@@ -19,4 +19,5 @@ public class User
     [StringLength(20, MinimumLength = 1)]
     [Required]
     public string? Password { get; set; }
+    public string? Salt { get; set; }
 }

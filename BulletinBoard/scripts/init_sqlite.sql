@@ -3,7 +3,8 @@ CREATE TABLE Users (
   Name TEXT NOT NULL,
   DisplayName TEXT,
   RegisterDate TEXT NOT NULL,
-  Password TEXT NOT NULL
+  Password TEXT NOT NULL,
+  Salt TEXT NOT NULL
 );
 
 CREATE TABLE Posts (
