@@ -1,16 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using BulletinBoard.Models;
+using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Infrasructure;
 using BulletinBoard.Utils;
+using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Controllers;
 
 [ServiceFilter(typeof(AuthorizationAttribute))]
 public class UserController : Controller {
-    private readonly IDbContext _dbContext;
+    private readonly IUserLogic _userLogic;
 
-    public UserController(IDbContext context) {
-        _dbContext = context;
+    public UserController(IUserLogic userLogic) {
+        _userLogic = userLogic;
     }
 
     public IActionResult ChangeDisplayName() {
@@ -20,19 +22,20 @@ public class UserController : Controller {
     [HttpPost]
     [ValidateAntiForgeryToken]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
-    public IActionResult ChangeDisplayName(String DisplayName) {
+    public async Task<IActionResult> ChangeDisplayName(String DisplayName) {
         int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
         if (userId == null) {
             ViewData["DisplayName"] = "No such user. Log in again may fix the problem";
             return View();
         }
 
-        User? currentUser = _dbContext.GetUserById((int)userId!);
+        User? currentUser = await _userLogic.GetUserByIdAsync((int)userId!);
         currentUser!.DisplayName = DisplayName;
-        if (!_dbContext.UpdateUser(currentUser)) {
+        if (await _userLogic.UpdateUserAsync(currentUser) == false) {
             ViewData["DisplayName"] = "Error changing name";
             return View();
         }
+
         HttpContext.Session.SetString(SessionKeys.DisplayName, DisplayName);
         return RedirectToAction("Index", "BulletinBoard");
     }

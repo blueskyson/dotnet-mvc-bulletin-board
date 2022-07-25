@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-namespace BulletinBoard.Models;
+
+namespace BulletinBoard.Models.Entities;
 
 public class User {
     public int Id { get; set; }
+
     [StringLength(20, MinimumLength = 1)]
     [Required]
     public string? Name { get; set; }

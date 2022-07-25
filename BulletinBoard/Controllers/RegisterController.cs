@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using BulletinBoard.Utils;
-using BulletinBoard.Models;
+using BulletinBoard.Models.Entities;
+using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Infrasructure;
 
 namespace BulletinBoard.Controllers;
 
 public class RegisterController : Controller
 {
-    private readonly IDbContext _dbContext;
+    private readonly IRegisterLogic _registerLogic;
 
-    public RegisterController(IDbContext context)
+    public RegisterController(IRegisterLogic registerLogic)
     {
-        _dbContext = context;
+        _registerLogic = registerLogic;
     }
 
     public IActionResult Index()
@@ -24,15 +24,15 @@ public class RegisterController : Controller
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
-    public IActionResult Index([Bind("Name,Password,DisplayName")] User user)
+    public async Task<IActionResult> Index([Bind("Name,Password,DisplayName")] User user)
     {
-        if (_dbContext.UserNameExists(user.Name!))
+        if (_registerLogic.UserNameExists(user.Name!))
         {
             ViewData["Name"] = "User name exists.";
             return View();
         }
 
-        if (_dbContext.CreateUser(user))
+        if (await _registerLogic.AddUserAsync(user) > 0)
         {
             TempData["message"] = "Register successfully!";
             return RedirectToAction("Index", "Login");

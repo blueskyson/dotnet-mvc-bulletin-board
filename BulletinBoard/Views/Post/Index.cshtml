@@ -2,9 +2,8 @@
 @model PostViewModel
 @{
     ViewData["Title"] = "View Post";
-    int repliesCount = (Model.RepliesList == null) 
-                     ? 0 
-                     : Model.RepliesList.Count;
+    int repliesCount = (Model.Replies == null) 
+                     ? 0 : Model.Replies.Count;
 }
 
 <div class="container">
@@ -13,7 +12,7 @@
             <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
                 <h4 class="card-title">@Model.Post!.Text</h4>
                 <h6 class="card-subtitle text-muted">@Model.Post.SubmitTime</h6>
-                <p class="card-text p-y-1">by @Model.DisplayName</p>
+                <p class="card-text p-y-1">by @Model.Post.User!.DisplayName</p>
             </div>
         </div>
     </div>
@@ -43,9 +42,9 @@
         <div class="row justify-content-center">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 py-2">
                 <div class="card p-xs-2 p-sm-2 p-md-2 p-lg-2">
-                    <h5 class="card-title">@Model.RepliesList![i].Text</h5>
-                    <h6 class="card-subtitle text-muted">@Model.RepliesList![i].SubmitTime</h6>
-                    <h6 class="card-text p-y-1">by @Model.RepliesList![i].DisplayName</h6>
+                    <h5 class="card-title">@Model.Replies![i].Text</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Replies![i].SubmitTime</h6>
+                    <h6 class="card-text p-y-1">by @Model.Replies![i].User!.DisplayName</h6>
                 </div>
             </div>
         </div>
