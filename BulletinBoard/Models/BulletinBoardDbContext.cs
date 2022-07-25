@@ -26,26 +26,6 @@ public class BulletinBoardDbContext : DbContext, IDbContext
         return false;
     }
 
-    public User? GetUserById(int id)
-    {
-        IQueryable<User>? userQuery = from u in Users
-                                      where u.Id == id
-                                      select u;
-        return userQuery.FirstOrDefault();
-    }
-
-    public bool UpdateUser(User user)
-    {
-        try
-        {
-            Update(user);
-            SaveChanges();
-            return true;
-        }
-        catch (DbUpdateConcurrencyException) { }
-        return false;
-    }
-
     public async Task<List<Reply>?> GetReplies(int? postId) {
         Post? post = await Posts.FirstOrDefaultAsync(p => p.Id == postId);
         if (post == null)

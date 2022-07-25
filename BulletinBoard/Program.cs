@@ -33,6 +33,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRegisterLogic, RegisterLogic>();
 builder.Services.AddScoped<ILoginLogic, LoginLogic>();
 builder.Services.AddScoped<IBulletinBoardLogic, BulletinBoardLogic>();
+builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 // Add Session
 builder.Services.AddDistributedMemoryCache();
