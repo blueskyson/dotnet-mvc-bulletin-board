@@ -1,3 +1,4 @@
+@using BulletinBoard.Utils
 @model BulletinBoard.Models.Entities.User
 @{
     ViewData["Title"] = "Register";
@@ -12,8 +13,8 @@
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
-                    @if (ViewData["Name"] != null) {
-                        <span class="text-danger">@ViewData["Name"]</span>
+                    @if (ViewData[ViewDataKeys.Name] != null) {
+                        <span class="text-danger">@ViewData[ViewDataKeys.Name]</span>
                     }
                 </div>
                 <br />
@@ -21,8 +22,8 @@
                     <label asp-for="Password" class="control-label"></label>
                     <input asp-for="Password" class="form-control" type="password" />
                     <span asp-validation-for="Password" class="text-danger"></span>
-                    @if (ViewData["Password"] != null) {
-                        <span class="text-danger">@ViewData["Password"]</span>
+                    @if (ViewData[ViewDataKeys.Password] != null) {
+                        <span class="text-danger">@ViewData[ViewDataKeys.Password]</span>
                     }
                 </div>
                 <br />
@@ -30,8 +31,8 @@
                     <label asp-for="DisplayName" class="control-label"></label>
                     <input asp-for="DisplayName" class="form-control" />
                     <span asp-validation-for="DisplayName" class="text-danger"></span>
-                    @if (ViewData["DisplayName"] != null) {
-                        <span class="text-danger">@ViewData["DisplayName"]</span>
+                    @if (ViewData[ViewDataKeys.DisplayName] != null) {
+                        <span class="text-danger">@ViewData[ViewDataKeys.DisplayName]</span>
                     }
                 </div>
                 <br />

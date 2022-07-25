@@ -22,19 +22,23 @@ public class LoginController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
-    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.Name })]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.Password })]
     public async Task<IActionResult> Index([Bind("Name,Password")] User user)
     {
         User? u = await _loginLogic.UserExists(user);
         if (u == null)
         {
-            ViewData["Password"] = "Wrong name or password";
+            ViewData[ViewDataKeys.Password] = "Wrong name or password";
             return View();
         }
 
-        HttpContext.Session.SetInt32(SessionKeys.UserId, u.Id!);
-        HttpContext.Session.SetString(SessionKeys.DisplayName, u.DisplayName!);
+        UpdateSession(u);
         return RedirectToAction("Index", "BulletinBoard");
+    }
+
+    private void UpdateSession(User user) {
+        HttpContext.Session.SetInt32(SessionKeys.UserId, user.Id!);
+        HttpContext.Session.SetString(SessionKeys.DisplayName, user.DisplayName!);
     }
 }
