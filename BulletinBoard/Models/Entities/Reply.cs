@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BulletinBoard.Models.Entities;
 
-public class Reply {
+public class Reply
+{
     public int Id { get; set; }
     public int PostId { get; set; }
     public int UserId { get; set; }

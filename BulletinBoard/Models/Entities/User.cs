@@ -2,7 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BulletinBoard.Models.Entities;
 
-public class User {
+public class User
+{
     public int Id { get; set; }
 
     [StringLength(20, MinimumLength = 1)]
@@ -14,8 +15,9 @@ public class User {
 
     [DataType(DataType.Date)]
     public DateTime RegisterDate { get; set; }
-    
+
     [StringLength(20, MinimumLength = 1)]
     [Required]
     public string? Password { get; set; }
+    public string? Salt { get; set; }
 }

@@ -24,6 +24,7 @@ public class UserLogic : IUserLogic
             return true;
         }
         catch (Exception) { }
+
         return false;
     }
 }

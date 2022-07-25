@@ -3,6 +3,7 @@ using BulletinBoard.Models;
 using BulletinBoard.Models.Repositories;
 using BulletinBoard.Models.Entities;
 using BulletinBoard.Models.BusinessLogic;
+using BulletinBoard.Utils;
 using BulletinBoard.Utils.Validation;
 using BulletinBoard.Infrasructure;
 
@@ -11,7 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<DbContext, BulletinBoardContext>();
-builder.Services.AddDbContext<BulletinBoardContext>(options => {
+builder.Services.AddDbContext<BulletinBoardContext>(options =>
+{
     options.UseSqlite(
         builder.Configuration.GetConnectionString("BulletinBoardDbContext") ??
         throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
@@ -19,6 +21,7 @@ builder.Services.AddDbContext<BulletinBoardContext>(options => {
 });
 builder.Services.AddScoped<AuthorizationAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
+builder.Services.AddSingleton<IHasher, Hasher>();
 builder.Services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
 builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
 builder.Services.AddScoped<IGenericRepository<Reply>, GenericRepository<Reply>>();

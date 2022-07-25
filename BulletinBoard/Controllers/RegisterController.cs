@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using BulletinBoard.Utils;
 using BulletinBoard.Models.Entities;
 using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Infrasructure;
@@ -21,24 +22,25 @@ public class RegisterController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Name"})]
-    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"Password"})]
-    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] {"DisplayName"})]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.Name })]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.Password })]
+    [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.DisplayName })]
     public async Task<IActionResult> Index([Bind("Name,Password,DisplayName")] User user)
     {
         if (_registerLogic.UserNameExists(user.Name!))
         {
-            ViewData["Name"] = "User name exists.";
-            return View();
+            ViewData[ViewDataKeys.Name] = "User name exists.";
         }
-
-        if (await _registerLogic.AddUserAsync(user) > 0)
+        else if (await _registerLogic.AddUserAsync(user) < 0)
         {
-            TempData["message"] = "Register successfully!";
+            TempData[TempDataKeys.Message] = "Register Error, please try again!";
+        }
+        else
+        {
+            TempData[TempDataKeys.Message] = "Register successfully!";
             return RedirectToAction("Index", "Login");
         }
 
-        TempData["message"] = "Register Error, please try again!";
         return View();
     }
 }

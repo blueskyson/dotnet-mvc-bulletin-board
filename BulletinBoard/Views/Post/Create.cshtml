@@ -1,3 +1,4 @@
+@using BulletinBoard.Utils
 @model BulletinBoard.Models.Entities.Post
 @{
     ViewData["Title"] = "Create Post";
@@ -9,6 +10,10 @@
             <form asp-controller="Post" asp-action="Create" method="post">
                 <h2>Create Post:</h2>
                 <textarea class="form-control my-2" asp-for="Text" rows="4"></textarea>
+                @if (ViewData[ViewDataKeys.Post] != null)
+                {
+                    <span class="text-danger">@ViewData[ViewDataKeys.Post]</span>
+                }
                 <div class="form-group">
                     <input type="submit" value="Submit" class="btn btn-primary" />
                 </div>

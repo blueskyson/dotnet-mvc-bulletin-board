@@ -2,7 +2,7 @@
 
 ## How to Use
 
-Initialize database:
+You can use the default `.db` or initialize database by:
 
 ```
 > cd BulletinBoards

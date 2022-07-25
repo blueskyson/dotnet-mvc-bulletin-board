@@ -4,16 +4,18 @@ using BulletinBoard.Utils;
 
 namespace BulletinBoard.Infrasructure;
 
-public class AuthorizationAttribute : Attribute, IAuthorizationFilter {
+public class AuthorizationAttribute : Attribute, IAuthorizationFilter
+{
     public void OnAuthorization(AuthorizationFilterContext context)
     {
         int? currentUserId = context.HttpContext.Session.GetInt32(SessionKeys.UserId);
+
         if (currentUserId == null)
         {
             context.Result = new RedirectToRouteResult(
-                new RouteValueDictionary { 
-                    {"controller", "Login"}, 
-                    {"action", "Index"} 
+                new RouteValueDictionary {
+                    {"controller", "Login"},
+                    {"action", "Index"}
                 }
             );
         }

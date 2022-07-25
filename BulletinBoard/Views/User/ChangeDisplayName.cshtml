@@ -1,3 +1,5 @@
+@using BulletinBoard.Utils
+@model BulletinBoard.Models.Entities.User
 @{
     ViewData["Title"] = "Change DisplayName";
 }
@@ -8,8 +10,10 @@
             <form asp-controller="User" asp-action="ChangeDisplayName">
                 <h2>Enter new display name: </h2>
                 <input type="text" name="DisplayName" class="form-control my-2" />
-                @if (ViewData["DisplayName"] != null) {
-                    <span class="text-danger">@ViewData["DisplayName"]</span>
+                <span asp-validation-for="DisplayName" class="text-danger"></span>
+                @if (ViewData[ViewDataKeys.DisplayName] != null)
+                {
+                    <span class="text-danger">@ViewData[ViewDataKeys.DisplayName]</span>
                 }
                 <div class="form-group my-2">
                     <input type="submit" value="Submit" class="btn btn-primary" />
