@@ -23,7 +23,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         _context.Set<TEntity>().Add(entity);
     }
 
-    public async Task<ICollection<TEntity>> GetAllAsync()
+    public async Task<List<TEntity>> GetAllAsync()
     {
         return await _context.Set<TEntity>().ToListAsync();
     }

@@ -14,28 +14,6 @@ public class BulletinBoardDbContext : DbContext, IDbContext
     {
     }
 
-    public User? UserExists(User user)
-    {
-        IQueryable<User>? userQuery = from u in Users
-                                      where u.Name == user.Name && u.Password == user.Password
-                                      select u;
-        return userQuery.FirstOrDefault();
-    }
-
-    public async Task<List<Post>> GetAllPostsAsync()
-    {
-        var posts = from p in Posts orderby p.SubmitTime
-                    join u in Users on p.UserId equals u.Id 
-                    select new Post {
-                        Id = p.Id,
-                        SubmitTime = p.SubmitTime,
-                        Text = p.Text,
-                        User = u,
-                    };
-        List<Post> postsList = await posts.ToListAsync();
-        return postsList;
-    }
-
     public bool CreatePost(Post post)
     {
         try
