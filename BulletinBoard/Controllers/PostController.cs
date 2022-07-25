@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using BulletinBoard.Models;
+using BulletinBoard.Models.Entities;
+using BulletinBoard.Models.BusinessLogic;
 using BulletinBoard.Infrasructure;
 using BulletinBoard.Utils;
-using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Controllers;
 
 [ServiceFilter(typeof(AuthorizationAttribute))]
 public class PostController : Controller {
-    private readonly IDbContext _dbContext;
+    private readonly IPostLogic _postLogic;
 
-    public PostController(IDbContext context) {
-        _dbContext = context;
+    public PostController(IPostLogic postLogic) {
+        _postLogic = postLogic;
     }
 
     public async Task<IActionResult> Index(int? id) {
@@ -19,8 +20,12 @@ public class PostController : Controller {
         {
             return NotFound();
         }
-        Post? post = await _dbContext.GetPostAsync(id);
-        List<Reply>? replies = await _dbContext.GetReplies(id);
+        
+        Post? post = await _postLogic.GetPostByIdAsync(id);
+        if (post == null) {
+            return NotFound();
+        }
+        List<Reply>? replies = await _postLogic.GetRepliesByPostIdAsync(id);
         var viewModel = new PostViewModel {
             Post = post,
             Replies = replies,
@@ -50,7 +55,7 @@ public class PostController : Controller {
             Text = NewReply,
         };
 
-        if (!_dbContext.CreateReply(reply)) {
+        if (await _postLogic.AddReplyAsync(reply) < 0) {
             ViewData["Reply"] = "Error creating reply";
             return await Index(id);
         }
@@ -64,7 +69,7 @@ public class PostController : Controller {
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create([Bind("Text")] Post post) {
+    public async Task<IActionResult> Create([Bind("Text")] Post post) {
         post.SubmitTime = DateTime.Now;
         int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
         if (userId == null) {
@@ -72,9 +77,10 @@ public class PostController : Controller {
         }
         
         post.UserId = (int)userId;
-        if (!_dbContext.CreatePost(post)) {
+        if (await _postLogic.AddPostAsync(post) < 0) {
             return View();
         }
+
         return RedirectToAction("Index", "BulletinBoard");
     }
 }
