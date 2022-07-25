@@ -3,6 +3,7 @@ using BulletinBoard.Models;
 using BulletinBoard.Models.Repositories;
 using BulletinBoard.Models.Entities;
 using BulletinBoard.Models.BusinessLogic;
+using BulletinBoard.Utils;
 using BulletinBoard.Utils.Validation;
 using BulletinBoard.Infrasructure;
 
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<BulletinBoardContext>(options =>
 });
 builder.Services.AddScoped<AuthorizationAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
+builder.Services.AddSingleton<IHasher, Hasher>();
 builder.Services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
 builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
 builder.Services.AddScoped<IGenericRepository<Reply>, GenericRepository<Reply>>();
