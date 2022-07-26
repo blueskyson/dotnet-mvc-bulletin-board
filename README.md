@@ -18,6 +18,10 @@ Run the appication:
 > dotnet run
 ```
 
+Sqlite DB Schema:
+
+![](./images/DbSchema.drawio.png)
+
 ## Demo
 
 - Login Page:
