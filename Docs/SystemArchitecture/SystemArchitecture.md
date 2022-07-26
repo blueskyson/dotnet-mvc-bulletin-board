@@ -143,34 +143,28 @@ wwwroot
 
 - RegisterController  
   註冊頁面: 處理註冊流程
-  ![](./images/Register.png)
   + `Index()`: 顯示註冊頁面。
   + `Index([Bind("Name,Password,DisplayName")] User user)`: 接收註冊表單，產生 Salt 與雜湊後的密碼放進 `user`，再將 `user` 存入資料庫。註冊成功後重新導向到登入頁面，並提示註冊成功。
 
 - LoginController  
   登入頁面: 處理登入流程
-  ![](./images/Login.png)
   + `Index()`: 顯示登入頁面。
   + `Index([Bind("Name,Password")] User user)`: 接收登入表單，把 `user` 的 Salt 撈出來，把表單中的密碼與 Salt 雜湊，比對雜湊後的密碼是否正確。登入成功後重新導向到布告欄頁面。
 
 - BulletinBoardController  
   布告欄頁面: 展示所有貼文
-  ![](./images/BulletinBoard.png)
   + `Index()`: 從資料庫撈出所有貼文，展示其內容、發布時間、作者。
 
 - PostController  
   創建貼文頁面: 新增貼文
-  ![](./images/CreatePost.png)
   + `Create()`: 顯示新增貼文頁面。
   + `Create([Bind("Text")] Post post)`: 接收貼文表單，把 `post` 存進資料庫。
   
   查看貼文頁面: 查看貼文、查看回覆、新增回覆
-  ![](./images/Post.png)
   + `Index(int? id)`: 展示編號為 `id` 的貼文以及該貼文的回覆。
   + `Index(int id, string NewReply)`: 接收回覆表單，為編號為 `id` 貼文新增一個內容為 `NewReply` 回覆。
 - UserController
   更改使用者資料
-  ![](./images/User.png)
   + `ChangeDisplayName()`: 顯示更改 `DisplayName` 頁面。
   + `ChangeDisplayName(string DisplayName)`: 接收表單，更改當前使用者的 `DisplayName`。
 
