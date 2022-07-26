@@ -24,7 +24,7 @@ public class UserController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.DisplayName })]
-    public async Task<IActionResult> ChangeDisplayName(string DisplayName)
+    public async Task<IActionResult> ChangeDisplayName(string displayName)
     {
         int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
 
@@ -32,13 +32,13 @@ public class UserController : Controller
         {
             ViewData[ViewDataKeys.DisplayName] = "Session Error. Login again may fix the problem";
         }
-        else if (await UpdateDisplayName(userId, DisplayName) == false)
+        else if (await UpdateDisplayName(userId, displayName) == false)
         {
             ViewData[ViewDataKeys.DisplayName] = "Error changing name";
         }
         else
         {
-            HttpContext.Session.SetString(SessionKeys.DisplayName, DisplayName);
+            HttpContext.Session.SetString(SessionKeys.DisplayName, displayName);
             return RedirectToAction("Index", "BulletinBoard");
         }
 

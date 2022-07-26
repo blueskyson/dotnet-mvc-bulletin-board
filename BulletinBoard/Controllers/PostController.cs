@@ -46,7 +46,7 @@ public class PostController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index(int id, String NewReply)
+    public async Task<IActionResult> Index(int id, string newReply)
     {
         int? userId = HttpContext.Session.GetInt32(SessionKeys.UserId);
 
@@ -56,7 +56,7 @@ public class PostController : Controller
                 PostId = id,
                 UserId = (int)userId!,
                 SubmitTime = DateTime.Now,
-                Text = NewReply,
+                Text = newReply,
             });
         else
             ViewData[ViewDataKeys.Reply] = "Error session. Log in again may fix the problem.";
