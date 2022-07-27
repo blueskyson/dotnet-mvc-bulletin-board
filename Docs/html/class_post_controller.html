@@ -70,6 +70,9 @@ $(function() {
   <div class="headertitle"><div class="title">PostController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Deal with requests for viewing posts and its replies. It also deals with requests for creating new posts.  
+ <a href="class_post_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PostController:</div>
 <div class="dyncontent">
@@ -79,20 +82,20 @@ Inheritance diagram for PostController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab9c825ba08b774bcd0f2aa152c1fe172"><td class="memItemLeft" align="right" valign="top"><a id="ab9c825ba08b774bcd0f2aa152c1fe172" name="ab9c825ba08b774bcd0f2aa152c1fe172"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PostController</b> (<a class="el" href="interface_i_post_logic.html">IPostLogic</a> postLogic)</td></tr>
+<tr class="memitem:ab9c825ba08b774bcd0f2aa152c1fe172"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_controller.html#ab9c825ba08b774bcd0f2aa152c1fe172">PostController</a> (<a class="el" href="interface_i_post_logic.html">IPostLogic</a> postLogic)</td></tr>
+<tr class="memdesc:ab9c825ba08b774bcd0f2aa152c1fe172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject the business logic by DI Container.  <a href="class_post_controller.html#ab9c825ba08b774bcd0f2aa152c1fe172">More...</a><br /></td></tr>
 <tr class="separator:ab9c825ba08b774bcd0f2aa152c1fe172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d9aba8b32b046529498b7ffccea1816"><td class="memItemLeft" align="right" valign="top"><a id="a0d9aba8b32b046529498b7ffccea1816" name="a0d9aba8b32b046529498b7ffccea1816"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> (int? id)</td></tr>
+<tr class="memitem:a0d9aba8b32b046529498b7ffccea1816"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_controller.html#a0d9aba8b32b046529498b7ffccea1816">Index</a> (int? id)</td></tr>
+<tr class="memdesc:a0d9aba8b32b046529498b7ffccea1816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the post of given id and its replies. If there's no such id, redirect to NotFound().  <a href="class_post_controller.html#a0d9aba8b32b046529498b7ffccea1816">More...</a><br /></td></tr>
 <tr class="separator:a0d9aba8b32b046529498b7ffccea1816"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a1d0681cc1cf45a32d3d5ccfb8d2c57"><td class="memItemLeft" align="right" valign="top"><a id="a7a1d0681cc1cf45a32d3d5ccfb8d2c57" name="a7a1d0681cc1cf45a32d3d5ccfb8d2c57"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> (int id, string newReply)</td></tr>
+<tr class="memitem:a7a1d0681cc1cf45a32d3d5ccfb8d2c57"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_controller.html#a7a1d0681cc1cf45a32d3d5ccfb8d2c57">Index</a> (int id, string newReply)</td></tr>
+<tr class="memdesc:a7a1d0681cc1cf45a32d3d5ccfb8d2c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive reply form and save the reply to database.  <a href="class_post_controller.html#a7a1d0681cc1cf45a32d3d5ccfb8d2c57">More...</a><br /></td></tr>
 <tr class="separator:a7a1d0681cc1cf45a32d3d5ccfb8d2c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15ee2216cc6b5a150a38a4a0631945f9"><td class="memItemLeft" align="right" valign="top"><a id="a15ee2216cc6b5a150a38a4a0631945f9" name="a15ee2216cc6b5a150a38a4a0631945f9"></a>
-IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
+<tr class="memitem:a15ee2216cc6b5a150a38a4a0631945f9"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_controller.html#a15ee2216cc6b5a150a38a4a0631945f9">Create</a> ()</td></tr>
+<tr class="memdesc:a15ee2216cc6b5a150a38a4a0631945f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show create post page.  <a href="class_post_controller.html#a15ee2216cc6b5a150a38a4a0631945f9">More...</a><br /></td></tr>
 <tr class="separator:a15ee2216cc6b5a150a38a4a0631945f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d8682a8eba7f54ab48bb83767d77002"><td class="memItemLeft" align="right" valign="top"><a id="a3d8682a8eba7f54ab48bb83767d77002" name="a3d8682a8eba7f54ab48bb83767d77002"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ([Bind(&quot;Text&quot;)] Post post)</td></tr>
+<tr class="memitem:a3d8682a8eba7f54ab48bb83767d77002"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_controller.html#a3d8682a8eba7f54ab48bb83767d77002">Create</a> ([Bind(&quot;Text&quot;)] Post post)</td></tr>
+<tr class="memdesc:a3d8682a8eba7f54ab48bb83767d77002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive create-post form and validate Name and Password of a <a class="el" href="class_user.html">User</a>.  <a href="class_post_controller.html#a3d8682a8eba7f54ab48bb83767d77002">More...</a><br /></td></tr>
 <tr class="separator:a3d8682a8eba7f54ab48bb83767d77002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -116,6 +119,148 @@ Private Attributes</h2></td></tr>
 readonly <a class="el" href="interface_i_post_logic.html">IPostLogic</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_postLogic</b></td></tr>
 <tr class="separator:ab4f5875787341a1868c42092556f1c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Deal with requests for viewing posts and its replies. It also deals with requests for creating new posts. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab9c825ba08b774bcd0f2aa152c1fe172" name="ab9c825ba08b774bcd0f2aa152c1fe172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c825ba08b774bcd0f2aa152c1fe172">&#9670;&nbsp;</a></span>PostController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PostController.PostController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_post_logic.html">IPostLogic</a>&#160;</td>
+          <td class="paramname"><em>postLogic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject the business logic by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">postLogic</td><td>The business logic of <a class="el" href="class_post_controller.html" title="Deal with requests for viewing posts and its replies. It also deals with requests for creating new po...">PostController</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a15ee2216cc6b5a150a38a4a0631945f9" name="a15ee2216cc6b5a150a38a4a0631945f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15ee2216cc6b5a150a38a4a0631945f9">&#9670;&nbsp;</a></span>Create() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IActionResult PostController.Create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show create post page. </p>
+<dl class="section return"><dt>Returns</dt><dd>The view for creating a post.</dd></dl>
+
+</div>
+</div>
+<a id="a3d8682a8eba7f54ab48bb83767d77002" name="a3d8682a8eba7f54ab48bb83767d77002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8682a8eba7f54ab48bb83767d77002">&#9670;&nbsp;</a></span>Create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PostController.Create </td>
+          <td>(</td>
+          <td class="paramtype">[Bind(&quot;Text&quot;)] <a class="el" href="class_post.html">Post</a>&#160;</td>
+          <td class="paramname"><em>post</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive create-post form and validate Name and Password of a <a class="el" href="class_user.html">User</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">post</td><td>A <a class="el" href="class_post.html">Post</a> entity containing Text.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the post is saved to database successfully, redirect to <a class="el" href="class_bulletin_board_controller.html#abfe39187ce036be48d965fa5835cd364" title="Show all posts on the BulletinBoard page, which can be seen as the main page of this application.">BulletinBoardController.Index()</a>.</dd></dl>
+
+</div>
+</div>
+<a id="a7a1d0681cc1cf45a32d3d5ccfb8d2c57" name="a7a1d0681cc1cf45a32d3d5ccfb8d2c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a1d0681cc1cf45a32d3d5ccfb8d2c57">&#9670;&nbsp;</a></span>Index() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PostController.Index </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>newReply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive reply form and save the reply to database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id of the <a class="el" href="class_post.html">Post</a> that a user replies to.</td></tr>
+    <tr><td class="paramname">newReply</td><td>Text of the <a class="el" href="class_reply.html">Reply</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The view of post and replies.</dd></dl>
+
+</div>
+</div>
+<a id="a0d9aba8b32b046529498b7ffccea1816" name="a0d9aba8b32b046529498b7ffccea1816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9aba8b32b046529498b7ffccea1816">&#9670;&nbsp;</a></span>Index() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PostController.Index </td>
+          <td>(</td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show the post of given id and its replies. If there's no such id, redirect to NotFound(). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The Id of a <a class="el" href="class_post.html">Post</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The view of the post and replies.</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Controllers/PostController.cs</li>
 </ul>

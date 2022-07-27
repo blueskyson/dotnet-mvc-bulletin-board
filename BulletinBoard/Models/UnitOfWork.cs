@@ -4,6 +4,9 @@ using BulletinBoard.Models.Repositories;
 
 namespace BulletinBoard.Models;
 
+/// <summary>
+/// Unit of work implementation.
+/// </summary>
 public class UnitOfWork : IUnitOfWork
 {
     public IGenericRepository<User> UserRepository { get; private set; }
@@ -11,6 +14,13 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<Reply> ReplyRepository { get; private set; }
     public DbContext Context { get; private set; }
 
+    /// <summary>
+    /// Inject all repositories by DI Container.
+    /// </summary>
+    /// <param name="context"></param>
+    /// <param name="userRepository"></param>
+    /// <param name="postRepository"></param>
+    /// <param name="replyRepository"></param>
     public UnitOfWork(
         DbContext context,
         IGenericRepository<User> userRepository,
@@ -23,6 +33,10 @@ public class UnitOfWork : IUnitOfWork
         ReplyRepository = replyRepository;
     }
 
+    /// <summary>
+    /// Write all changed entities to database.
+    /// </summary>
+    /// <returns>The number of changed states that written to database.</returns>
     public async Task<int> SaveChangeAsync()
     {
         return await Context.SaveChangesAsync();

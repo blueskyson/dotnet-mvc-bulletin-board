@@ -6,20 +6,37 @@ using BulletinBoard.Models.Entities;
 
 namespace BulletinBoard.Controllers;
 
+/// <summary>
+/// Deal with requests for login.
+/// </summary>
 public class LoginController : Controller
 {
     private readonly ILoginLogic _loginLogic;
 
+    /// <summary>
+    /// Inject the business logic by DI Container.
+    /// </summary>
+    /// <param name="loginLogic">The business logic of LoginController.</param>
     public LoginController(ILoginLogic loginLogic)
     {
         _loginLogic = loginLogic;
     }
 
+    /// <summary>
+    /// Show Login page.
+    /// </summary>
+    /// <returns>The view of login page.</returns>
     public IActionResult Index()
     {
         return View();
     }
 
+    /// <summary>
+    /// Receive login form and validate Name and Password of a User. 
+    /// If login success, redirect to <see cref="BulletinBoardController.Index()"/>.
+    /// </summary>
+    /// <param name="user">A User entity containing Name and Password.</param>
+    /// <returns></returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.Name })]

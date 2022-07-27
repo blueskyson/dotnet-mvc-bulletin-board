@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['post_0',['Post',['../class_post.html',1,'']]],
-  ['postcontroller_1',['PostController',['../class_post_controller.html',1,'']]],
-  ['postlogic_2',['PostLogic',['../class_post_logic.html',1,'']]],
-  ['postviewmodel_3',['PostViewModel',['../class_post_view_model.html',1,'']]]
+  ['logincontroller_0',['LoginController',['../class_login_controller.html',1,'LoginController'],['../class_login_controller.html#a484a76d394a3c4321bfae36cbe7d3a12',1,'LoginController.LoginController()']]],
+  ['loginlogic_1',['LoginLogic',['../class_login_logic.html',1,'']]]
 ];

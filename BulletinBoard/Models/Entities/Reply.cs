@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BulletinBoard.Models.Entities;
 
+/// <summary>
+/// Reply Entity.
+/// The UserId and PostId are foreign keys. The User and Post are navigation properties.
+/// </summary>
 public class Reply
 {
     public int Id { get; set; }

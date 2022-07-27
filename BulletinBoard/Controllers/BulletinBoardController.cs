@@ -6,7 +6,8 @@ using BulletinBoard.Models.Entities;
 namespace BulletinBoard.Controllers;
 
 /// <summary>
-/// A bulletin board that shows all posts.
+/// Deal with requests for viewing posts.
+/// This can be seen as the controller of the main page.
 /// </summary>
 [ServiceFilter(typeof(AuthorizationAttribute))]
 public class BulletinBoardController : Controller
@@ -23,7 +24,7 @@ public class BulletinBoardController : Controller
     }
 
     /// <summary>
-    /// Show all posts on the BulletinBoard, which can be seen as the main page of this application.
+    /// Show all posts on the BulletinBoard page, which can be seen as the main page of this application.
     /// </summary>
     /// <returns>The view of BulletinBoard.</returns>
     public async Task<IActionResult> Index()

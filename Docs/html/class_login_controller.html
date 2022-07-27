@@ -70,6 +70,9 @@ $(function() {
   <div class="headertitle"><div class="title">LoginController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Deal with requests for login.  
+ <a href="class_login_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for LoginController:</div>
 <div class="dyncontent">
@@ -79,14 +82,14 @@ Inheritance diagram for LoginController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a484a76d394a3c4321bfae36cbe7d3a12"><td class="memItemLeft" align="right" valign="top"><a id="a484a76d394a3c4321bfae36cbe7d3a12" name="a484a76d394a3c4321bfae36cbe7d3a12"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LoginController</b> (<a class="el" href="interface_i_login_logic.html">ILoginLogic</a> loginLogic)</td></tr>
+<tr class="memitem:a484a76d394a3c4321bfae36cbe7d3a12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_login_controller.html#a484a76d394a3c4321bfae36cbe7d3a12">LoginController</a> (<a class="el" href="interface_i_login_logic.html">ILoginLogic</a> loginLogic)</td></tr>
+<tr class="memdesc:a484a76d394a3c4321bfae36cbe7d3a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject the business logic by DI Container.  <a href="class_login_controller.html#a484a76d394a3c4321bfae36cbe7d3a12">More...</a><br /></td></tr>
 <tr class="separator:a484a76d394a3c4321bfae36cbe7d3a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3710c24cf31bf27b000e79487783ccf"><td class="memItemLeft" align="right" valign="top"><a id="ae3710c24cf31bf27b000e79487783ccf" name="ae3710c24cf31bf27b000e79487783ccf"></a>
-IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> ()</td></tr>
+<tr class="memitem:ae3710c24cf31bf27b000e79487783ccf"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_login_controller.html#ae3710c24cf31bf27b000e79487783ccf">Index</a> ()</td></tr>
+<tr class="memdesc:ae3710c24cf31bf27b000e79487783ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show Login page.  <a href="class_login_controller.html#ae3710c24cf31bf27b000e79487783ccf">More...</a><br /></td></tr>
 <tr class="separator:ae3710c24cf31bf27b000e79487783ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10b409fda59d8c180d7a6c5171ee789a"><td class="memItemLeft" align="right" valign="top"><a id="a10b409fda59d8c180d7a6c5171ee789a" name="a10b409fda59d8c180d7a6c5171ee789a"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> ([Bind(&quot;Name,Password&quot;)] User user)</td></tr>
+<tr class="memitem:a10b409fda59d8c180d7a6c5171ee789a"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_login_controller.html#a10b409fda59d8c180d7a6c5171ee789a">Index</a> ([Bind(&quot;Name,Password&quot;)] User user)</td></tr>
+<tr class="memdesc:a10b409fda59d8c180d7a6c5171ee789a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive login form and validate Name and Password of a <a class="el" href="class_user.html">User</a>. If login success, redirect to <a class="el" href="class_bulletin_board_controller.html#abfe39187ce036be48d965fa5835cd364" title="Show all posts on the BulletinBoard page, which can be seen as the main page of this application.">BulletinBoardController.Index()</a>.  <a href="class_login_controller.html#a10b409fda59d8c180d7a6c5171ee789a">More...</a><br /></td></tr>
 <tr class="separator:a10b409fda59d8c180d7a6c5171ee789a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -101,6 +104,83 @@ Private Attributes</h2></td></tr>
 readonly <a class="el" href="interface_i_login_logic.html">ILoginLogic</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_loginLogic</b></td></tr>
 <tr class="separator:a6cd68a18277e38f843ce52652f72e434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Deal with requests for login. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a484a76d394a3c4321bfae36cbe7d3a12" name="a484a76d394a3c4321bfae36cbe7d3a12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484a76d394a3c4321bfae36cbe7d3a12">&#9670;&nbsp;</a></span>LoginController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LoginController.LoginController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_login_logic.html">ILoginLogic</a>&#160;</td>
+          <td class="paramname"><em>loginLogic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject the business logic by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loginLogic</td><td>The business logic of <a class="el" href="class_login_controller.html" title="Deal with requests for login.">LoginController</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae3710c24cf31bf27b000e79487783ccf" name="ae3710c24cf31bf27b000e79487783ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3710c24cf31bf27b000e79487783ccf">&#9670;&nbsp;</a></span>Index() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IActionResult LoginController.Index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show Login page. </p>
+<dl class="section return"><dt>Returns</dt><dd>The view of login page.</dd></dl>
+
+</div>
+</div>
+<a id="a10b409fda59d8c180d7a6c5171ee789a" name="a10b409fda59d8c180d7a6c5171ee789a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10b409fda59d8c180d7a6c5171ee789a">&#9670;&nbsp;</a></span>Index() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; LoginController.Index </td>
+          <td>(</td>
+          <td class="paramtype">[Bind(&quot;Name,Password&quot;)] <a class="el" href="class_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive login form and validate Name and Password of a <a class="el" href="class_user.html">User</a>. If login success, redirect to <a class="el" href="class_bulletin_board_controller.html#abfe39187ce036be48d965fa5835cd364" title="Show all posts on the BulletinBoard page, which can be seen as the main page of this application.">BulletinBoardController.Index()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>A <a class="el" href="class_user.html">User</a> entity containing Name and Password.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Controllers/LoginController.cs</li>
 </ul>

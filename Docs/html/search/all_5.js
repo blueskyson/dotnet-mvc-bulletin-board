@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hasher_0',['Hasher',['../class_hasher.html',1,'']]]
+  ['genericrepository_0',['GenericRepository',['../class_generic_repository.html',1,'']]]
 ];
