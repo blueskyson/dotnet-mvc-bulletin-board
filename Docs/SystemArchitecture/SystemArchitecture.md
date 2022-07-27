@@ -124,6 +124,10 @@ wwwroot
 
 ## 系統架構
 
+### DB Schema
+
+![](./images/DbSchema.png)
+
 ### Class Diagram
 
 - 藍色標題的方塊代表**介面**

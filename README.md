@@ -20,7 +20,7 @@ Run the appication:
 
 Sqlite DB Schema:
 
-![](./images/DbSchema.drawio.png)
+![](./images/DbSchema.png)
 
 ## Demo
 
