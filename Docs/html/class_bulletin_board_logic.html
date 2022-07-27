@@ -69,25 +69,29 @@ $(function() {
   <div class="headertitle"><div class="title">BulletinBoardLogic Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic implementation of <a class="el" href="class_bulletin_board_controller.html" title="Deal with requests for viewing posts. This can be seen as the controller of the main page.">BulletinBoardController</a>.  
+ <a href="class_bulletin_board_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for BulletinBoardLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_bulletin_board_logic.png" usemap="#BulletinBoardLogic_map" alt=""/>
   <map id="BulletinBoardLogic_map" name="BulletinBoardLogic_map">
-<area href="interface_i_bulletin_board_logic.html" alt="IBulletinBoardLogic" shape="rect" coords="0,0,121,24"/>
+<area href="interface_i_bulletin_board_logic.html" title="Business logic of BulletinBoardController." alt="IBulletinBoardLogic" shape="rect" coords="0,0,121,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4abf1f4d875002e9ecfb9ac8fc27cd68"><td class="memItemLeft" align="right" valign="top"><a id="a4abf1f4d875002e9ecfb9ac8fc27cd68" name="a4abf1f4d875002e9ecfb9ac8fc27cd68"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BulletinBoardLogic</b> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork)</td></tr>
+<tr class="memitem:a4abf1f4d875002e9ecfb9ac8fc27cd68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bulletin_board_logic.html#a4abf1f4d875002e9ecfb9ac8fc27cd68">BulletinBoardLogic</a> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork)</td></tr>
+<tr class="memdesc:a4abf1f4d875002e9ecfb9ac8fc27cd68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject Unit of Work by DI Container.  <a href="class_bulletin_board_logic.html#a4abf1f4d875002e9ecfb9ac8fc27cd68">More...</a><br /></td></tr>
 <tr class="separator:a4abf1f4d875002e9ecfb9ac8fc27cd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae84c83716623c73e32f79e23a5a5cbde"><td class="memItemLeft" align="right" valign="top">async Task&lt; List&lt; <a class="el" href="class_post.html">Post</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bulletin_board_logic.html#ae84c83716623c73e32f79e23a5a5cbde">GetAllPostsAsync</a> ()</td></tr>
+<tr class="memdesc:ae84c83716623c73e32f79e23a5a5cbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all posts. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined.  <a href="class_bulletin_board_logic.html#ae84c83716623c73e32f79e23a5a5cbde">More...</a><br /></td></tr>
 <tr class="separator:ae84c83716623c73e32f79e23a5a5cbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a077ff0c947605e69ba0eb924dd6afb2f"><td class="memItemLeft" align="right" valign="top"><a id="a077ff0c947605e69ba0eb924dd6afb2f" name="a077ff0c947605e69ba0eb924dd6afb2f"></a>
-Task&lt; List&lt; <a class="el" href="class_post.html">Post</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetAllPostsAsync</b> ()</td></tr>
+<tr class="memitem:a077ff0c947605e69ba0eb924dd6afb2f"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_post.html">Post</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_bulletin_board_logic.html#a077ff0c947605e69ba0eb924dd6afb2f">GetAllPostsAsync</a> ()</td></tr>
+<tr class="memdesc:a077ff0c947605e69ba0eb924dd6afb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all posts. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined.  <a href="interface_i_bulletin_board_logic.html#a077ff0c947605e69ba0eb924dd6afb2f">More...</a><br /></td></tr>
 <tr class="separator:a077ff0c947605e69ba0eb924dd6afb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -96,6 +100,35 @@ Private Attributes</h2></td></tr>
 <a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_unitOfWork</b></td></tr>
 <tr class="separator:abb60f9303d07db395f2373a9b493f0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic implementation of <a class="el" href="class_bulletin_board_controller.html" title="Deal with requests for viewing posts. This can be seen as the controller of the main page.">BulletinBoardController</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4abf1f4d875002e9ecfb9ac8fc27cd68" name="a4abf1f4d875002e9ecfb9ac8fc27cd68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4abf1f4d875002e9ecfb9ac8fc27cd68">&#9670;&nbsp;</a></span>BulletinBoardLogic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BulletinBoardLogic.BulletinBoardLogic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td>
+          <td class="paramname"><em>unitOfWork</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject Unit of Work by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unitOfWork</td><td>Access repositories.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae84c83716623c73e32f79e23a5a5cbde" name="ae84c83716623c73e32f79e23a5a5cbde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae84c83716623c73e32f79e23a5a5cbde">&#9670;&nbsp;</a></span>GetAllPostsAsync()</h2>
@@ -112,7 +145,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_bulletin_board_logic.html">IBulletinBoardLogic</a>.</p>
+<p>Get all posts. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined. </p>
+<dl class="section return"><dt>Returns</dt><dd>A List of all posts.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_bulletin_board_logic.html#a077ff0c947605e69ba0eb924dd6afb2f">IBulletinBoardLogic</a>.</p>
 
 </div>
 </div>

@@ -68,25 +68,89 @@ $(function() {
   <div class="headertitle"><div class="title">IRegisterLogic Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic of <a class="el" href="class_register_controller.html" title="Deal with requests for registeration.">RegisterController</a>.  
+ <a href="interface_i_register_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for IRegisterLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_i_register_logic.png" usemap="#IRegisterLogic_map" alt=""/>
   <map id="IRegisterLogic_map" name="IRegisterLogic_map">
-<area href="class_register_logic.html" alt="RegisterLogic" shape="rect" coords="0,56,92,80"/>
+<area href="class_register_logic.html" title="Business logic implementation of RegisterController." alt="RegisterLogic" shape="rect" coords="0,56,92,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aef30681bfe1cef87ed6f6f3dd10260a3"><td class="memItemLeft" align="right" valign="top"><a id="aef30681bfe1cef87ed6f6f3dd10260a3" name="aef30681bfe1cef87ed6f6f3dd10260a3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>UserNameExists</b> (string name)</td></tr>
+<tr class="memitem:aef30681bfe1cef87ed6f6f3dd10260a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_register_logic.html#aef30681bfe1cef87ed6f6f3dd10260a3">UserNameExists</a> (string name)</td></tr>
+<tr class="memdesc:aef30681bfe1cef87ed6f6f3dd10260a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a user with given Name already exists in database.  <a href="interface_i_register_logic.html#aef30681bfe1cef87ed6f6f3dd10260a3">More...</a><br /></td></tr>
 <tr class="separator:aef30681bfe1cef87ed6f6f3dd10260a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab58cf6b675de0c40aa0f30e31e965b5a"><td class="memItemLeft" align="right" valign="top"><a id="ab58cf6b675de0c40aa0f30e31e965b5a" name="ab58cf6b675de0c40aa0f30e31e965b5a"></a>
-Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>AddUserAsync</b> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memitem:ab58cf6b675de0c40aa0f30e31e965b5a"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_register_logic.html#ab58cf6b675de0c40aa0f30e31e965b5a">AddUserAsync</a> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memdesc:ab58cf6b675de0c40aa0f30e31e965b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a user to database.  <a href="interface_i_register_logic.html#ab58cf6b675de0c40aa0f30e31e965b5a">More...</a><br /></td></tr>
 <tr class="separator:ab58cf6b675de0c40aa0f30e31e965b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic of <a class="el" href="class_register_controller.html" title="Deal with requests for registeration.">RegisterController</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab58cf6b675de0c40aa0f30e31e965b5a" name="ab58cf6b675de0c40aa0f30e31e965b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58cf6b675de0c40aa0f30e31e965b5a">&#9670;&nbsp;</a></span>AddUserAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; int &gt; IRegisterLogic.AddUserAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save a user to database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If save successfully, return &gt;= 0. Otherwise return -1.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_register_logic.html#ae7559f645a0a5c3a338c203e951e2b22">RegisterLogic</a>.</p>
+
+</div>
+</div>
+<a id="aef30681bfe1cef87ed6f6f3dd10260a3" name="aef30681bfe1cef87ed6f6f3dd10260a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef30681bfe1cef87ed6f6f3dd10260a3">&#9670;&nbsp;</a></span>UserNameExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IRegisterLogic.UserNameExists </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a user with given Name already exists in database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>if user exists, reuturn true. Otherwise, return false.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_register_logic.html#a7ac4b7b5da17ac3b3f9edbaaf29b280f">RegisterLogic</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Models/BusinessLogic/IRegisterLogic.cs</li>
 </ul>

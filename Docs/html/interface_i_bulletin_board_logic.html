@@ -68,22 +68,50 @@ $(function() {
   <div class="headertitle"><div class="title">IBulletinBoardLogic Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic of <a class="el" href="class_bulletin_board_controller.html" title="Deal with requests for viewing posts. This can be seen as the controller of the main page.">BulletinBoardController</a>.  
+ <a href="interface_i_bulletin_board_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for IBulletinBoardLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_i_bulletin_board_logic.png" usemap="#IBulletinBoardLogic_map" alt=""/>
   <map id="IBulletinBoardLogic_map" name="IBulletinBoardLogic_map">
-<area href="class_bulletin_board_logic.html" alt="BulletinBoardLogic" shape="rect" coords="0,56,121,80"/>
+<area href="class_bulletin_board_logic.html" title="Business logic implementation of BulletinBoardController." alt="BulletinBoardLogic" shape="rect" coords="0,56,121,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a077ff0c947605e69ba0eb924dd6afb2f"><td class="memItemLeft" align="right" valign="top"><a id="a077ff0c947605e69ba0eb924dd6afb2f" name="a077ff0c947605e69ba0eb924dd6afb2f"></a>
-Task&lt; List&lt; <a class="el" href="class_post.html">Post</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetAllPostsAsync</b> ()</td></tr>
+<tr class="memitem:a077ff0c947605e69ba0eb924dd6afb2f"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_post.html">Post</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_bulletin_board_logic.html#a077ff0c947605e69ba0eb924dd6afb2f">GetAllPostsAsync</a> ()</td></tr>
+<tr class="memdesc:a077ff0c947605e69ba0eb924dd6afb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all posts. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined.  <a href="interface_i_bulletin_board_logic.html#a077ff0c947605e69ba0eb924dd6afb2f">More...</a><br /></td></tr>
 <tr class="separator:a077ff0c947605e69ba0eb924dd6afb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic of <a class="el" href="class_bulletin_board_controller.html" title="Deal with requests for viewing posts. This can be seen as the controller of the main page.">BulletinBoardController</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a077ff0c947605e69ba0eb924dd6afb2f" name="a077ff0c947605e69ba0eb924dd6afb2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a077ff0c947605e69ba0eb924dd6afb2f">&#9670;&nbsp;</a></span>GetAllPostsAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; List&lt; <a class="el" href="class_post.html">Post</a> &gt; &gt; IBulletinBoardLogic.GetAllPostsAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all posts. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined. </p>
+<dl class="section return"><dt>Returns</dt><dd>A List of all posts.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_bulletin_board_logic.html#ae84c83716623c73e32f79e23a5a5cbde">BulletinBoardLogic</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Models/BusinessLogic/IBulletinBoardLogic.cs</li>
 </ul>

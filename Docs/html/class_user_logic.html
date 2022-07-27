@@ -69,30 +69,35 @@ $(function() {
   <div class="headertitle"><div class="title">UserLogic Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic implementation of <a class="el" href="class_user_controller.html" title="Deal with requests for changing user&#39;s information.">UserController</a>.  
+ <a href="class_user_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for UserLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_user_logic.png" usemap="#UserLogic_map" alt=""/>
   <map id="UserLogic_map" name="UserLogic_map">
-<area href="interface_i_user_logic.html" alt="IUserLogic" shape="rect" coords="0,0,72,24"/>
+<area href="interface_i_user_logic.html" title="Business logic of UserController." alt="IUserLogic" shape="rect" coords="0,0,72,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a924bb9392840dd6318f24206eccc41b8"><td class="memItemLeft" align="right" valign="top"><a id="a924bb9392840dd6318f24206eccc41b8" name="a924bb9392840dd6318f24206eccc41b8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UserLogic</b> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork)</td></tr>
+<tr class="memitem:a924bb9392840dd6318f24206eccc41b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_logic.html#a924bb9392840dd6318f24206eccc41b8">UserLogic</a> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork)</td></tr>
+<tr class="memdesc:a924bb9392840dd6318f24206eccc41b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject Unit of Work and <a class="el" href="class_hasher.html" title="Hash password.">Hasher</a> by DI Container.  <a href="class_user_logic.html#a924bb9392840dd6318f24206eccc41b8">More...</a><br /></td></tr>
 <tr class="separator:a924bb9392840dd6318f24206eccc41b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed6602053023c2f9206a9a3b796144e8"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_logic.html#aed6602053023c2f9206a9a3b796144e8">GetUserByIdAsync</a> (int id)</td></tr>
+<tr class="memdesc:aed6602053023c2f9206a9a3b796144e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a user with given Id already exists in database.  <a href="class_user_logic.html#aed6602053023c2f9206a9a3b796144e8">More...</a><br /></td></tr>
 <tr class="separator:aed6602053023c2f9206a9a3b796144e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a939572678e40a55acb6deea0ad543c8f"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_logic.html#a939572678e40a55acb6deea0ad543c8f">UpdateUserAsync</a> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a939572678e40a55acb6deea0ad543c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the user in the database.  <a href="class_user_logic.html#a939572678e40a55acb6deea0ad543c8f">More...</a><br /></td></tr>
 <tr class="separator:a939572678e40a55acb6deea0ad543c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5282b3cd15bcb21d4791a7f2b029a9e"><td class="memItemLeft" align="right" valign="top"><a id="aa5282b3cd15bcb21d4791a7f2b029a9e" name="aa5282b3cd15bcb21d4791a7f2b029a9e"></a>
-Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetUserByIdAsync</b> (int id)</td></tr>
+<tr class="memitem:aa5282b3cd15bcb21d4791a7f2b029a9e"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_user_logic.html#aa5282b3cd15bcb21d4791a7f2b029a9e">GetUserByIdAsync</a> (int id)</td></tr>
+<tr class="memdesc:aa5282b3cd15bcb21d4791a7f2b029a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a user with given Id already exists in database.  <a href="interface_i_user_logic.html#aa5282b3cd15bcb21d4791a7f2b029a9e">More...</a><br /></td></tr>
 <tr class="separator:aa5282b3cd15bcb21d4791a7f2b029a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5433b9bec50c45c5561a7e59c3683eb"><td class="memItemLeft" align="right" valign="top"><a id="ab5433b9bec50c45c5561a7e59c3683eb" name="ab5433b9bec50c45c5561a7e59c3683eb"></a>
-Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateUserAsync</b> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memitem:ab5433b9bec50c45c5561a7e59c3683eb"><td class="memItemLeft" align="right" valign="top">Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_user_logic.html#ab5433b9bec50c45c5561a7e59c3683eb">UpdateUserAsync</a> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memdesc:ab5433b9bec50c45c5561a7e59c3683eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the user in the database.  <a href="interface_i_user_logic.html#ab5433b9bec50c45c5561a7e59c3683eb">More...</a><br /></td></tr>
 <tr class="separator:ab5433b9bec50c45c5561a7e59c3683eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -101,6 +106,35 @@ Private Attributes</h2></td></tr>
 <a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_unitOfWork</b></td></tr>
 <tr class="separator:a83cf606294769bf458890afbceb0b1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic implementation of <a class="el" href="class_user_controller.html" title="Deal with requests for changing user&#39;s information.">UserController</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a924bb9392840dd6318f24206eccc41b8" name="a924bb9392840dd6318f24206eccc41b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924bb9392840dd6318f24206eccc41b8">&#9670;&nbsp;</a></span>UserLogic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UserLogic.UserLogic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td>
+          <td class="paramname"><em>unitOfWork</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject Unit of Work and <a class="el" href="class_hasher.html" title="Hash password.">Hasher</a> by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unitOfWork</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aed6602053023c2f9206a9a3b796144e8" name="aed6602053023c2f9206a9a3b796144e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed6602053023c2f9206a9a3b796144e8">&#9670;&nbsp;</a></span>GetUserByIdAsync()</h2>
@@ -118,7 +152,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_user_logic.html">IUserLogic</a>.</p>
+<p>Check if a user with given Id already exists in database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>if user exists, reuturn the <a class="el" href="class_user.html" title="User Entity.">User</a> entity. Otherwise, return null.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_user_logic.html#aa5282b3cd15bcb21d4791a7f2b029a9e">IUserLogic</a>.</p>
 
 </div>
 </div>
@@ -138,7 +181,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_user_logic.html">IUserLogic</a>.</p>
+<p>Update the user in the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return true if update successfully. Otherwise, return false.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_user_logic.html#ab5433b9bec50c45c5561a7e59c3683eb">IUserLogic</a>.</p>
 
 </div>
 </div>

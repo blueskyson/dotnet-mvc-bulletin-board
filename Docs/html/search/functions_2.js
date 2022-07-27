@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['index_0',['Index',['../class_bulletin_board_controller.html#abfe39187ce036be48d965fa5835cd364',1,'BulletinBoardController.Index()'],['../class_login_controller.html#ae3710c24cf31bf27b000e79487783ccf',1,'LoginController.Index()'],['../class_login_controller.html#a10b409fda59d8c180d7a6c5171ee789a',1,'LoginController.Index([Bind(&quot;Name,Password&quot;)] User user)'],['../class_post_controller.html#a0d9aba8b32b046529498b7ffccea1816',1,'PostController.Index(int? id)'],['../class_post_controller.html#a7a1d0681cc1cf45a32d3d5ccfb8d2c57',1,'PostController.Index(int id, string newReply)']]]
+  ['changedisplayname_0',['ChangeDisplayName',['../class_user_controller.html#afd5a831ed6177c8b74f1e8a385df6a1a',1,'UserController.ChangeDisplayName()'],['../class_user_controller.html#a41f40c074be86809a90f3962446fcca5',1,'UserController.ChangeDisplayName(string displayName)']]],
+  ['create_1',['Create',['../class_post_controller.html#a15ee2216cc6b5a150a38a4a0631945f9',1,'PostController.Create()'],['../class_post_controller.html#a3d8682a8eba7f54ab48bb83767d77002',1,'PostController.Create([Bind(&quot;Text&quot;)] Post post)']]]
 ];

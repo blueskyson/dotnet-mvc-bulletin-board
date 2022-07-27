@@ -69,28 +69,32 @@ $(function() {
   <div class="headertitle"><div class="title">UnitOfWork Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Unit of work implementation.  
+ <a href="class_unit_of_work.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for UnitOfWork:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_unit_of_work.png" usemap="#UnitOfWork_map" alt=""/>
   <map id="UnitOfWork_map" name="UnitOfWork_map">
-<area href="interface_i_unit_of_work.html" alt="IUnitOfWork" shape="rect" coords="0,56,79,80"/>
+<area href="interface_i_unit_of_work.html" title="Unit of work interface." alt="IUnitOfWork" shape="rect" coords="0,56,79,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af623adf446ea066f7ba105fb12ffd1b6"><td class="memItemLeft" align="right" valign="top"><a id="af623adf446ea066f7ba105fb12ffd1b6" name="af623adf446ea066f7ba105fb12ffd1b6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UnitOfWork</b> (DbContext context, <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_user.html">User</a> &gt; userRepository, <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_post.html">Post</a> &gt; postRepository, <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_reply.html">Reply</a> &gt; replyRepository)</td></tr>
+<tr class="memitem:af623adf446ea066f7ba105fb12ffd1b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_of_work.html#af623adf446ea066f7ba105fb12ffd1b6">UnitOfWork</a> (DbContext context, <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_user.html">User</a> &gt; userRepository, <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_post.html">Post</a> &gt; postRepository, <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_reply.html">Reply</a> &gt; replyRepository)</td></tr>
+<tr class="memdesc:af623adf446ea066f7ba105fb12ffd1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject all repositories by DI Container.  <a href="class_unit_of_work.html#af623adf446ea066f7ba105fb12ffd1b6">More...</a><br /></td></tr>
 <tr class="separator:af623adf446ea066f7ba105fb12ffd1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad816608f545476456374f2947cd0b63"><td class="memItemLeft" align="right" valign="top">async Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_of_work.html#aad816608f545476456374f2947cd0b63">SaveChangeAsync</a> ()</td></tr>
+<tr class="memdesc:aad816608f545476456374f2947cd0b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write all changed entities to database.  <a href="class_unit_of_work.html#aad816608f545476456374f2947cd0b63">More...</a><br /></td></tr>
 <tr class="separator:aad816608f545476456374f2947cd0b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afde4e711680e540ef456c65121f9530c"><td class="memItemLeft" align="right" valign="top"><a id="afde4e711680e540ef456c65121f9530c" name="afde4e711680e540ef456c65121f9530c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Dispose</b> ()</td></tr>
 <tr class="separator:afde4e711680e540ef456c65121f9530c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="memItemLeft" align="right" valign="top"><a id="a4ed52938a9b451eb3f67c8c2dd36f3a5" name="a4ed52938a9b451eb3f67c8c2dd36f3a5"></a>
-Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SaveChangeAsync</b> ()</td></tr>
+<tr class="memitem:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_unit_of_work.html#a4ed52938a9b451eb3f67c8c2dd36f3a5">SaveChangeAsync</a> ()</td></tr>
+<tr class="memdesc:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write all changed entities to database.  <a href="interface_i_unit_of_work.html#a4ed52938a9b451eb3f67c8c2dd36f3a5">More...</a><br /></td></tr>
 <tr class="separator:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
@@ -117,6 +121,60 @@ Properties</h2></td></tr>
 DbContext&#160;</td><td class="memItemRight" valign="bottom"><b>Context</b><code> [get]</code></td></tr>
 <tr class="separator:a22f6f464009ef1304657a63bb0636c5f inherit properties_interface_i_unit_of_work"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Unit of work implementation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af623adf446ea066f7ba105fb12ffd1b6" name="af623adf446ea066f7ba105fb12ffd1b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af623adf446ea066f7ba105fb12ffd1b6">&#9670;&nbsp;</a></span>UnitOfWork()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnitOfWork.UnitOfWork </td>
+          <td>(</td>
+          <td class="paramtype">DbContext&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_user.html">User</a> &gt;&#160;</td>
+          <td class="paramname"><em>userRepository</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_post.html">Post</a> &gt;&#160;</td>
+          <td class="paramname"><em>postRepository</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; <a class="el" href="class_reply.html">Reply</a> &gt;&#160;</td>
+          <td class="paramname"><em>replyRepository</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject all repositories by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td></td></tr>
+    <tr><td class="paramname">userRepository</td><td></td></tr>
+    <tr><td class="paramname">postRepository</td><td></td></tr>
+    <tr><td class="paramname">replyRepository</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aad816608f545476456374f2947cd0b63" name="aad816608f545476456374f2947cd0b63"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad816608f545476456374f2947cd0b63">&#9670;&nbsp;</a></span>SaveChangeAsync()</h2>
@@ -133,7 +191,10 @@ DbContext&#160;</td><td class="memItemRight" valign="bottom"><b>Context</b><code
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>.</p>
+<p>Write all changed entities to database. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of changed states that written to database.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_unit_of_work.html#a4ed52938a9b451eb3f67c8c2dd36f3a5">IUnitOfWork</a>.</p>
 
 </div>
 </div>

@@ -68,37 +68,208 @@ $(function() {
   <div class="headertitle"><div class="title">IGenericRepository&lt; TEntity &gt; Interface Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Repository pattern ineterface.  
+ <a href="interface_i_generic_repository.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for IGenericRepository&lt; TEntity &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_i_generic_repository.png" usemap="#IGenericRepository_3C_20TEntity_20_3E_map" alt=""/>
   <map id="IGenericRepository_3C_20TEntity_20_3E_map" name="IGenericRepository_3C_20TEntity_20_3E_map">
-<area href="class_generic_repository.html" alt="GenericRepository&lt; TEntity &gt;" shape="rect" coords="0,56,182,80"/>
+<area href="class_generic_repository.html" title="Repository pattern implementation." alt="GenericRepository&lt; TEntity &gt;" shape="rect" coords="0,56,182,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f351c734dd81a25aaefc21b25f75efa"><td class="memItemLeft" align="right" valign="top"><a id="a5f351c734dd81a25aaefc21b25f75efa" name="a5f351c734dd81a25aaefc21b25f75efa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Add</b> (TEntity entity)</td></tr>
+<tr class="memitem:a5f351c734dd81a25aaefc21b25f75efa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_generic_repository.html#a5f351c734dd81a25aaefc21b25f75efa">Add</a> (TEntity entity)</td></tr>
+<tr class="memdesc:a5f351c734dd81a25aaefc21b25f75efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new TEntity to database.  <a href="interface_i_generic_repository.html#a5f351c734dd81a25aaefc21b25f75efa">More...</a><br /></td></tr>
 <tr class="separator:a5f351c734dd81a25aaefc21b25f75efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a936e4e6b035a3eccec00a5e579ecc69d"><td class="memItemLeft" align="right" valign="top"><a id="a936e4e6b035a3eccec00a5e579ecc69d" name="a936e4e6b035a3eccec00a5e579ecc69d"></a>
-Task&lt; List&lt; TEntity &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetAllAsync</b> ()</td></tr>
+<tr class="memitem:a936e4e6b035a3eccec00a5e579ecc69d"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; TEntity &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_generic_repository.html#a936e4e6b035a3eccec00a5e579ecc69d">GetAllAsync</a> ()</td></tr>
+<tr class="memdesc:a936e4e6b035a3eccec00a5e579ecc69d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of all TEntity.  <a href="interface_i_generic_repository.html#a936e4e6b035a3eccec00a5e579ecc69d">More...</a><br /></td></tr>
 <tr class="separator:a936e4e6b035a3eccec00a5e579ecc69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb4d9ffc382d773861248f5d67db1314"><td class="memItemLeft" align="right" valign="top"><a id="abb4d9ffc382d773861248f5d67db1314" name="abb4d9ffc382d773861248f5d67db1314"></a>
-Task&lt; TEntity?&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetAsync</b> (Expression&lt; Func&lt; TEntity, bool &gt; &gt; predicate)</td></tr>
+<tr class="memitem:abb4d9ffc382d773861248f5d67db1314"><td class="memItemLeft" align="right" valign="top">Task&lt; TEntity?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_generic_repository.html#abb4d9ffc382d773861248f5d67db1314">GetAsync</a> (Expression&lt; Func&lt; TEntity, bool &gt; &gt; predicate)</td></tr>
+<tr class="memdesc:abb4d9ffc382d773861248f5d67db1314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a Tentity by an expression.  <a href="interface_i_generic_repository.html#abb4d9ffc382d773861248f5d67db1314">More...</a><br /></td></tr>
 <tr class="separator:abb4d9ffc382d773861248f5d67db1314"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18fb3e63ef2cfffbae6c623835e33f45"><td class="memItemLeft" align="right" valign="top"><a id="a18fb3e63ef2cfffbae6c623835e33f45" name="a18fb3e63ef2cfffbae6c623835e33f45"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Remove</b> (TEntity entity)</td></tr>
+<tr class="memitem:a18fb3e63ef2cfffbae6c623835e33f45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_generic_repository.html#a18fb3e63ef2cfffbae6c623835e33f45">Remove</a> (TEntity entity)</td></tr>
+<tr class="memdesc:a18fb3e63ef2cfffbae6c623835e33f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a TEntity's state to EntityState.Deleted.  <a href="interface_i_generic_repository.html#a18fb3e63ef2cfffbae6c623835e33f45">More...</a><br /></td></tr>
 <tr class="separator:a18fb3e63ef2cfffbae6c623835e33f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf2638330be7d6f06503b50b61fb9bd1"><td class="memItemLeft" align="right" valign="top"><a id="adf2638330be7d6f06503b50b61fb9bd1" name="adf2638330be7d6f06503b50b61fb9bd1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> (TEntity entity)</td></tr>
+<tr class="memitem:adf2638330be7d6f06503b50b61fb9bd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_generic_repository.html#adf2638330be7d6f06503b50b61fb9bd1">Update</a> (TEntity entity)</td></tr>
+<tr class="memdesc:adf2638330be7d6f06503b50b61fb9bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a TEntity's state to EntityState.Modified.  <a href="interface_i_generic_repository.html#adf2638330be7d6f06503b50b61fb9bd1">More...</a><br /></td></tr>
 <tr class="separator:adf2638330be7d6f06503b50b61fb9bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf72615470eed4c1bea2fbe8e2f9f150"><td class="memItemLeft" align="right" valign="top"><a id="acf72615470eed4c1bea2fbe8e2f9f150" name="acf72615470eed4c1bea2fbe8e2f9f150"></a>
-DbSet&lt; TEntity &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDbSet</b> ()</td></tr>
+<tr class="memitem:acf72615470eed4c1bea2fbe8e2f9f150"><td class="memItemLeft" align="right" valign="top">DbSet&lt; TEntity &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_generic_repository.html#acf72615470eed4c1bea2fbe8e2f9f150">GetDbSet</a> ()</td></tr>
+<tr class="memdesc:acf72615470eed4c1bea2fbe8e2f9f150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the DbSet&lt;TEntity&gt; for querying.  <a href="interface_i_generic_repository.html#acf72615470eed4c1bea2fbe8e2f9f150">More...</a><br /></td></tr>
 <tr class="separator:acf72615470eed4c1bea2fbe8e2f9f150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Repository pattern ineterface. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TEntity</td><td>Database Entity</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="typeconstraint">
+<dl><dt><b>Type Constraints</b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em>TEntity</em></td><td>&#160;:</td><td valign="top"><em>class</em></td><td>&#160;</td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5f351c734dd81a25aaefc21b25f75efa" name="a5f351c734dd81a25aaefc21b25f75efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f351c734dd81a25aaefc21b25f75efa">&#9670;&nbsp;</a></span>Add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; TEntity &gt;.Add </td>
+          <td>(</td>
+          <td class="paramtype">TEntity&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a new TEntity to database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_generic_repository.html#a8240d6f0160af273292ea963484cfad7">GenericRepository&lt; TEntity &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a936e4e6b035a3eccec00a5e579ecc69d" name="a936e4e6b035a3eccec00a5e579ecc69d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a936e4e6b035a3eccec00a5e579ecc69d">&#9670;&nbsp;</a></span>GetAllAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; List&lt; TEntity &gt; &gt; <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; TEntity &gt;.GetAllAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a list of all TEntity. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="class_generic_repository.html#aa7a993fad3b537299920c1bc60691730">GenericRepository&lt; TEntity &gt;</a>.</p>
+
+</div>
+</div>
+<a id="abb4d9ffc382d773861248f5d67db1314" name="abb4d9ffc382d773861248f5d67db1314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4d9ffc382d773861248f5d67db1314">&#9670;&nbsp;</a></span>GetAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; TEntity?&gt; <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; TEntity &gt;.GetAsync </td>
+          <td>(</td>
+          <td class="paramtype">Expression&lt; Func&lt; TEntity, bool &gt; &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a Tentity by an expression. </p>
+<dl class="section return"><dt>Returns</dt><dd>If not found, return null.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_generic_repository.html#aaa1692792dd91afd1be60addb91c7eee">GenericRepository&lt; TEntity &gt;</a>.</p>
+
+</div>
+</div>
+<a id="acf72615470eed4c1bea2fbe8e2f9f150" name="acf72615470eed4c1bea2fbe8e2f9f150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf72615470eed4c1bea2fbe8e2f9f150">&#9670;&nbsp;</a></span>GetDbSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DbSet&lt; TEntity &gt; <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; TEntity &gt;.GetDbSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the DbSet&lt;TEntity&gt; for querying. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="class_generic_repository.html#a49042a98e9b6d697e90c7ff88303889f">GenericRepository&lt; TEntity &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a18fb3e63ef2cfffbae6c623835e33f45" name="a18fb3e63ef2cfffbae6c623835e33f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18fb3e63ef2cfffbae6c623835e33f45">&#9670;&nbsp;</a></span>Remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; TEntity &gt;.Remove </td>
+          <td>(</td>
+          <td class="paramtype">TEntity&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a TEntity's state to EntityState.Deleted. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_generic_repository.html#abe61b55905073981803a4553cfd2c608">GenericRepository&lt; TEntity &gt;</a>.</p>
+
+</div>
+</div>
+<a id="adf2638330be7d6f06503b50b61fb9bd1" name="adf2638330be7d6f06503b50b61fb9bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf2638330be7d6f06503b50b61fb9bd1">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="interface_i_generic_repository.html">IGenericRepository</a>&lt; TEntity &gt;.Update </td>
+          <td>(</td>
+          <td class="paramtype">TEntity&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a TEntity's state to EntityState.Modified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_generic_repository.html#ae2ca2c494027737b8e1ba50ab32778c3">GenericRepository&lt; TEntity &gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Models/Repositories/IGenericRepository.cs</li>
 </ul>

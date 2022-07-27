@@ -70,6 +70,9 @@ $(function() {
   <div class="headertitle"><div class="title">UserController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Deal with requests for changing user's information.  
+ <a href="class_user_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for UserController:</div>
 <div class="dyncontent">
@@ -79,14 +82,14 @@ Inheritance diagram for UserController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2d9ccdd95fc47166aa7b389dc80b2a1"><td class="memItemLeft" align="right" valign="top"><a id="ab2d9ccdd95fc47166aa7b389dc80b2a1" name="ab2d9ccdd95fc47166aa7b389dc80b2a1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UserController</b> (<a class="el" href="interface_i_user_logic.html">IUserLogic</a> userLogic)</td></tr>
+<tr class="memitem:ab2d9ccdd95fc47166aa7b389dc80b2a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_controller.html#ab2d9ccdd95fc47166aa7b389dc80b2a1">UserController</a> (<a class="el" href="interface_i_user_logic.html">IUserLogic</a> userLogic)</td></tr>
+<tr class="memdesc:ab2d9ccdd95fc47166aa7b389dc80b2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject the business logic by DI Container.  <a href="class_user_controller.html#ab2d9ccdd95fc47166aa7b389dc80b2a1">More...</a><br /></td></tr>
 <tr class="separator:ab2d9ccdd95fc47166aa7b389dc80b2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd5a831ed6177c8b74f1e8a385df6a1a"><td class="memItemLeft" align="right" valign="top"><a id="afd5a831ed6177c8b74f1e8a385df6a1a" name="afd5a831ed6177c8b74f1e8a385df6a1a"></a>
-IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeDisplayName</b> ()</td></tr>
+<tr class="memitem:afd5a831ed6177c8b74f1e8a385df6a1a"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_controller.html#afd5a831ed6177c8b74f1e8a385df6a1a">ChangeDisplayName</a> ()</td></tr>
+<tr class="memdesc:afd5a831ed6177c8b74f1e8a385df6a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show changing DisplayName page.  <a href="class_user_controller.html#afd5a831ed6177c8b74f1e8a385df6a1a">More...</a><br /></td></tr>
 <tr class="separator:afd5a831ed6177c8b74f1e8a385df6a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41f40c074be86809a90f3962446fcca5"><td class="memItemLeft" align="right" valign="top"><a id="a41f40c074be86809a90f3962446fcca5" name="a41f40c074be86809a90f3962446fcca5"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeDisplayName</b> (string displayName)</td></tr>
+<tr class="memitem:a41f40c074be86809a90f3962446fcca5"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_controller.html#a41f40c074be86809a90f3962446fcca5">ChangeDisplayName</a> (string displayName)</td></tr>
+<tr class="memdesc:a41f40c074be86809a90f3962446fcca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive changing-DisplayName form and validate display name.  <a href="class_user_controller.html#a41f40c074be86809a90f3962446fcca5">More...</a><br /></td></tr>
 <tr class="separator:a41f40c074be86809a90f3962446fcca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -101,6 +104,83 @@ Private Attributes</h2></td></tr>
 readonly <a class="el" href="interface_i_user_logic.html">IUserLogic</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_userLogic</b></td></tr>
 <tr class="separator:a790d8a6d28b7b10a35c49d16f94e11d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Deal with requests for changing user's information. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab2d9ccdd95fc47166aa7b389dc80b2a1" name="ab2d9ccdd95fc47166aa7b389dc80b2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2d9ccdd95fc47166aa7b389dc80b2a1">&#9670;&nbsp;</a></span>UserController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UserController.UserController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_user_logic.html">IUserLogic</a>&#160;</td>
+          <td class="paramname"><em>userLogic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject the business logic by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userLogic</td><td>The business logic of <a class="el" href="class_user_controller.html" title="Deal with requests for changing user&#39;s information.">UserController</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afd5a831ed6177c8b74f1e8a385df6a1a" name="afd5a831ed6177c8b74f1e8a385df6a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5a831ed6177c8b74f1e8a385df6a1a">&#9670;&nbsp;</a></span>ChangeDisplayName() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IActionResult UserController.ChangeDisplayName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show changing DisplayName page. </p>
+<dl class="section return"><dt>Returns</dt><dd>The view of changing-DisplayName page</dd></dl>
+
+</div>
+</div>
+<a id="a41f40c074be86809a90f3962446fcca5" name="a41f40c074be86809a90f3962446fcca5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f40c074be86809a90f3962446fcca5">&#9670;&nbsp;</a></span>ChangeDisplayName() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; UserController.ChangeDisplayName </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>displayName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive changing-DisplayName form and validate display name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">displayName</td><td>A new display name requested by user.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the DisplayName is updated successfully, redirect to <a class="el" href="class_bulletin_board_controller.html#abfe39187ce036be48d965fa5835cd364" title="Show all posts on the BulletinBoard page, which can be seen as the main page of this application.">BulletinBoardController.Index()</a>.</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Controllers/UserController.cs</li>
 </ul>

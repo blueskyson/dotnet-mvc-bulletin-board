@@ -70,25 +70,29 @@ $(function() {
   <div class="headertitle"><div class="title">LoginLogic Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic implementation of <a class="el" href="class_login_controller.html" title="Deal with requests for login.">LoginController</a>.  
+ <a href="class_login_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for LoginLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_login_logic.png" usemap="#LoginLogic_map" alt=""/>
   <map id="LoginLogic_map" name="LoginLogic_map">
-<area href="interface_i_login_logic.html" alt="ILoginLogic" shape="rect" coords="0,0,77,24"/>
+<area href="interface_i_login_logic.html" title="Business logic of LoginController." alt="ILoginLogic" shape="rect" coords="0,0,77,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aba8a03fea34310beadef38bc14e757af"><td class="memItemLeft" align="right" valign="top"><a id="aba8a03fea34310beadef38bc14e757af" name="aba8a03fea34310beadef38bc14e757af"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LoginLogic</b> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork, <a class="el" href="interface_i_hasher.html">IHasher</a> hasher)</td></tr>
+<tr class="memitem:aba8a03fea34310beadef38bc14e757af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_login_logic.html#aba8a03fea34310beadef38bc14e757af">LoginLogic</a> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork, <a class="el" href="interface_i_hasher.html">IHasher</a> hasher)</td></tr>
+<tr class="memdesc:aba8a03fea34310beadef38bc14e757af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject Unit of Work and <a class="el" href="class_hasher.html" title="Hash password.">Hasher</a> by DI Container.  <a href="class_login_logic.html#aba8a03fea34310beadef38bc14e757af">More...</a><br /></td></tr>
 <tr class="separator:aba8a03fea34310beadef38bc14e757af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac06903625f00483b5e0a0c9fc55e202e"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_login_logic.html#ac06903625f00483b5e0a0c9fc55e202e">UserExists</a> (<a class="el" href="class_user.html">User</a> formInputUser)</td></tr>
+<tr class="memdesc:ac06903625f00483b5e0a0c9fc55e202e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate the user.  <a href="class_login_logic.html#ac06903625f00483b5e0a0c9fc55e202e">More...</a><br /></td></tr>
 <tr class="separator:ac06903625f00483b5e0a0c9fc55e202e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="memItemLeft" align="right" valign="top"><a id="a46dcd8d7bd163d0cb1e6a3ae1194251c" name="a46dcd8d7bd163d0cb1e6a3ae1194251c"></a>
-Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UserExists</b> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memitem:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_login_logic.html#a46dcd8d7bd163d0cb1e6a3ae1194251c">UserExists</a> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate the user.  <a href="interface_i_login_logic.html#a46dcd8d7bd163d0cb1e6a3ae1194251c">More...</a><br /></td></tr>
 <tr class="separator:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -106,6 +110,46 @@ Private Attributes</h2></td></tr>
 <a class="el" href="interface_i_hasher.html">IHasher</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_hasher</b></td></tr>
 <tr class="separator:a26f4789443560a37b55db96e3203131d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic implementation of <a class="el" href="class_login_controller.html" title="Deal with requests for login.">LoginController</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aba8a03fea34310beadef38bc14e757af" name="aba8a03fea34310beadef38bc14e757af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba8a03fea34310beadef38bc14e757af">&#9670;&nbsp;</a></span>LoginLogic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LoginLogic.LoginLogic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td>
+          <td class="paramname"><em>unitOfWork</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_i_hasher.html">IHasher</a>&#160;</td>
+          <td class="paramname"><em>hasher</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject Unit of Work and <a class="el" href="class_hasher.html" title="Hash password.">Hasher</a> by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unitOfWork</td><td>Access repositories.</td></tr>
+    <tr><td class="paramname">hasher</td><td>Hash passwords.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac06903625f00483b5e0a0c9fc55e202e" name="ac06903625f00483b5e0a0c9fc55e202e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac06903625f00483b5e0a0c9fc55e202e">&#9670;&nbsp;</a></span>UserExists()</h2>
@@ -123,7 +167,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_login_logic.html">ILoginLogic</a>.</p>
+<p>Validate the user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>The user should contain Name and plain Password. This function will hash the password and do the match. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the user's Name and Password are correct, return the user entity from database. Otherwise, return null. </dd></dl>
+
+<p>Implements <a class="el" href="interface_i_login_logic.html#a46dcd8d7bd163d0cb1e6a3ae1194251c">ILoginLogic</a>.</p>
 
 </div>
 </div>

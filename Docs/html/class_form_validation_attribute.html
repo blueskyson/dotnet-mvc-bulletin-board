@@ -70,6 +70,9 @@ $(function() {
   <div class="headertitle"><div class="title">FormValidationAttribute Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Validate a input value of a form.  
+ <a href="class_form_validation_attribute.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for FormValidationAttribute:</div>
 <div class="dyncontent">
@@ -79,14 +82,14 @@ Inheritance diagram for FormValidationAttribute:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6e8772019d06accedcf06fa455c81e1"><td class="memItemLeft" align="right" valign="top"><a id="ad6e8772019d06accedcf06fa455c81e1" name="ad6e8772019d06accedcf06fa455c81e1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FormValidationAttribute</b> (<a class="el" href="interface_i_validator.html">IValidator</a> validator, string inputName)</td></tr>
+<tr class="memitem:ad6e8772019d06accedcf06fa455c81e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_form_validation_attribute.html#ad6e8772019d06accedcf06fa455c81e1">FormValidationAttribute</a> (<a class="el" href="interface_i_validator.html">IValidator</a> validator, string inputName)</td></tr>
+<tr class="memdesc:ad6e8772019d06accedcf06fa455c81e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject the validator by DI Container and specify a input name. It automatically fetches the value of a given input name and validate it.  <a href="class_form_validation_attribute.html#ad6e8772019d06accedcf06fa455c81e1">More...</a><br /></td></tr>
 <tr class="separator:ad6e8772019d06accedcf06fa455c81e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17d51681a8c635d31f75c6e1f1bab3c0"><td class="memItemLeft" align="right" valign="top"><a id="a17d51681a8c635d31f75c6e1f1bab3c0" name="a17d51681a8c635d31f75c6e1f1bab3c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnActionExecuted</b> (ActionExecutedContext context)</td></tr>
+<tr class="memitem:a17d51681a8c635d31f75c6e1f1bab3c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_form_validation_attribute.html#a17d51681a8c635d31f75c6e1f1bab3c0">OnActionExecuted</a> (ActionExecutedContext context)</td></tr>
+<tr class="memdesc:a17d51681a8c635d31f75c6e1f1bab3c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrided function. Currently no effect.  <a href="class_form_validation_attribute.html#a17d51681a8c635d31f75c6e1f1bab3c0">More...</a><br /></td></tr>
 <tr class="separator:a17d51681a8c635d31f75c6e1f1bab3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f4ae516e54aa8137b38af39904998c"><td class="memItemLeft" align="right" valign="top"><a id="a86f4ae516e54aa8137b38af39904998c" name="a86f4ae516e54aa8137b38af39904998c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnActionExecuting</b> (ActionExecutingContext context)</td></tr>
+<tr class="memitem:a86f4ae516e54aa8137b38af39904998c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_form_validation_attribute.html#a86f4ae516e54aa8137b38af39904998c">OnActionExecuting</a> (ActionExecutingContext context)</td></tr>
+<tr class="memdesc:a86f4ae516e54aa8137b38af39904998c"><td class="mdescLeft">&#160;</td><td class="mdescRight">An overrided function to validate the input value.  <a href="class_form_validation_attribute.html#a86f4ae516e54aa8137b38af39904998c">More...</a><br /></td></tr>
 <tr class="separator:a86f4ae516e54aa8137b38af39904998c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -104,6 +107,99 @@ readonly <a class="el" href="interface_i_validator.html">IValidator</a>&#160;</t
 readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>_inputName</b></td></tr>
 <tr class="separator:adfe7191be7c9e690a37c153fda3367c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Validate a input value of a form. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad6e8772019d06accedcf06fa455c81e1" name="ad6e8772019d06accedcf06fa455c81e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6e8772019d06accedcf06fa455c81e1">&#9670;&nbsp;</a></span>FormValidationAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FormValidationAttribute.FormValidationAttribute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_validator.html">IValidator</a>&#160;</td>
+          <td class="paramname"><em>validator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>inputName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject the validator by DI Container and specify a input name. It automatically fetches the value of a given input name and validate it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">validator</td><td>An injected <a class="el" href="class_validator.html" title="Validate a given data.">Validator</a></td></tr>
+    <tr><td class="paramname">inputName</td><td>An input name of a value to validate.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a17d51681a8c635d31f75c6e1f1bab3c0" name="a17d51681a8c635d31f75c6e1f1bab3c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17d51681a8c635d31f75c6e1f1bab3c0">&#9670;&nbsp;</a></span>OnActionExecuted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FormValidationAttribute.OnActionExecuted </td>
+          <td>(</td>
+          <td class="paramtype">ActionExecutedContext&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overrided function. Currently no effect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86f4ae516e54aa8137b38af39904998c" name="a86f4ae516e54aa8137b38af39904998c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f4ae516e54aa8137b38af39904998c">&#9670;&nbsp;</a></span>OnActionExecuting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FormValidationAttribute.OnActionExecuting </td>
+          <td>(</td>
+          <td class="paramtype">ActionExecutingContext&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An overrided function to validate the input value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Infrastructure/FormValidationAttribute.cs</li>
 </ul>

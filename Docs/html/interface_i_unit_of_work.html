@@ -69,20 +69,23 @@ $(function() {
   <div class="headertitle"><div class="title">IUnitOfWork Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Unit of work interface.  
+ <a href="interface_i_unit_of_work.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for IUnitOfWork:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_i_unit_of_work.png" usemap="#IUnitOfWork_map" alt=""/>
   <map id="IUnitOfWork_map" name="IUnitOfWork_map">
-<area href="class_unit_of_work.html" alt="UnitOfWork" shape="rect" coords="0,112,79,136"/>
+<area href="class_unit_of_work.html" title="Unit of work implementation." alt="UnitOfWork" shape="rect" coords="0,112,79,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="memItemLeft" align="right" valign="top"><a id="a4ed52938a9b451eb3f67c8c2dd36f3a5" name="a4ed52938a9b451eb3f67c8c2dd36f3a5"></a>
-Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SaveChangeAsync</b> ()</td></tr>
+<tr class="memitem:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_unit_of_work.html#a4ed52938a9b451eb3f67c8c2dd36f3a5">SaveChangeAsync</a> ()</td></tr>
+<tr class="memdesc:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write all changed entities to database.  <a href="interface_i_unit_of_work.html#a4ed52938a9b451eb3f67c8c2dd36f3a5">More...</a><br /></td></tr>
 <tr class="separator:a4ed52938a9b451eb3f67c8c2dd36f3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
@@ -100,6 +103,31 @@ Properties</h2></td></tr>
 DbContext&#160;</td><td class="memItemRight" valign="bottom"><b>Context</b><code> [get]</code></td></tr>
 <tr class="separator:a22f6f464009ef1304657a63bb0636c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Unit of work interface. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ed52938a9b451eb3f67c8c2dd36f3a5" name="a4ed52938a9b451eb3f67c8c2dd36f3a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed52938a9b451eb3f67c8c2dd36f3a5">&#9670;&nbsp;</a></span>SaveChangeAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; int &gt; IUnitOfWork.SaveChangeAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write all changed entities to database. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of changed states that written to database.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_unit_of_work.html#aad816608f545476456374f2947cd0b63">UnitOfWork</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Models/IUnitOfWork.cs</li>
 </ul>

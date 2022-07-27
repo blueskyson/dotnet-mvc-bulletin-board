@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tempdatakeys_0',['TempDataKeys',['../class_temp_data_keys.html',1,'']]],
-  ['the_20mit_20license_20_28mit_29_1',['The MIT License (MIT)',['../md__e__work__bulletin_board__bulletin_board_wwwroot_lib_jquery_validation__l_i_c_e_n_s_e.html',1,'']]]
+  ['savechangeasync_0',['SaveChangeAsync',['../interface_i_unit_of_work.html#a4ed52938a9b451eb3f67c8c2dd36f3a5',1,'IUnitOfWork.SaveChangeAsync()'],['../class_unit_of_work.html#aad816608f545476456374f2947cd0b63',1,'UnitOfWork.SaveChangeAsync()']]],
+  ['sessionkeys_1',['SessionKeys',['../class_session_keys.html',1,'']]]
 ];

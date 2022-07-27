@@ -68,22 +68,57 @@ $(function() {
   <div class="headertitle"><div class="title">ILoginLogic Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic of <a class="el" href="class_login_controller.html" title="Deal with requests for login.">LoginController</a>.  
+ <a href="interface_i_login_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ILoginLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_i_login_logic.png" usemap="#ILoginLogic_map" alt=""/>
   <map id="ILoginLogic_map" name="ILoginLogic_map">
-<area href="class_login_logic.html" alt="LoginLogic" shape="rect" coords="0,56,77,80"/>
+<area href="class_login_logic.html" title="Business logic implementation of LoginController." alt="LoginLogic" shape="rect" coords="0,56,77,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="memItemLeft" align="right" valign="top"><a id="a46dcd8d7bd163d0cb1e6a3ae1194251c" name="a46dcd8d7bd163d0cb1e6a3ae1194251c"></a>
-Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UserExists</b> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memitem:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_user.html">User</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_login_logic.html#a46dcd8d7bd163d0cb1e6a3ae1194251c">UserExists</a> (<a class="el" href="class_user.html">User</a> user)</td></tr>
+<tr class="memdesc:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate the user.  <a href="interface_i_login_logic.html#a46dcd8d7bd163d0cb1e6a3ae1194251c">More...</a><br /></td></tr>
 <tr class="separator:a46dcd8d7bd163d0cb1e6a3ae1194251c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic of <a class="el" href="class_login_controller.html" title="Deal with requests for login.">LoginController</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a46dcd8d7bd163d0cb1e6a3ae1194251c" name="a46dcd8d7bd163d0cb1e6a3ae1194251c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46dcd8d7bd163d0cb1e6a3ae1194251c">&#9670;&nbsp;</a></span>UserExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; <a class="el" href="class_user.html">User</a>?&gt; ILoginLogic.UserExists </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validate the user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>The user should contain Name and plain Password. This function will hash the password and do the match. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If the user's Name and Password are correct, return the <a class="el" href="class_user.html" title="User Entity.">User</a> entity from database. Otherwise, return null. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_login_logic.html#ac06903625f00483b5e0a0c9fc55e202e">LoginLogic</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Models/BusinessLogic/ILoginLogic.cs</li>
 </ul>

@@ -69,6 +69,9 @@ $(function() {
   <div class="headertitle"><div class="title">RegisterController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Deal with requests for registeration.  
+ <a href="class_register_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RegisterController:</div>
 <div class="dyncontent">
@@ -78,14 +81,14 @@ Inheritance diagram for RegisterController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6e6c53fea6e2f0e29eb739ae5c55b300"><td class="memItemLeft" align="right" valign="top"><a id="a6e6c53fea6e2f0e29eb739ae5c55b300" name="a6e6c53fea6e2f0e29eb739ae5c55b300"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterController</b> (<a class="el" href="interface_i_register_logic.html">IRegisterLogic</a> registerLogic)</td></tr>
+<tr class="memitem:a6e6c53fea6e2f0e29eb739ae5c55b300"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_register_controller.html#a6e6c53fea6e2f0e29eb739ae5c55b300">RegisterController</a> (<a class="el" href="interface_i_register_logic.html">IRegisterLogic</a> registerLogic)</td></tr>
+<tr class="memdesc:a6e6c53fea6e2f0e29eb739ae5c55b300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject the business logic by DI Container.  <a href="class_register_controller.html#a6e6c53fea6e2f0e29eb739ae5c55b300">More...</a><br /></td></tr>
 <tr class="separator:a6e6c53fea6e2f0e29eb739ae5c55b300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd341d0d019cac25f189872ce711a7f1"><td class="memItemLeft" align="right" valign="top"><a id="afd341d0d019cac25f189872ce711a7f1" name="afd341d0d019cac25f189872ce711a7f1"></a>
-IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> ()</td></tr>
+<tr class="memitem:afd341d0d019cac25f189872ce711a7f1"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_register_controller.html#afd341d0d019cac25f189872ce711a7f1">Index</a> ()</td></tr>
+<tr class="memdesc:afd341d0d019cac25f189872ce711a7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show registeration page.  <a href="class_register_controller.html#afd341d0d019cac25f189872ce711a7f1">More...</a><br /></td></tr>
 <tr class="separator:afd341d0d019cac25f189872ce711a7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0af32a720aa8a762159f6d91d2529ca3"><td class="memItemLeft" align="right" valign="top"><a id="a0af32a720aa8a762159f6d91d2529ca3" name="a0af32a720aa8a762159f6d91d2529ca3"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> ([Bind(&quot;Name,Password,DisplayName&quot;)] User user)</td></tr>
+<tr class="memitem:a0af32a720aa8a762159f6d91d2529ca3"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_register_controller.html#a0af32a720aa8a762159f6d91d2529ca3">Index</a> ([Bind(&quot;Name,Password,DisplayName&quot;)] User user)</td></tr>
+<tr class="memdesc:a0af32a720aa8a762159f6d91d2529ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive login form and validate Name, DisplayName and Password of a new <a class="el" href="class_user.html" title="User Entity.">User</a>.  <a href="class_register_controller.html#a0af32a720aa8a762159f6d91d2529ca3">More...</a><br /></td></tr>
 <tr class="separator:a0af32a720aa8a762159f6d91d2529ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -94,6 +97,83 @@ Private Attributes</h2></td></tr>
 readonly <a class="el" href="interface_i_register_logic.html">IRegisterLogic</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_registerLogic</b></td></tr>
 <tr class="separator:add22bf84ea7ec5c8c133bb5e3bf053a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Deal with requests for registeration. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6e6c53fea6e2f0e29eb739ae5c55b300" name="a6e6c53fea6e2f0e29eb739ae5c55b300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6c53fea6e2f0e29eb739ae5c55b300">&#9670;&nbsp;</a></span>RegisterController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RegisterController.RegisterController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_register_logic.html">IRegisterLogic</a>&#160;</td>
+          <td class="paramname"><em>registerLogic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject the business logic by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registerLogic</td><td>The business logic of <a class="el" href="class_register_controller.html" title="Deal with requests for registeration.">RegisterController</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afd341d0d019cac25f189872ce711a7f1" name="afd341d0d019cac25f189872ce711a7f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd341d0d019cac25f189872ce711a7f1">&#9670;&nbsp;</a></span>Index() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IActionResult RegisterController.Index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show registeration page. </p>
+<dl class="section return"><dt>Returns</dt><dd>The view of registeration page.</dd></dl>
+
+</div>
+</div>
+<a id="a0af32a720aa8a762159f6d91d2529ca3" name="a0af32a720aa8a762159f6d91d2529ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af32a720aa8a762159f6d91d2529ca3">&#9670;&nbsp;</a></span>Index() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; RegisterController.Index </td>
+          <td>(</td>
+          <td class="paramtype">[Bind(&quot;Name,Password,DisplayName&quot;)] <a class="el" href="class_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive login form and validate Name, DisplayName and Password of a new <a class="el" href="class_user.html" title="User Entity.">User</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>A <a class="el" href="class_user.html" title="User Entity.">User</a> entity containing Name, DisplayName and Password.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>E:/work/BulletinBoard/BulletinBoard/Controllers/RegisterController.cs</li>
 </ul>

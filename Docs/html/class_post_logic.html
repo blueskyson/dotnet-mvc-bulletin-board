@@ -69,40 +69,47 @@ $(function() {
   <div class="headertitle"><div class="title">PostLogic Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic implementation of <a class="el" href="class_post_controller.html" title="Deal with requests for viewing posts and its replies. It also deals with requests for creating new po...">PostController</a>.  
+ <a href="class_post_logic.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PostLogic:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_post_logic.png" usemap="#PostLogic_map" alt=""/>
   <map id="PostLogic_map" name="PostLogic_map">
-<area href="interface_i_post_logic.html" alt="IPostLogic" shape="rect" coords="0,0,70,24"/>
+<area href="interface_i_post_logic.html" title="Business logic of PostController." alt="IPostLogic" shape="rect" coords="0,0,70,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8ffe7e929548a2fcb95ea747b05f9259"><td class="memItemLeft" align="right" valign="top"><a id="a8ffe7e929548a2fcb95ea747b05f9259" name="a8ffe7e929548a2fcb95ea747b05f9259"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PostLogic</b> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork)</td></tr>
+<tr class="memitem:a8ffe7e929548a2fcb95ea747b05f9259"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_logic.html#a8ffe7e929548a2fcb95ea747b05f9259">PostLogic</a> (<a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a> unitOfWork)</td></tr>
+<tr class="memdesc:a8ffe7e929548a2fcb95ea747b05f9259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject Unit of Work by DI Container.  <a href="class_post_logic.html#a8ffe7e929548a2fcb95ea747b05f9259">More...</a><br /></td></tr>
 <tr class="separator:a8ffe7e929548a2fcb95ea747b05f9259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57f56e29602e0043b3f775e8b5255d07"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_post.html">Post</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_logic.html#a57f56e29602e0043b3f775e8b5255d07">GetPostByIdAsync</a> (int? postId)</td></tr>
+<tr class="memdesc:a57f56e29602e0043b3f775e8b5255d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a post by Id. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined.  <a href="class_post_logic.html#a57f56e29602e0043b3f775e8b5255d07">More...</a><br /></td></tr>
 <tr class="separator:a57f56e29602e0043b3f775e8b5255d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45de6865bc5909b4cd9a0819f5427d81"><td class="memItemLeft" align="right" valign="top">async Task&lt; List&lt; <a class="el" href="class_reply.html">Reply</a> &gt;?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_logic.html#a45de6865bc5909b4cd9a0819f5427d81">GetRepliesByPostIdAsync</a> (int? postId)</td></tr>
+<tr class="memdesc:a45de6865bc5909b4cd9a0819f5427d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all replies of a post with postId.  <a href="class_post_logic.html#a45de6865bc5909b4cd9a0819f5427d81">More...</a><br /></td></tr>
 <tr class="separator:a45de6865bc5909b4cd9a0819f5427d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba2aeb92203b43d97555af398203a873"><td class="memItemLeft" align="right" valign="top">async Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_logic.html#aba2aeb92203b43d97555af398203a873">AddReplyAsync</a> (<a class="el" href="class_reply.html">Reply</a> reply)</td></tr>
+<tr class="memdesc:aba2aeb92203b43d97555af398203a873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a reply to database.  <a href="class_post_logic.html#aba2aeb92203b43d97555af398203a873">More...</a><br /></td></tr>
 <tr class="separator:aba2aeb92203b43d97555af398203a873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ca8286cf2681af1bf02ef85f739b075"><td class="memItemLeft" align="right" valign="top">async Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_post_logic.html#a6ca8286cf2681af1bf02ef85f739b075">AddPostAsync</a> (<a class="el" href="class_post.html">Post</a> post)</td></tr>
+<tr class="memdesc:a6ca8286cf2681af1bf02ef85f739b075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a post to database.  <a href="class_post_logic.html#a6ca8286cf2681af1bf02ef85f739b075">More...</a><br /></td></tr>
 <tr class="separator:a6ca8286cf2681af1bf02ef85f739b075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab14aa4532b60ff76c2398393624a8926"><td class="memItemLeft" align="right" valign="top"><a id="ab14aa4532b60ff76c2398393624a8926" name="ab14aa4532b60ff76c2398393624a8926"></a>
-Task&lt; <a class="el" href="class_post.html">Post</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPostByIdAsync</b> (int? postId)</td></tr>
+<tr class="memitem:ab14aa4532b60ff76c2398393624a8926"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_post.html">Post</a>?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_post_logic.html#ab14aa4532b60ff76c2398393624a8926">GetPostByIdAsync</a> (int? postId)</td></tr>
+<tr class="memdesc:ab14aa4532b60ff76c2398393624a8926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a post by Id. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined.  <a href="interface_i_post_logic.html#ab14aa4532b60ff76c2398393624a8926">More...</a><br /></td></tr>
 <tr class="separator:ab14aa4532b60ff76c2398393624a8926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd9b1ce014520bfe00bab5b640e58542"><td class="memItemLeft" align="right" valign="top"><a id="abd9b1ce014520bfe00bab5b640e58542" name="abd9b1ce014520bfe00bab5b640e58542"></a>
-Task&lt; List&lt; <a class="el" href="class_reply.html">Reply</a> &gt;?&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetRepliesByPostIdAsync</b> (int? postId)</td></tr>
+<tr class="memitem:abd9b1ce014520bfe00bab5b640e58542"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_reply.html">Reply</a> &gt;?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_post_logic.html#abd9b1ce014520bfe00bab5b640e58542">GetRepliesByPostIdAsync</a> (int? postId)</td></tr>
+<tr class="memdesc:abd9b1ce014520bfe00bab5b640e58542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all replies of a post with postId.  <a href="interface_i_post_logic.html#abd9b1ce014520bfe00bab5b640e58542">More...</a><br /></td></tr>
 <tr class="separator:abd9b1ce014520bfe00bab5b640e58542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a647b821d5b60dbc80ead583cf2faca09"><td class="memItemLeft" align="right" valign="top"><a id="a647b821d5b60dbc80ead583cf2faca09" name="a647b821d5b60dbc80ead583cf2faca09"></a>
-Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>AddReplyAsync</b> (<a class="el" href="class_reply.html">Reply</a> reply)</td></tr>
+<tr class="memitem:a647b821d5b60dbc80ead583cf2faca09"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_post_logic.html#a647b821d5b60dbc80ead583cf2faca09">AddReplyAsync</a> (<a class="el" href="class_reply.html">Reply</a> reply)</td></tr>
+<tr class="memdesc:a647b821d5b60dbc80ead583cf2faca09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a reply to database.  <a href="interface_i_post_logic.html#a647b821d5b60dbc80ead583cf2faca09">More...</a><br /></td></tr>
 <tr class="separator:a647b821d5b60dbc80ead583cf2faca09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a45dfa24516ac45e21fe3e7a62575c6"><td class="memItemLeft" align="right" valign="top"><a id="a5a45dfa24516ac45e21fe3e7a62575c6" name="a5a45dfa24516ac45e21fe3e7a62575c6"></a>
-Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>AddPostAsync</b> (<a class="el" href="class_post.html">Post</a> post)</td></tr>
+<tr class="memitem:a5a45dfa24516ac45e21fe3e7a62575c6"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_post_logic.html#a5a45dfa24516ac45e21fe3e7a62575c6">AddPostAsync</a> (<a class="el" href="class_post.html">Post</a> post)</td></tr>
+<tr class="memdesc:a5a45dfa24516ac45e21fe3e7a62575c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a post to database.  <a href="interface_i_post_logic.html#a5a45dfa24516ac45e21fe3e7a62575c6">More...</a><br /></td></tr>
 <tr class="separator:a5a45dfa24516ac45e21fe3e7a62575c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -111,6 +118,35 @@ Private Attributes</h2></td></tr>
 <a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_unitOfWork</b></td></tr>
 <tr class="separator:a6ffbc654299e4637cfaed9dc8786f5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Business logic implementation of <a class="el" href="class_post_controller.html" title="Deal with requests for viewing posts and its replies. It also deals with requests for creating new po...">PostController</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8ffe7e929548a2fcb95ea747b05f9259" name="a8ffe7e929548a2fcb95ea747b05f9259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffe7e929548a2fcb95ea747b05f9259">&#9670;&nbsp;</a></span>PostLogic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PostLogic.PostLogic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_i_unit_of_work.html">IUnitOfWork</a>&#160;</td>
+          <td class="paramname"><em>unitOfWork</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inject Unit of Work by DI Container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unitOfWork</td><td>Access repositories.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6ca8286cf2681af1bf02ef85f739b075" name="a6ca8286cf2681af1bf02ef85f739b075"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ca8286cf2681af1bf02ef85f739b075">&#9670;&nbsp;</a></span>AddPostAsync()</h2>
@@ -128,7 +164,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_post_logic.html">IPostLogic</a>.</p>
+<p>Save a post to database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">post</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If save successfully, return &gt;= 0. Otherwise return -1.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_post_logic.html#a5a45dfa24516ac45e21fe3e7a62575c6">IPostLogic</a>.</p>
 
 </div>
 </div>
@@ -148,7 +193,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_post_logic.html">IPostLogic</a>.</p>
+<p>Save a reply to database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reply</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If save successfully, return &gt;= 0. Otherwise return -1.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_post_logic.html#a647b821d5b60dbc80ead583cf2faca09">IPostLogic</a>.</p>
 
 </div>
 </div>
@@ -168,7 +222,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_post_logic.html">IPostLogic</a>.</p>
+<p>Get a post by Id. The navigation property, <a class="el" href="class_user.html" title="User Entity.">User</a>, should be joined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">postId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A post entity of the postId. If there's no such post, return null. </dd></dl>
+
+<p>Implements <a class="el" href="interface_i_post_logic.html#ab14aa4532b60ff76c2398393624a8926">IPostLogic</a>.</p>
 
 </div>
 </div>
@@ -188,7 +251,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="interface_i_post_logic.html">IPostLogic</a>.</p>
+<p>Get all replies of a post with postId. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">postId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A List of <a class="el" href="class_reply.html" title="Reply Entity. The UserId and PostId are foreign keys. The User and Post are navigation properties.">Reply</a>.</dd></dl>
+
+<p>Implements <a class="el" href="interface_i_post_logic.html#abd9b1ce014520bfe00bab5b640e58542">IPostLogic</a>.</p>
 
 </div>
 </div>
