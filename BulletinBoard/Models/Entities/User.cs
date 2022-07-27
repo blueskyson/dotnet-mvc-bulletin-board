@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BulletinBoard.Models.Entities;
 
+/// <summary>
+/// User Entity.
+/// </summary>
 public class User
 {
     public int Id { get; set; }

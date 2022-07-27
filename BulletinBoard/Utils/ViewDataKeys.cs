@@ -1,5 +1,8 @@
 namespace BulletinBoard.Utils;
 
+/// <summary>
+/// Commonly used keys of ViewData.
+/// </summary>
 public static class ViewDataKeys
 {
     public const string Name = "Name";

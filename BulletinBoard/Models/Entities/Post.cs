@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BulletinBoard.Models.Entities;
 
+/// <summary>
+/// Post Entity. The UserId is a foreign key and the User is a navigation property.
+/// </summary>
 public class Post
 {
     public int Id { get; set; }
