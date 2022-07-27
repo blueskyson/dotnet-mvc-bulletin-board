@@ -193,6 +193,65 @@ wwwroot
 
 詳情見 API Document。
 
-- `Utils.Validation.IValidatior`: 確認字串是否包含非法字元、長度是否符合要求。
-- `Utils.IHasher`: 隨機產生 Salt 字串、根據密碼和 Salt 產生雜湊字串。
-- `Utils.SessionKeys`、`Utils.TempDataKeys`、`Utils.ViewDataKeys`: 這三個類別都是靜態類別，負責定義常用的 key-value pair 的 key 在 `const string` 中，例如可以這樣使用: `Session[SessionKeys.UserId] = user.Id`。
+### IValidator
+
+確認字串是否包含非法字元、長度是否符合要求。注入的實作為 `Validator`，其依賴 `StringValidator`，關鍵程式碼:
+
+```csharp
+// Validator.cs
+public Validator()
+{
+    _stringValidator = new StringValidator(1, 20, " \\\'\"`");
+}
+```
+
+在 `Validator` 的建構子定義 `StringValidator` 的規則為: 字串長度介於 1 到 20，並且不包含空格、`\`、`'`、`"`。
+
+### IHasher
+
+隨機產生 Salt 字串、根據密碼和 Salt 產生雜湊字串。注入的實作為 `Hasher`，其依賴 `RandomNumberGenerator` 和 `KeyDerivation`，關鍵程式碼:
+
+```csharp
+// Hasher.cs
+public string GenerateSaltBase64()
+{
+    byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
+    return Convert.ToBase64String(salt);
+}
+```
+
+隨機生成一個 Salt 並轉換成 base64 字串。
+
+```csharp
+// Hasher.cs
+public string GenerateHashBase64(string password, string saltBase64)
+{
+    byte[] salt = Convert.FromBase64String(saltBase64);
+    byte[] hashed = KeyDerivation.Pbkdf2(
+        password: password,
+        salt: salt,
+        prf: KeyDerivationPrf.HMACSHA256,
+        iterationCount: 100000,
+        numBytesRequested: 256 / 8
+    );
+    return Convert.ToBase64String(hashed);
+}
+```
+
+用密碼和 Salt 作為參數，透過 `Pbkdf2` 產生雜湊值並轉換成 base64 字串。雜湊函數為 `SHA256`、重複加鹽雜湊 100000 次、最後衍生出來的雜湊值長度為 32 byte。
+
+
+### SessionKeys、TempDataKeys、ViewDataKeys
+
+這三個類別都是靜態類別，利用 `const string` 定義常用的 key-value pair 的 key:
+
+```csharp
+// SessionKeys.cs
+public static class SessionKeys
+{
+    public const string UserId = "UserId";
+    public const string DisplayName = "DisplayName";
+}
+```
+
+例如可以這樣使用: `Session[SessionKeys.UserId] = user.Id`。
