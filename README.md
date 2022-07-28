@@ -1,5 +1,9 @@
 # Bulletin Board
 
+API Docs: [https://jacklin-doxygen.herokuapp.com/](https://jacklin-doxygen.herokuapp.com/)
+
+System Architecture: [SystemArchitecture.md](./Docs/SystemArchitecture/SystemArchitecture.md)
+
 ## How to Use
 
 You can use the default `.db` or initialize database by:
@@ -15,6 +19,7 @@ Run the appication:
 
 ```
 > cd BulletinBoard
+> dotnet restore
 > dotnet run
 ```
 
