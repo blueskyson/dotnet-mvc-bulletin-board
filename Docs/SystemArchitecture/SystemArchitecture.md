@@ -1,20 +1,51 @@
-# BulletinBoard System Architecture
-
 ## 開發環境
-
-- 作業系統: Windows10
-- 使用框架: ASP.NET Core 6 MVC
-- 資料庫: SQLite
-- SDK 版本: 6.0.301
-- 編輯器/IDE: VScode
+- [開發環境](#開發環境)
+- [專案目錄](#專案目錄)
+  - [BulletinBoard 目錄](#bulletinboard-目錄)
+    - [Controllers](#controllers)
+    - [Infrastructure](#infrastructure)
+    - [Models](#models)
+    - [Properties](#properties)
+    - [Utils](#utils)
+    - [Views](#views)
+    - [scripts](#scripts)
+    - [wwwwroot](#wwwwroot)
+  - [Docs 目錄](#docs-目錄)
+- [建置專案](#建置專案)
+- [資料庫](#資料庫)
+  - [DB Schema](#db-schema)
+  - [**Users**](#users)
+  - [**Posts**](#posts)
+  - [**Reply**](#reply)
+- [Class Diagram](#class-diagram)
+- [網站頁面簡介](#網站頁面簡介)
+  - [RegisterController](#registercontroller)
+    - [1. `/register`](#1-register)
+    - [2. `/register`](#2-register)
+  - [LoginController](#logincontroller)
+    - [1. `/login`](#1-login)
+    - [2. `/login`](#2-login)
+  - [BulletinBoardController](#bulletinboardcontroller)
+    - [1. `/`、`/bulletinboard`](#1-bulletinboard)
+  - [PostController](#postcontroller)
+    - [1. `/post/create`](#1-postcreate)
+    - [2. `/post/create`](#2-postcreate)
+    - [3. `/post/index/{id}`](#3-postindexid)
+    - [4. `/post/index/{id}`](#4-postindexid)
+  - [UserController](#usercontroller)
+    - [1. `/user/changedisplayname`](#1-userchangedisplayname)
+    - [2. `/user/changedisplayname`](#2-userchangedisplayname)
+- [程式分層](#程式分層)
+- [一些 Utils 的實作簡介](#一些-utils-的實作簡介)
+  - [Validator](#validator)
+  - [Hasher](#hasher)
+  - [SessionKeys、TempDataKeys、ViewDataKeys](#sessionkeystempdatakeysviewdatakeys)
 
 ## 專案目錄
 
-### 主目錄
-
 ```bash
 ├───BulletinBoard       # 主程式的目錄
-├───BulletinBoard.Test  # Nunit 單元測試
+├───BulletinBoard.Test  # Nunit 單元測試 (沒用到)
 └───Docs                # 說明文件
 ```
 
@@ -34,7 +65,7 @@ BulletinBoard
 
 #### Controllers  
 
-Controller 負責處理用戶的請求並回應，名稱必須以 "Controller" 結尾。
+負責處理用戶的請求並回應，類別名稱必須以 "Controller" 結尾。
 
 ```bash
 Controllers
@@ -122,13 +153,80 @@ wwwroot
 ...
 ```
 
-## 系統架構
+### Docs 目錄
+
+```bash
+Docs
+├───html                # Doxygen 自動產生的網頁
+├───SystemArchitecture  # 系統架構
+├───UserGuide           # 使用說明書
+└───Doxyfile            # Doxygen 的設定檔
+```
+
+## 建置專案
+
+初始化 Sqlite:
+
+```
+> cd BulletinBoards
+> sqlite3 .db
+sqlite> .read scripts/init_sqlite.sql
+sqlite> .exit
+```
+
+執行主程式
+
+```
+> dotnet restore
+> dotnet run
+```
+
+## 資料庫
 
 ### DB Schema
 
 ![](./images/DbSchema.png)
 
-### Class Diagram
+### **Users**
+
+- 使用者帳號表
+- Primary Key: Id
+
+| Column       | Type    | Description       | Nullable | Example             |
+| ------------ | ------- | ----------------- | -------- | ------------------- |
+| Id           | integer | 從 1 開始的流水號 | N        | 1                   |
+| Name         | text    | 帳號名稱          | N        | lin                 |
+| DisplayName  | text    | 展示名稱          | Y        | Jack                |
+| RegisterDate | text    | 註冊時間          | N        | 0001-01-01 00:00:00 |
+| Password     | text    | 密碼              | N        |                     |
+| Salt         | text    | 鹽                | N        |                     |
+
+### **Posts**
+
+- 貼文表
+- Primary Key: Id
+
+| Column     | Type    | Description       | Nullable | Example                    |
+| ---------- | ------- | ----------------- | -------- | -------------------------- |
+| Id         | integer | 從 1 開始的流水號 | N        | 1                          |
+| UserId     | integer | 作者 FK of `User` | N        | 1                          |
+| SubmitTime | text    | 發布時間          | N        | 2022-07-27 17:27:37.245565 |
+| Text       | text    | 貼文內容          | N        | Hello World                |
+
+### **Reply**
+
+- 留言表
+- Primary Key: Id
+
+| Column     | Type    | Description             | Nullable | Example                    |
+| ---------- | ------- | ----------------------- | -------- | -------------------------- |
+| Id         | integer | 從 1 開始的流水號       | N        | 1                          |
+| UserId     | integer | 作者 FK of `User`       | N        | 1                          |
+| PostId     | integer | 回覆的貼文 FK of `User` | N        | 1                          |
+| SubmitTime | text    | 發布時間                | N        | 2022-07-27 17:27:37.245565 |
+| Text       | text    | 貼文內容                | N        | Hello World                |
+
+## Class Diagram
 
 - 藍色標題的方塊代表**介面**
 - 黑色標題代表**類別**
@@ -143,36 +241,112 @@ wwwroot
 
 ![](./images/ClassDiagram.png)
 
-### 網站頁面簡介
+## 網站頁面簡介
 
-- RegisterController  
-  註冊頁面: 處理註冊流程
-  + `Index()`: 顯示註冊頁面。
-  + `Index([Bind("Name,Password,DisplayName")] User user)`: 接收註冊表單，產生 Salt 與雜湊後的密碼放進 `user`，再將 `user` 存入資料庫。註冊成功後重新導向到登入頁面，並提示註冊成功。
+### RegisterController
 
-- LoginController  
-  登入頁面: 處理登入流程
-  + `Index()`: 顯示登入頁面。
-  + `Index([Bind("Name,Password")] User user)`: 接收登入表單，把 `user` 的 Salt 撈出來，把表單中的密碼與 Salt 雜湊，比對雜湊後的密碼是否正確。登入成功後重新導向到布告欄頁面。
+#### 1. `/register`
 
-- BulletinBoardController  
-  布告欄頁面: 展示所有貼文
-  + `Index()`: 從資料庫撈出所有貼文，展示其內容、發布時間、作者。
+| `/register`      | `Index()` |
+| ---------------- | --------- |
+| 導向             | 註冊頁面  |
+| Method           | GET       |
+| Success Response | Code 200  |
 
-- PostController  
-  創建貼文頁面: 新增貼文
-  + `Create()`: 顯示新增貼文頁面。
-  + `Create([Bind("Text")] Post post)`: 接收貼文表單，把 `post` 存進資料庫。
-  
-  查看貼文頁面: 查看貼文、查看回覆、新增回覆
-  + `Index(int? id)`: 展示編號為 `id` 的貼文以及該貼文的回覆。
-  + `Index(int id, string NewReply)`: 接收回覆表單，為編號為 `id` 貼文新增一個內容為 `NewReply` 回覆。
-- UserController
-  更改使用者資料
-  + `ChangeDisplayName()`: 顯示更改 `DisplayName` 頁面。
-  + `ChangeDisplayName(string DisplayName)`: 接收表單，更改當前使用者的 `DisplayName`。
+#### 2. `/register`
 
-### 程式分層
+| `/register`      | `Index([Bind("Name,Password,DisplayName")] User user)`         |
+| ---------------- | -------------------------------------------------------------- |
+| 導向             | 註冊成功會重新導向到登入頁面。                                 |
+| Method           | POST                                                           |
+| Success Response | Code 200                                                       |
+| 表單資料         | Name=a&Password=a&DisplayName=a&__RequestVerificationToken=... |
+
+### LoginController
+
+#### 1. `/login`
+
+| `/login`         | `Index()` |
+| ---------------- | --------- |
+| 導向             | 登入頁面  |
+| Method           | GET       |
+| Success Response | Code 200  |
+
+#### 2. `/login`
+
+| `/login`         | `Index([Bind("Name,Password,DisplayName")] User user)` |
+| ---------------- | ------------------------------------------------------ |
+| 導向             | 登入                                                   |
+| Method           | POST                                                   |
+| Success Response | Code 200                                               |
+| 表單資料         | Name=a&Password=a&__RequestVerificationToken=...       |
+
+### BulletinBoardController
+
+#### 1. `/`、`/bulletinboard`
+
+| `/bulletinboard` | `Index()`  |
+| ---------------- | ---------- |
+| 導向             | 布告欄頁面 |
+| Method           | GET        |
+| Success Response | Code 200   |
+
+### PostController
+
+#### 1. `/post/create`
+
+| `/post/create`   | `Create()`   |
+| ---------------- | ------------ |
+| 導向             | 新增貼文頁面 |
+| Method           | GET          |
+| Success Response | Code 200     |
+
+#### 2. `/post/create`
+
+| `/post/create`   | `Create([Bind("Text")] Post post)`                                     |
+| ---------------- | ---------------------------------------------------------------------- |
+| 導向             | 新增貼文成功後，重新導向到布告欄頁面                                   |
+| Method           | POST                                                                   |
+| Success Response | Code 200                                                               |
+| 表單資料         | Text=Hello!&__RequestVerificationToken=&__RequestVerificationToken=... |
+
+#### 3. `/post/index/{id}`
+
+| `/post/index/{id}` | `Index(int? id)`   |
+| ------------------ | ------------------ |
+| 導向               | 查看貼文及留言頁面 |
+| Method             | GET                |
+| Success Response   | Code 200           |
+
+#### 4. `/post/index/{id}`
+
+| `/post/index/{id}` | `Index(int id, string NewReply)`                        |
+| ------------------ | ------------------------------------------------------- |
+| 導向               | 查看貼文及留言頁面                                      |
+| Method             | POST                                                    |
+| Success Response   | Code 200                                                |
+| 表單資料           | Post.Id=1&NewReply=hello&__RequestVerificationToken=... |
+
+### UserController
+
+#### 1. `/user/changedisplayname`
+
+| `/user/changedisplayname` | `ChangeDisplayName()`     |
+| ------------------------- | ------------------------- |
+| 導向                      | 更改 `DisplayName` 的頁面 |
+| Method                    | GET                       |
+| Success Response          | Code 200                  |
+
+#### 2. `/user/changedisplayname`
+
+| `/user/changedisplayname` | `ChangeDisplayName()`                           |
+| ------------------------- | ----------------------------------------------- |
+| 導向                      | 更改 `DisplayName` 的頁面                       |
+| Method                    | POST                                            |
+| Success Response          | Code 200                                        |
+| 表單資料                  | DisplayName=jack&__RequestVerificationToken=... |
+
+## 程式分層
 
 此圖著重在 Filter、Controller、Model 的互動。見 `BulletinBoard.drawio`。
 
@@ -193,11 +367,11 @@ wwwroot
 - **DAL: DbCotext**  
   使用 Entity Framework 的 API，方便在移轉資料庫時，不用大幅修改程式碼。
 
-## 一些 Utils 的用途簡介
+## 一些 Utils 的實作簡介
 
 詳情見 API Document。
 
-### IValidator
+### Validator
 
 確認字串是否包含非法字元、長度是否符合要求。注入的實作為 `Validator`，其依賴 `StringValidator`，關鍵程式碼:
 
@@ -211,7 +385,7 @@ public Validator()
 
 在 `Validator` 的建構子定義 `StringValidator` 的規則為: 字串長度介於 1 到 20，並且不包含空格、`\`、`'`、`"`。
 
-### IHasher
+### Hasher
 
 隨機產生 Salt 字串、根據密碼和 Salt 產生雜湊字串。注入的實作為 `Hasher`，其依賴 `RandomNumberGenerator` 和 `KeyDerivation`，關鍵程式碼:
 
@@ -243,7 +417,6 @@ public string GenerateHashBase64(string password, string saltBase64)
 ```
 
 用密碼和 Salt 作為參數，透過 `Pbkdf2` 產生雜湊值並轉換成 base64 字串。雜湊函數為 `SHA256`、重複加鹽雜湊 100000 次、最後衍生出來的雜湊值長度為 32 byte。
-
 
 ### SessionKeys、TempDataKeys、ViewDataKeys
 
