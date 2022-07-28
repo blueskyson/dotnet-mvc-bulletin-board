@@ -35,8 +35,7 @@
   - [UserController](#usercontroller)
     - [1. `/user/changedisplayname`](#1-userchangedisplayname)
     - [2. `/user/changedisplayname`](#2-userchangedisplayname)
-  - [程式分層](#程式分層)
-- [Program.cs 介紹](#programcs-介紹)
+- [程式分層](#程式分層)
 - [一些 Utils 的實作簡介](#一些-utils-的實作簡介)
   - [Validator](#validator)
   - [Hasher](#hasher)
@@ -347,7 +346,7 @@ sqlite> .exit
 | Success Response          | Code 200                                        |
 | 表單資料                  | DisplayName=jack&__RequestVerificationToken=... |
 
-### 程式分層
+## 程式分層
 
 此圖著重在 Filter、Controller、Model 的互動。見 `BulletinBoard.drawio`。
 
@@ -367,8 +366,6 @@ sqlite> .exit
   如果不搭配 Unit of Work 的情況下，Repository Pattern 讓 BLL 的邏輯不用直接依賴 Entity Framework。另外 Repository Pattern 方便再單元測試中使用自己的 Mock Data。
 - **DAL: DbCotext**  
   使用 Entity Framework 的 API，方便在移轉資料庫時，不用大幅修改程式碼。
-
-## Program.cs 介紹
 
 ## 一些 Utils 的實作簡介
 
