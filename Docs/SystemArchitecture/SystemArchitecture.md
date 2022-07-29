@@ -165,14 +165,7 @@ Docs
 
 ## 建置專案
 
-初始化 Sqlite:
 
-```
-> cd BulletinBoards
-> sqlite3 .db
-sqlite> .read scripts/init_sqlite.sql
-sqlite> .exit
-```
 
 執行主程式
 
@@ -185,7 +178,21 @@ sqlite> .exit
 
 ### DB Schema
 
-![](./images/DbSchema.png)
+- Sqlite3:
+  ```
+  > cd BulletinBoards
+  > sqlite3 .db
+  sqlite> .read scripts/init_sqlite.sql
+  sqlite> .exit
+  ```
+  ![](./images/DbSchema.png)
+- PostgreSQL:  
+  用 `scripts/init_postgresql.sql` 初始化，然後設定以下環境變數讓 `Program.cs` 串接 PostgreSQL。
+  ```
+  > set DB_NAME=postgresql
+  > set CONNECTION_STRING=host=xxxx;port=5432;database=xxxx;username=xxxx;password=xxxx
+  ```
+  ![](./images/dbschema_postgresql.png)
 
 ### **Users**
 

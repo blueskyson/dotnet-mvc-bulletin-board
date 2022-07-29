@@ -32,7 +32,7 @@ It can also use PostgreSQL. Initialize your PostgreSQL database using `BulletinB
 
 PostgreSQL DB Schema:
 
-![](./images/../dbschema_postgresql.png)
+![](./images/dbschema_postgresql.png)
 
 ### Run the App
 
