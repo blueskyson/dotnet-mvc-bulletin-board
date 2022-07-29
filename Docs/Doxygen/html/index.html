@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BulletinBoard: Main Page</title>
+<title>BulletinBoard: BulletinBoard</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,10 +61,482 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">BulletinBoard Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">BulletinBoard </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h2><a class="anchor" id="autotoc_md0"></a>
+開發環境</h2>
+<ul>
+<li>開發環境</li>
+<li>專案目錄<ul>
+<li>BulletinBoard 目錄<ul>
+<li>Controllers</li>
+<li>Infrastructure</li>
+<li>Models</li>
+<li>Properties</li>
+<li>Utils</li>
+<li>Views</li>
+<li>scripts</li>
+<li>wwwwroot</li>
+</ul>
+</li>
+<li>Docs 目錄</li>
+</ul>
+</li>
+<li>建置專案</li>
+<li>資料庫<ul>
+<li>DB Schema</li>
+<li>**Users**</li>
+<li>**Posts**</li>
+<li>**Reply**</li>
+</ul>
+</li>
+<li>Class Diagram</li>
+<li>網站頁面簡介<ul>
+<li>RegisterController<ul>
+<li>1. `/register`</li>
+<li>2. `/register`</li>
+</ul>
+</li>
+<li>LoginController<ul>
+<li>1. `/login`</li>
+<li>2. `/login`</li>
+</ul>
+</li>
+<li>BulletinBoardController<ul>
+<li>1. `/`、`/bulletinboard`</li>
+</ul>
+</li>
+<li>PostController<ul>
+<li>1. `/post/create`</li>
+<li>2. `/post/create`</li>
+<li>3. `/post/index/{id}`</li>
+<li>4. `/post/index/{id}`</li>
+</ul>
+</li>
+<li>UserController<ul>
+<li>1. `/user/changedisplayname`</li>
+<li>2. `/user/changedisplayname`</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>程式分層</li>
+<li>一些 Utils 的實作簡介<ul>
+<li>Validator</li>
+<li>Hasher</li>
+<li>SessionKeys、TempDataKeys、ViewDataKeys</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1"></a>
+專案目錄</h2>
+<div class="fragment"><div class="line">├───BulletinBoard       # 主程式的目錄</div>
+<div class="line">├───BulletinBoard.Test  # Nunit 單元測試 (沒用到)</div>
+<div class="line">└───Docs                # 說明文件</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md2"></a>
+BulletinBoard 目錄</h3>
+<div class="fragment"><div class="line">BulletinBoard</div>
+<div class="line">├───Controllers</div>
+<div class="line">├───Infrastructure  # Filter</div>
+<div class="line">├───Models          # 資料庫存取與商務邏輯</div>
+<div class="line">├───Properties</div>
+<div class="line">├───Utils           # 雜湊、字串驗證等工具</div>
+<div class="line">├───Views</div>
+<div class="line">├───scripts         # 腳本或其餘外部工具</div>
+<div class="line">└───wwwroot</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md3"></a>
+Controllers</h4>
+<p >負責處理用戶的請求並回應，類別名稱必須以 "Controller" 結尾。</p>
+<div class="fragment"><div class="line">Controllers</div>
+<div class="line">├───BulletinBoardController.cs</div>
+<div class="line">├───LoginController.cs</div>
+<div class="line">...</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md4"></a>
+Infrastructure</h4>
+<p >自定義的 Filter，例如 <code><a class="el" href="class_form_validation_attribute.html" title="Validate a input value of a form.">FormValidationAttribute</a></code> 用來驗證使用者輸入的字串是否符合規範。</p>
+<div class="fragment"><div class="line">Infrastructure</div>
+<div class="line">├───AuthorizationAttribute.cs</div>
+<div class="line">├───FormValidationAttribute.cs</div>
+<div class="line">...</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md5"></a>
+Models</h4>
+<p >較為細節的商務邏輯和資料庫存取都在這邊定義與實作。其中 <code>BusinessLogic</code> 目錄中實作了每個 Controller 的商務邏輯；<code>Entities</code> 目錄定義了資料庫每個實體在記憶體中的資料結構；<code>Repositories</code> 目錄中實作了 Repository Pattern。</p>
+<div class="fragment"><div class="line">Models</div>
+<div class="line">├───BusinessLogic</div>
+<div class="line">├───Entities</div>
+<div class="line">├───Repositories</div>
+<div class="line">├───BulletinBoardContext.cs</div>
+<div class="line">├───UnitOfWork.cs</div>
+<div class="line">...</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md6"></a>
+Properties</h4>
+<div class="fragment"><div class="line">Properties</div>
+<div class="line">└───launchSettings.json</div>
+</div><!-- fragment --><p ><code>Properties</code> 目錄有 <code>launchSettings.json</code>，其中包含啟動應用程式所需的所有資訊，例如 IIS 設置、URL、身份驗證、SSL port 等。</p>
+<h4><a class="anchor" id="autotoc_md7"></a>
+Utils</h4>
+<p >一些處理資料的小工具，例如 <code><a class="el" href="class_hasher.html" title="Hash password.">Hasher</a></code> 用來產生 Salt 與雜湊值。</p>
+<div class="fragment"><div class="line">Utils</div>
+<div class="line">├───Validation</div>
+<div class="line">├───Hasher.cs</div>
+<div class="line">├───IHasher.cs</div>
+<div class="line">...</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md8"></a>
+Views</h4>
+<p >在 <code>Views</code> 目錄中每個目錄名稱都對應一個 Controller，並且與該 Controller 相關的所有 Razor Page 都儲存在其中。</p>
+<div class="fragment"><div class="line">Views</div>
+<div class="line">├───BulletinBoard</div>
+<div class="line">├───Login</div>
+<div class="line">├───Register</div>
+<div class="line">...</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md9"></a>
+scripts</h4>
+<p >儲存外部的腳本，例如 SQL 初始化。</p>
+<div class="fragment"><div class="line">scripts</div>
+<div class="line">└───init_sqlite.sql</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md10"></a>
+wwwwroot</h4>
+<p >存放網頁所需的靜態文件。</p>
+<div class="fragment"><div class="line">wwwroot</div>
+<div class="line">├───css</div>
+<div class="line">├───js</div>
+<div class="line">├───lib</div>
+<div class="line">...</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+Docs 目錄</h3>
+<div class="fragment"><div class="line">Docs</div>
+<div class="line">├───html                # Doxygen 自動產生的網頁</div>
+<div class="line">├───SystemArchitecture  # 系統架構</div>
+<div class="line">├───UserGuide           # 使用說明書</div>
+<div class="line">└───Doxyfile            # Doxygen 的設定檔</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+建置專案</h2>
+<p >執行主程式</p>
+<div class="fragment"><div class="line">&gt; dotnet restore</div>
+<div class="line">&gt; dotnet run</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
+資料庫</h2>
+<h3><a class="anchor" id="autotoc_md14"></a>
+DB Schema</h3>
+<ul>
+<li>Sqlite3: <div class="fragment"><div class="line">&gt; cd BulletinBoards</div>
+<div class="line">&gt; sqlite3 .db</div>
+<div class="line">sqlite&gt; .read scripts/init_sqlite.sql</div>
+<div class="line">sqlite&gt; .exit</div>
+</div><!-- fragment --> <img src="./images/DbSchema.png" alt="" class="inline"/></li>
+<li>PostgreSQL: <br  />
+ 用 <code>scripts/init_postgresql.sql</code> 初始化，然後設定以下環境變數讓 <code>Program.cs</code> 串接 PostgreSQL。 <div class="fragment"><div class="line">&gt; set DB_NAME=postgresql</div>
+<div class="line">&gt; set CONNECTION_STRING=host=xxxx;port=5432;database=xxxx;username=xxxx;password=xxxx</div>
+</div><!-- fragment --> <img src="./images/dbschema_postgresql.png" alt="" class="inline"/></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md15"></a>
+&lt;strong&gt;Users&lt;/strong&gt;</h3>
+<ul>
+<li>使用者帳號表</li>
+<li>Primary Key: Id</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Column   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Nullable   </th><th class="markdownTableHeadNone">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Id   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">從 1 開始的流水號   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Name   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">帳號名稱   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">lin    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">DisplayName   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">展示名稱   </td><td class="markdownTableBodyNone">Y   </td><td class="markdownTableBodyNone">Jack    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">RegisterDate   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">註冊時間   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">0001-01-01 00:00:00    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Password   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">密碼   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Salt   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">鹽   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone"></td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md16"></a>
+&lt;strong&gt;Posts&lt;/strong&gt;</h3>
+<ul>
+<li>貼文表</li>
+<li>Primary Key: Id</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Column   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Nullable   </th><th class="markdownTableHeadNone">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Id   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">從 1 開始的流水號   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">UserId   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">作者 FK of <code><a class="el" href="class_user.html" title="User Entity.">User</a></code>   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">SubmitTime   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">發布時間   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">2022-07-27 17:27:37.245565    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Text   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">貼文內容   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">Hello World   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md17"></a>
+&lt;strong&gt;Reply&lt;/strong&gt;</h3>
+<ul>
+<li>留言表</li>
+<li>Primary Key: Id</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Column   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Nullable   </th><th class="markdownTableHeadNone">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Id   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">從 1 開始的流水號   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">UserId   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">作者 FK of <code><a class="el" href="class_user.html" title="User Entity.">User</a></code>   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PostId   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">回覆的貼文 FK of <code><a class="el" href="class_user.html" title="User Entity.">User</a></code>   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SubmitTime   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">發布時間   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">2022-07-27 17:27:37.245565    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Text   </td><td class="markdownTableBodyNone">text   </td><td class="markdownTableBodyNone">貼文內容   </td><td class="markdownTableBodyNone">N   </td><td class="markdownTableBodyNone">Hello World   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md18"></a>
+Class Diagram</h2>
+<ul>
+<li>藍色標題的方塊代表**介面**</li>
+<li>黑色標題代表**類別**</li>
+<li>虛線箭頭表示**依賴**</li>
+<li>虛線白色箭頭表示**實作**</li>
+<li>實線白色箭頭表示**繼承**</li>
+<li>此類別圖只畫出類別的 public method；另外 static class 如 <code><a class="el" href="class_session_keys.html" title="Commonly used keys of Session.">SessionKeys</a></code> 並沒有畫在圖中。見 <code>ClassDiagram.drawio</code>。</li>
+</ul>
+<p >所有 Request 都是從左邊先經過 Filter，即 <code><a class="el" href="class_authorization_attribute.html" title="Validate a session.">AuthorizationAttribute</a></code> 和 <code><a class="el" href="class_form_validation_attribute.html" title="Validate a input value of a form.">FormValidationAttribute</a></code>，再進入 Controller，然後執行一連串 Logic 與資料庫操作，所以這張 Class Diagram 建議由左往右看。下方的 <code><a class="el" href="class_user.html" title="User Entity.">User</a></code>、<code><a class="el" href="class_post.html" title="Post Entity. The UserId is a foreign key and the User is a navigation property.">Post</a></code>、<code><a class="el" href="class_reply.html" title="Reply Entity. The UserId and PostId are foreign keys. The User and Post are navigation properties.">Reply</a></code> 是資料庫的 Entity 在記憶體中的資料結構。</p>
+<p >所有界面與對應的實作都在 <code>BulletinBoard/Program.cs</code> 透過 DI Container 注入。</p>
+<p ><img src="./images/ClassDiagram.png" alt="" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md19"></a>
+網站頁面簡介</h2>
+<h3><a class="anchor" id="autotoc_md20"></a>
+RegisterController</h3>
+<h4><a class="anchor" id="autotoc_md21"></a>
+1. &lt;tt&gt;/register&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/register</code>   </th><th class="markdownTableHeadNone"><code>Index()</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">註冊頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">GET    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md22"></a>
+2. &lt;tt&gt;/register&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/register</code>   </th><th class="markdownTableHeadNone"><code>Index([Bind("Name,Password,DisplayName")] <a class="el" href="class_user.html" title="User Entity.">User</a> user)</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">註冊成功會重新導向到登入頁面。    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">POST    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">表單資料   </td><td class="markdownTableBodyNone">Name=a&amp;Password=a&amp;DisplayName=a&amp;__RequestVerificationToken=...   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md23"></a>
+LoginController</h3>
+<h4><a class="anchor" id="autotoc_md24"></a>
+1. &lt;tt&gt;/login&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/login</code>   </th><th class="markdownTableHeadNone"><code>Index()</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">登入頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">GET    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md25"></a>
+2. &lt;tt&gt;/login&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/login</code>   </th><th class="markdownTableHeadNone"><code>Index([Bind("Name,Password,DisplayName")] <a class="el" href="class_user.html" title="User Entity.">User</a> user)</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">登入    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">POST    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">表單資料   </td><td class="markdownTableBodyNone">Name=a&amp;Password=a&amp;__RequestVerificationToken=...   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md26"></a>
+BulletinBoardController</h3>
+<h4><a class="anchor" id="autotoc_md27"></a>
+1. &lt;tt&gt;/&lt;/tt&gt;、&lt;tt&gt;/bulletinboard&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/bulletinboard</code>   </th><th class="markdownTableHeadNone"><code>Index()</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">布告欄頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">GET    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md28"></a>
+PostController</h3>
+<h4><a class="anchor" id="autotoc_md29"></a>
+1. &lt;tt&gt;/post/create&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/post/create</code>   </th><th class="markdownTableHeadNone"><code>Create()</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">新增貼文頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">GET    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md30"></a>
+2. &lt;tt&gt;/post/create&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/post/create</code>   </th><th class="markdownTableHeadNone"><code>Create([Bind("Text")] <a class="el" href="class_post.html" title="Post Entity. The UserId is a foreign key and the User is a navigation property.">Post</a> post)</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">新增貼文成功後，重新導向到布告欄頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">POST    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">表單資料   </td><td class="markdownTableBodyNone">Text=Hello!&amp;__RequestVerificationToken=&amp;__RequestVerificationToken=...   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md31"></a>
+3. &lt;tt&gt;/post/index/{id}&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/post/index/{id}</code>   </th><th class="markdownTableHeadNone"><code>Index(int? id)</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">查看貼文及留言頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">GET    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md32"></a>
+4. &lt;tt&gt;/post/index/{id}&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/post/index/{id}</code>   </th><th class="markdownTableHeadNone"><code>Index(int id, string NewReply)</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">查看貼文及留言頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">POST    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">表單資料   </td><td class="markdownTableBodyNone">Post.Id=1&amp;NewReply=hello&amp;__RequestVerificationToken=...   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md33"></a>
+UserController</h3>
+<h4><a class="anchor" id="autotoc_md34"></a>
+1. &lt;tt&gt;/user/changedisplayname&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/user/changedisplayname</code>   </th><th class="markdownTableHeadNone"><code>ChangeDisplayName()</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">更改 <code>DisplayName</code> 的頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">GET    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md35"></a>
+2. &lt;tt&gt;/user/changedisplayname&lt;/tt&gt;</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><code>/user/changedisplayname</code>   </th><th class="markdownTableHeadNone"><code>ChangeDisplayName()</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">導向   </td><td class="markdownTableBodyNone">更改 <code>DisplayName</code> 的頁面    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Method   </td><td class="markdownTableBodyNone">POST    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Success Response   </td><td class="markdownTableBodyNone">Code 200    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">表單資料   </td><td class="markdownTableBodyNone">DisplayName=jack&amp;__RequestVerificationToken=...   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md36"></a>
+程式分層</h2>
+<p >此圖著重在 Filter、Controller、Model 的互動。見 <code>BulletinBoard.drawio</code>。</p>
+<p ><img src="./images/Layers.png" alt="" class="inline"/></p>
+<ul>
+<li><b>Authorization Filter</b> <br  />
+ Request 進來時，首先透過 <code><a class="el" href="class_authorization_attribute.html" title="Validate a session.">AuthorizationAttribute</a></code> 確認應用程式中是否有該使用者的 Session，若有則進入 Action Filter 層；若無則重新導向到 <code><a class="el" href="class_login_controller.html" title="Deal with requests for login.">LoginController</a></code> 的 <code>Index()</code>。</li>
+<li><b>Action Filter</b> <br  />
+ 如果此 Request 有傳送表單，則會透過 <code><a class="el" href="class_form_validation_attribute.html" title="Validate a input value of a form.">FormValidationAttribute</a></code> 檢查表單欄位，如果表單有非法字元或長度不符合規範，就將錯誤訊息透過 <code>ViewData</code> 回傳給使用者當前的 View。</li>
+<li><b>Controller</b> <br  />
+ 使用 BLL 提供的商務邏輯組合出資料庫的操作，並決定要回傳哪個 View 以及在 View 中呈現哪些資料。</li>
+<li><b>BLL</b> <br  />
+ 實作商務邏輯的細節和複雜的資料庫操作，並提供介面給 Controller 使用。例如 <code><a class="el" href="class_register_logic.html" title="Business logic implementation of RegisterController.">RegisterLogic</a></code> 將密碼雜湊運算、<code><a class="el" href="class_post_logic.html" title="Business logic implementation of PostController.">PostLogic</a></code> 把某個 <code><a class="el" href="class_post.html" title="Post Entity. The UserId is a foreign key and the User is a navigation property.">Post</a></code> 的 <code><a class="el" href="class_reply.html" title="Reply Entity. The UserId and PostId are foreign keys. The User and Post are navigation properties.">Reply</a></code> 都撈出來。Controller 只需要透過 BLL 提供的介面取得他需要的 Entity、List 等，不用知道演算法、LINQ 語法。</li>
+<li><b>DAL: <a class="el" href="interface_i_unit_of_work.html" title="Unit of work interface.">IUnitOfWork</a></b> <br  />
+ Unit of Work 主要的功能是把數個 CRUD 當作一個 Transaction，在操作的過程在記憶體改變各個 Entity 的狀態，最後再統一刷進資料庫裡。另外 Unit of Wok 可以讓 BLL 只依賴自己，不用直接依賴每個 Repository 的界面，降低 BLL 和 DAL 的耦合度。</li>
+<li><b>DAL: <a class="el" href="interface_i_generic_repository.html" title="Repository pattern ineterface.">IGenericRepository</a>&lt;TEntity&gt;</b> <br  />
+ 如果不搭配 Unit of Work 的情況下，Repository Pattern 讓 BLL 的邏輯不用直接依賴 Entity Framework。另外 Repository Pattern 方便再單元測試中使用自己的 Mock Data。</li>
+<li><b>DAL: DbCotext</b> <br  />
+ 使用 Entity Framework 的 API，方便在移轉資料庫時，不用大幅修改程式碼。</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md37"></a>
+一些 Utils 的實作簡介</h2>
+<p >詳情見 API Document。</p>
+<h3><a class="anchor" id="autotoc_md38"></a>
+Validator</h3>
+<p >確認字串是否包含非法字元、長度是否符合要求。注入的實作為 <code><a class="el" href="class_validator.html" title="Validate a given data.">Validator</a></code>，其依賴 <code>StringValidator</code>，關鍵程式碼:</p>
+<div class="fragment"><div class="line"><span class="comment">// Validator.cs</span></div>
+<div class="line"><span class="keyword">public</span> <a class="code hl_class" href="class_validator.html">Validator</a>()</div>
+<div class="line">{</div>
+<div class="line">    _stringValidator = <span class="keyword">new</span> StringValidator(1, 20, <span class="stringliteral">&quot; \\\&#39;\&quot;`&quot;</span>);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_validator_html"><div class="ttname"><a href="class_validator.html">Validator</a></div><div class="ttdoc">Validate a given data.</div><div class="ttdef"><b>Definition:</b> Validator.cs:8</div></div>
+</div><!-- fragment --><p >在 <code><a class="el" href="class_validator.html" title="Validate a given data.">Validator</a></code> 的建構子定義 <code>StringValidator</code> 的規則為: 字串長度介於 1 到 20，並且不包含空格、<code>\</code>、&lsquo;&rsquo;<code>、</code>"`。
+
+@subsubsection autotoc_md39 Hasher
+
+隨機產生 Salt 字串、根據密碼和 Salt 產生雜湊字串。注入的實作為 &lt;tt&gt;Hasher&lt;/tt&gt;，其依賴 &lt;tt&gt;RandomNumberGenerator&lt;/tt&gt; 和 &lt;tt&gt;KeyDerivation&lt;/tt&gt;，關鍵程式碼:
+
+@code{csharp} 
+// Hasher.cs
+public string GenerateSaltBase64()
+{
+    byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
+    return Convert.ToBase64String(salt);
+}
+@endcode
+
+隨機生成一個 Salt 並轉換成 base64 字串。
+
+@code{csharp} 
+// Hasher.cs
+public string GenerateHashBase64(string password, string saltBase64)
+{
+    byte[] salt = Convert.FromBase64String(saltBase64);
+    byte[] hashed = KeyDerivation.Pbkdf2(
+        password: password,
+        salt: salt,
+        prf: KeyDerivationPrf.HMACSHA256,
+        iterationCount: 100000,
+        numBytesRequested: 256 / 8
+    );
+    return Convert.ToBase64String(hashed);
+}
+@endcode
+
+用密碼和 Salt 作為參數，透過 &lt;tt&gt;Pbkdf2&lt;/tt&gt; 產生雜湊值並轉換成 base64 字串。雜湊函數為 &lt;tt&gt;SHA256&lt;/tt&gt;、重複加鹽雜湊 100000 次、最後衍生出來的雜湊值長度為 32 byte。
+
+@subsubsection autotoc_md40 SessionKeys、TempDataKeys、ViewDataKeys
+
+這三個類別都是靜態類別，利用 &lt;tt&gt;const string&lt;/tt&gt; 定義常用的 key-value pair 的 key:
+
+@code{csharp} 
+// SessionKeys.cs
+public static class SessionKeys
+{
+    public const string UserId = "UserId";
+    public const string DisplayName = "DisplayName"; } </p>
+<p >例如可以這樣使用: <code>Session[SessionKeys.UserId] = user.Id</code>。 </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
