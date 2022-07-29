@@ -12,13 +12,30 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<DbContext, BulletinBoardContext>();
-builder.Services.AddDbContext<BulletinBoardContext>(options =>
+
+string? DB_NAME = System.Environment.GetEnvironmentVariable("DB_NAME");
+if (DB_NAME != null && DB_NAME.ToLower() == "postgresql")
 {
-    options.UseSqlite(
-        builder.Configuration.GetConnectionString("BulletinBoardDbContext") ??
-        throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
-    );
-});
+    string connectionString = System.Environment.GetEnvironmentVariable("CONNECTION_STRING")!;
+    builder.Services.AddDbContext<BulletinBoardContext>(options =>
+    {
+        options.UseNpgsql(connectionString);
+        options.UseSnakeCaseNamingConvention();
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+    });
+}
+else
+{
+    builder.Services.AddDbContext<BulletinBoardContext>(options =>
+    {
+        options.UseSqlite(
+            builder.Configuration.GetConnectionString("BulletinBoardDbContext") ??
+            throw new InvalidOperationException("Connection string 'BulletinBoardDbContext' not found.")
+        );
+    });
+}
+
 builder.Services.AddScoped<AuthorizationAttribute>();
 builder.Services.AddSingleton<IValidator, Validator>();
 builder.Services.AddSingleton<IHasher, Hasher>();

@@ -43,6 +43,8 @@ public class RegisterController : Controller
     [TypeFilter(typeof(FormValidationAttribute), Arguments = new object[] { ViewDataKeys.DisplayName })]
     public async Task<IActionResult> Index([Bind("Name,Password,DisplayName")] User user)
     {
+        user.RegisterDate = DateTime.Now;
+
         if (_registerLogic.UserNameExists(user.Name!))
         {
             ViewData[ViewDataKeys.Name] = "User name exists.";

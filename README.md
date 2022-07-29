@@ -6,26 +6,41 @@ System Architecture: [SystemArchitecture.md](./Docs/SystemArchitecture/SystemArc
 
 ## How to Use
 
+### Setup Database
+
 You can use the default `.db` or initialize database by:
 
-```
+```cmd
 > cd BulletinBoards
 > sqlite3 .db
 sqlite> .read scripts/init_sqlite.sql
 sqlite> .exit
 ```
 
-Run the appication:
+Sqlite3 DB Schema:
+
+![](./images/DbSchema.png)
+
+---
+
+It can also use PostgreSQL. Initialize your PostgreSQL database using `BulletinBoard/scripts/init_postgresql.sql` and setup the following environment variables:
+
+```cmd
+> set DB_NAME=postgresql
+> set CONNECTION_STRING=host=xxxx;port=5432;database=xxxx;username=xxxx;password=xxxx
+```
+
+PostgreSQL DB Schema:
+
+![](./images/../dbschema_postgresql.png)
+
+### Run the App
 
 ```
 > cd BulletinBoard
 > dotnet restore
 > dotnet run
 ```
-
-Sqlite DB Schema:
-
-![](./images/DbSchema.png)
 
 ## Demo
 
