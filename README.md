@@ -4,6 +4,8 @@ API Docs: [https://jacklin-doxygen.herokuapp.com/](https://jacklin-doxygen.herok
 
 System Architecture: [SystemArchitecture.md](./Docs/SystemArchitecture/SystemArchitecture.md)
 
+Demo Website: [http://jacklin-bulletinboard.herokuapp.com/](http://jacklin-bulletinboard.herokuapp.com/)
+
 ## How to Use
 
 ### Setup Database
