@@ -67,7 +67,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = E:/work/BulletinBoard/Docs
+OUTPUT_DIRECTORY       = E:/work/BulletinBoard/Docs/Doxygen
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -907,6 +907,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = E:/work/BulletinBoard/BulletinBoard
+INPUT                  += E:/work/BulletinBoard/Docs/SystemArchitecture
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1104,7 +1105,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE =
+USE_MDFILE_AS_MAINPAGE = E:/work/BulletinBoard/Docs/SystemArchitecture/SystemArchitecture.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
