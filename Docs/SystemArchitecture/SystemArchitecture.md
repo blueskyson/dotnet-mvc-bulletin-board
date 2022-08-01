@@ -42,6 +42,7 @@
   - [Validator](#validator)
   - [Hasher](#hasher)
   - [SessionKeys、TempDataKeys、ViewDataKeys](#sessionkeystempdatakeysviewdatakeys)
+- [PostgreSQL 的 Timestamp](#postgresql-的-timestamp)
 
 ## 專案目錄
 
@@ -140,6 +141,7 @@ Views
 
 ```bash
 scripts
+├───init_postgresql.sql
 └───init_sqlite.sql
 ```
 
@@ -159,15 +161,12 @@ wwwroot
 
 ```bash
 Docs
-├───html                # Doxygen 自動產生的網頁
 ├───SystemArchitecture  # 系統架構
 ├───UserGuide           # 使用說明書
-└───Doxyfile            # Doxygen 的設定檔
+└───Doxygen             # Doxygen 自動產生的 HTML
 ```
 
 ## 建置專案
-
-
 
 執行主程式
 
@@ -441,3 +440,19 @@ public static class SessionKeys
 ```
 
 例如可以這樣使用: `Session[SessionKeys.UserId] = user.Id`。
+
+## PostgreSQL 的 Timestamp
+
+因為 .NET 的 `DateTime` 和 PostgreSQL 的 `timestamptz` 有各自的問題，導致 Npgsql 在轉換時間戳記的時候容易產生不預期的結果，為了解決這個問題，Npgsql 6.0 針對 TimeStamp 做了大幅翻新，翻新的成果也實現了 "UTC everywhere" 的理念。
+
+PostgreSQL 的 `timestamptz` 全名為 `timestamp with time zone`，實際上他不是儲存 time zone，而是 UTC timestamp。為什麼 PostgreSQL 要存 UTC timestamp 而非 time zone? 因為 UTC 可以很單純的用 `+00:00` 直接跟時間存在同一個欄位，而且網頁瀏覽器也很方便處理 UTC 格式，這就是所謂的 "UTC everywhere"。
+
+在 PostgreSQL 資料庫內部他確實是儲存 UTC timestamp，但是從資料庫讀出來的格式是基於 TimeZone connection parameter 的 local timestamp，例如 `2004-10-19 10:23:54+02`，會讓 Npgsql 的 timestamp mapping 誤認為他是 Local DateTime。如果只是用 `DateTime` 實例傳遞資料還好，如果把時間的資料從 `DateTime` 實例中讀出來，原始資料會隱性的被轉換成 time zone 的格式，最後要存回資料庫時，再根據 TimeZone connection parameter 的偏移量存回資料庫，就會存成錯誤的時間。
+
+此外關於 timestamp 和 DateTime 還有許多議題，詳情可參考 [Mapping .NET Timestamps to PostgreSQL](https://www.roji.org/postgresql-dotnet-timestamp-mapping)。為了節省時間，我直接開啟兼容舊版的選項，先不去研究嚴謹的作法:
+
+```csharp
+// Program.cs
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+```
