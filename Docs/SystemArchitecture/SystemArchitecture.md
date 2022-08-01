@@ -202,14 +202,14 @@ Docs
   sqlite> .read scripts/init_sqlite.sql
   sqlite> .exit
   ```
-  ![](./images/DbSchema.png)
+  ![](https://i.imgur.com/AH4bl0O.png)
 - PostgreSQL:  
   用 `scripts/init_postgresql.sql` 初始化，然後設定以下環境變數讓 `Program.cs` 串接 PostgreSQL。
   ```
   > set DB_NAME=postgresql
   > set CONNECTION_STRING=host=xxxx;port=5432;database=xxxx;username=xxxx;password=xxxx
   ```
-  ![](./images/dbschema_postgresql.png)
+  ![](https://i.imgur.com/hihuyqc.png)
 
 ### **Users**
 
@@ -263,7 +263,7 @@ Docs
 
 所有界面與對應的實作都在 `BulletinBoard/Program.cs` 透過 DI Container 注入。
 
-![](./images/ClassDiagram.png)
+![](https://i.imgur.com/BaQH6F5.png)
 
 ## 網站頁面簡介
 
@@ -374,7 +374,7 @@ Docs
 
 此圖著重在 Filter、Controller、Model 的互動。見 `BulletinBoard.drawio`。
 
-![](./images/Layers.png)
+![](https://i.imgur.com/e4M2OTw.png)
 
 - **Authorization Filter**  
   Request 進來時，首先透過 `AuthorizationAttribute` 確認應用程式中是否有該使用者的 Session，若有則進入 Action Filter 層；若無則重新導向到 `LoginController` 的 `Index()`。
