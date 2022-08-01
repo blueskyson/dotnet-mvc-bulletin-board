@@ -43,6 +43,7 @@
   - [Validator](#validator)
   - [Hasher](#hasher)
   - [SessionKeys、TempDataKeys、ViewDataKeys](#sessionkeystempdatakeysviewdatakeys)
+- [如何管理 Session](#如何管理-session)
 - [PostgreSQL 的 Timestamp](#postgresql-的-timestamp)
 
 ## 系統目的
@@ -455,6 +456,51 @@ public static class SessionKeys
 ```
 
 例如可以這樣使用: `Session[SessionKeys.UserId] = user.Id`。
+
+## 如何管理 Session
+
+在 `Program.cs` 註冊 Session 類別，並設定 Session Timeout 為 300 秒:
+
+```csharp
+// Program.cs
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromSeconds(300);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+```
+
+登入成功時，透過 `LoginController.UpdateSession` 初始化/更新 Session 的資訊，目前 Session 會記錄使用者的 `Id` 和 `DisplayName`:
+
+```csharp
+// LoginController.cs
+private void UpdateSession(User user)
+{
+    HttpContext.Session.SetInt32(SessionKeys.UserId, user.Id!);
+    HttpContext.Session.SetString(SessionKeys.DisplayName, user.DisplayName!);
+}
+```
+
+之後每當使用者訪問註冊、登入以外的頁面時，透過 `AuthorizationAttribute.OnAuthorization` 檢查當前 Session 的資料，如果使用者的 Session 已經過期，就會重新導向到登入頁面:
+
+```csharp
+// AuthorizationAttribute.cs
+public void OnAuthorization(AuthorizationFilterContext context)
+{
+    int? currentUserId = context.HttpContext.Session.GetInt32(SessionKeys.UserId);
+
+    if (currentUserId == null)
+    {
+        context.Result = new RedirectToRouteResult(
+            new RouteValueDictionary {
+                {"controller", "Login"},
+                {"action", "Index"}
+            }
+        );
+    }
+}
+```
 
 ## PostgreSQL 的 Timestamp
 
