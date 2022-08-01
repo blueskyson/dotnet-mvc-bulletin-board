@@ -2,6 +2,7 @@
 
 ## 開發環境
 - [開發環境](#開發環境)
+- [系統目的](#系統目的)
 - [專案目錄](#專案目錄)
   - [BulletinBoard 目錄](#bulletinboard-目錄)
     - [Controllers](#controllers)
@@ -43,6 +44,20 @@
   - [Hasher](#hasher)
   - [SessionKeys、TempDataKeys、ViewDataKeys](#sessionkeystempdatakeysviewdatakeys)
 - [PostgreSQL 的 Timestamp](#postgresql-的-timestamp)
+
+## 系統目的
+
+You are assigned to build a bulletin board system in ASP.NET Core MVC 6 from the scratch.
+Design and implement it and make sure all user stories below are satisfied.
+
+- As a guest, I can sign up an account to access the bulletin board.
+- As a registered user, I can have a display name and change it at any time.
+- As a registered user, I can sign in the bulletin board with my account and password.
+- As a signed-in user, I can see all posts ordered by submission time descendingly on the bulletin board.
+- As a signed-in user, I can submit a post (with only text) to the bulletin board.
+- As a signed-in user, I can reply a post (mine or someone's).
+
+Bonus: There are too many posts on the bulletin board, users would better see at most 10 posts in each page.
 
 ## 專案目錄
 
