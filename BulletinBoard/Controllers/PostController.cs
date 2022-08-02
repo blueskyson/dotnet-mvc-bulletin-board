@@ -81,7 +81,7 @@ public class PostController : Controller
         else
             ViewData[ViewDataKeys.Reply] = "Error session. Log in again may fix the problem.";
 
-        return await Index(id);
+        return RedirectToAction("Index", new {id});
     }
 
     private async Task AddReply(Reply reply)
